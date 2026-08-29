@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Heatspan | Heating, Boilers & Chimneys</title>
+<meta name="description" content="Professional boiler, heating and chimney services for homeowners throughout Brooklyn & Queens.">
+<style>
+:root{
+  --navy:#002a5c;
+  --blue:#084ab7;
+  --bright:#4aaeff;
+  --line:#d9e2ed;
+  --soft:#eef5fd;
+  --text:#071a35;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+a{text-decoration:none;color:inherit}
+button,a{cursor:pointer}
+.wrap{width:min(1470px,100%);margin:auto}
+
+/* HEADER */
+header{
+  height:125px;background:#fff;border-bottom:1px solid #edf1f6;
+  display:flex;align-items:center;
+}
+.header-inner{
+  width:100%;padding:0 34px;display:grid;
+  grid-template-columns:350px 1fr 320px;align-items:center;gap:18px
+}
+.brand img{display:block;width:320px;max-width:100%;height:auto}
+nav{display:flex;justify-content:center;gap:38px;font-size:14px;font-weight:700;white-space:nowrap}
+nav a{padding:38px 0 16px;border-bottom:3px solid transparent}
+nav a.active{color:#003aa8;border-bottom-color:#0a46ba}
+nav a:hover{color:#0a46ba}
+.top-cta{text-align:right}
+.phone-line{display:flex;align-items:center;justify-content:flex-end;gap:14px;margin-bottom:10px}
+.phone-icon{
+  width:48px;height:48px;border-radius:50%;background:#0a48b8;color:white;
+  display:grid;place-items:center;font-size:23px;font-weight:700
+}
+.phone-copy{line-height:1.05}
+.phone-copy small{font-size:15px;font-weight:800;color:#111}
+.phone-copy strong{display:block;color:#0641a8;font-size:30px;letter-spacing:.5px}
+.request{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:285px;background:#0648b8;color:#fff;font-weight:800;
+  padding:12px 20px;border-radius:4px
+}
+
+/* HERO */
+.hero{
+  height:445px;position:relative;overflow:hidden;background:linear-gradient(90deg,#002a5c 0%,#002f67 43%,#0d518e 100%);
+}
+.hero::after{
+  content:"";position:absolute;right:0;top:0;width:60.3%;height:100%;
+  background:url("assets/hero-right.jpg") center/cover no-repeat;
+}
+.hero::before{
+  content:"";position:absolute;z-index:1;inset:0;
+  background:linear-gradient(90deg,rgba(0,37,83,.98) 0%,rgba(0,43,92,.97) 37%,rgba(0,43,92,.72) 46%,rgba(0,43,92,.08) 67%,rgba(0,0,0,0) 78%);
+}
+.hero-inner{position:relative;z-index:2;height:100%;padding:26px 35px 22px;color:#fff;max-width:710px}
+.hero h1{
+  font-size:58px;line-height:.98;margin:0 0 16px;font-weight:900;letter-spacing:-1.5px;
+}
+.hero h1 .light{color:#4bb2ff}
+.hero-sub{font-size:21px;line-height:1.4;margin:0 0 24px}
+.trust-row{display:flex;gap:46px;margin:20px 0 20px}
+.trust{display:grid;grid-template-columns:48px 1fr;gap:13px;align-items:start;min-width:155px}
+.trust svg{width:43px;height:43px;stroke:#4bb2ff;stroke-width:2.2;fill:none}
+.trust b{display:block;font-size:14px;line-height:1.35}
+.trust span{display:block;font-size:13px;line-height:1.45;margin-top:5px}
+.hero-buttons{display:flex;gap:16px;margin-top:14px}
+.btn{
+  min-width:250px;padding:14px 22px;border-radius:4px;font-weight:800;font-size:16px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px
+}
+.btn.primary{background:#0874e6;color:#fff}
+.btn.secondary{border:2px solid #fff;color:#fff;background:transparent}
+
+/* SERVICES */
+.services{padding:12px 70px 12px;background:#fff}
+.section-title{text-align:center;color:#0647b5;font-weight:900;font-size:27px;line-height:1;margin:0}
+.section-sub{text-align:center;font-size:13px;margin:6px 0 10px;color:#222}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+.card{
+  position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;min-height:197px;
+}
+.card-media{height:78px;background-size:cover;background-position:center}
+.card-icon{
+  position:absolute;top:-10px;left:8px;width:62px;height:62px;border-radius:50%;
+  background:#0a49b8;border:5px solid #fff;color:#fff;display:grid;place-items:center;font-size:31px;font-weight:700
+}
+.card-body{padding:12px 28px 14px}
+.card h3{color:#0641a8;font-size:16px;margin:0 0 7px;font-weight:900}
+.card p{font-size:13px;line-height:1.4;margin:0 0 10px;color:#121212}
+.learn{font-size:12px;font-weight:900;color:#0647b5}
+.learn span{font-size:18px;margin-left:8px}
+
+/* PLANS */
+.plans{border-top:1px solid #cfd9e6;background:linear-gradient(#f6fbff,#eef6ff);padding:8px 0 8px}
+.plan-title{text-align:center;color:#0647b5;font-weight:900;font-size:25px;line-height:1;margin:0}
+.plan-sub{text-align:center;font-size:12px;margin:2px 0 2px}
+.plan-layout{
+  display:grid;grid-template-columns:300px repeat(3,1fr);gap:24px;
+  align-items:center;max-width:1120px;margin:0 auto;padding:0 0 0
+}
+.plan-intro{padding:0 0 0 18px}
+.plan-intro .tag{font-size:20px;line-height:1.24;font-weight:900;color:#073fa3;margin-bottom:12px}
+.compare{
+  background:#0648b8;color:#fff;border:0;border-radius:4px;padding:11px 24px;font-weight:900;font-size:14px
+}
+.plan-card{
+  background:#fff;border:1px solid #d6e0ea;border-radius:7px;min-height:136px;padding:10px 14px 8px;
+  display:grid;grid-template-columns:52px 1fr;gap:4px 8px
+}
+.badge{
+  grid-row:1 / span 3;width:42px;height:42px;border-radius:50%;background:#0b49b7;color:#fff;
+  display:grid;place-items:center;font-size:24px;font-weight:900
+}
+.plan-card h3{margin:5px 0 5px;color:#073fa3;font-size:14px;font-weight:900}
+.plan-card ul{padding:0;margin:0;list-style:none;font-size:11.5px;line-height:1.5}
+.plan-card li::before{content:"✓";color:#0748b7;font-weight:900;margin-right:7px}
+.plan-card .learn{margin-top:4px}
+
+/* Mobile */
+.mobile-menu{display:none}
+@media (max-width:1100px){
+  .header-inner{grid-template-columns:280px 1fr 265px;padding:0 20px}
+  .brand img{width:270px}
+  nav{gap:20px;font-size:12px}
+  .phone-copy strong{font-size:24px}
+  .request{min-width:245px}
+  .hero h1{font-size:50px}
+  .trust-row{gap:20px}
+  .services{padding:18px 25px}
+  .service-grid{gap:16px}
+  .plan-layout{grid-template-columns:220px repeat(3,1fr);padding:0 20px}
+}
+@media (max-width:850px){
+  header{height:auto;min-height:84px}
+  .header-inner{grid-template-columns:1fr auto;padding:12px 18px}
+  .brand img{width:250px}
+  nav,.top-cta{display:none}
+  .mobile-menu{display:block;background:#0648b8;color:#fff;border:0;border-radius:4px;padding:10px 14px;font-weight:800}
+  .hero{height:auto;min-height:610px}
+  .hero::after{width:100%;height:50%;top:50%;background-position:center}
+  .hero::before{background:linear-gradient(#002a5c 0%,#002e65 48%,rgba(0,44,94,.3) 60%,rgba(0,0,0,0) 78%)}
+  .hero-inner{padding:28px 22px;max-width:none}
+  .hero h1{font-size:43px}
+  .hero-sub{font-size:18px;max-width:610px}
+  .trust-row{flex-wrap:wrap;gap:18px 28px}
+  .hero-buttons{flex-wrap:wrap}
+  .services{padding:26px 18px}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .plan-layout{grid-template-columns:1fr;gap:12px;padding:10px 18px 20px}
+  .plan-intro{text-align:center;padding:0}
+}
+@media (max-width:560px){
+  .brand img{width:220px}
+  .hero h1{font-size:37px}
+  .trust-row{display:grid;grid-template-columns:1fr}
+  .btn{width:100%;min-width:0}
+  .service-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner wrap">
+    <a class="brand" href="#home" aria-label="Heatspan home"><img src="assets/logo.png" alt="Heatspan Heating • Boilers • Chimneys"></a>
+    <nav aria-label="Primary">
+      <a class="active" href="#home">HOME</a>
+      <a href="#services">BOILER SERVICES⌄</a>
+      <a href="#services">CHIMNEY SERVICES</a>
+      <a href="#plans">SERVICE PLANS</a>
+      <a href="#about">ABOUT US</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="top-cta">
+      <div class="phone-line">
+        <div class="phone-icon">☎</div>
+        <div class="phone-copy"><small>24/7 EMERGENCY SERVICE</small><strong>718-375-3320</strong></div>
+      </div>
+      <a class="request" href="#contact">REQUEST SERVICE</a>
+    </div>
+    <button class="mobile-menu" type="button" onclick="alert('Mobile menu can be connected to the full site navigation next.')">MENU</button>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>KEEP YOUR HOME WARM.<br><span class="light">KEEP YOUR HEATING<br>SYSTEM PROTECTED.</span></h1>
+      <p class="hero-sub">Professional boiler, heating and chimney services<br>for homeowners throughout Brooklyn &amp; Queens.</p>
+
+      <div class="trust-row">
+        <div class="trust">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M18 15h12M24 8v6M13 24H7m34 0h-6"/><text x="24" y="29" text-anchor="middle" fill="#4bb2ff" stroke="none" font-size="11" font-weight="700">24/7</text></svg>
+          <div><b>24/7 EMERGENCY<br>SERVICE</b><span>We're here when<br>you need us most.</span></div>
+        </div>
+        <div class="trust">
+          <svg viewBox="0 0 48 48"><path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z"/><path d="M17 24l5 5 10-12"/></svg>
+          <div><b>HEATING<br>SPECIALISTS</b><span>Expert service,<br>quality you can trust.</span></div>
+        </div>
+        <div class="trust">
+          <svg viewBox="0 0 48 48"><rect x="11" y="9" width="26" height="33" rx="2"/><path d="M18 5h12v8H18zM17 20h14M17 26h14M17 32h11"/></svg>
+          <div><b>SERVICE<br>PROTECTION PLANS</b><span>Help protect against<br>unexpected costs.</span></div>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <a class="btn primary" href="tel:17183753320">☎&nbsp; CALL 718-375-3320</a>
+        <a class="btn secondary" href="#contact">REQUEST SERVICE ONLINE</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 class="section-title">OUR SERVICES</h2>
+    <p class="section-sub">From routine maintenance to emergency repairs, we keep your home safe, warm and comfortable all year long.</p>
+    <div class="service-grid">
+      <article class="card">
+        <div class="card-media" style="background-image:url('assets/boiler-repair.jpg')"></div>
+        <div class="card-icon">♨</div>
+        <div class="card-body"><h3>BOILER REPAIR</h3><p>Fast diagnosis and professional repair for all types of residential heating systems.</p><a class="learn" href="#">LEARN MORE <span>→</span></a></div>
+      </article>
+      <article class="card">
+        <div class="card-media" style="background-image:url('assets/boiler-maintenance.jpg')"></div>
+        <div class="card-icon">🔧</div>
+        <div class="card-body"><h3>BOILER MAINTENANCE</h3><p>Regular maintenance helps prevent breakdowns and keeps your system running efficiently.</p><a class="learn" href="#">LEARN MORE <span>→</span></a></div>
+      </article>
+      <article class="card">
+        <div class="card-media" style="background-image:url('assets/boiler-installation.jpg')"></div>
+        <div class="card-icon">⌂</div>
+        <div class="card-body"><h3>BOILER INSTALLATION</h3><p>Professional installation of high-efficiency boilers and heating systems.</p><a class="learn" href="#">LEARN MORE <span>→</span></a></div>
+      </article>
+      <article class="card">
+        <div class="card-media" style="background-image:url('assets/chimney-services.jpg')"></div>
+        <div class="card-icon">▦</div>
+        <div class="card-body"><h3>CHIMNEY SERVICES</h3><p>Inspection, cleaning, repair and relining for safe and efficient operation.</p><a class="learn" href="#">LEARN MORE <span>→</span></a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="plans" id="plans">
+    <h2 class="plan-title">HEATSPAN PROTECTION PLANS</h2>
+    <div class="plan-sub">Simple as A • B • C</div>
+    <div class="plan-layout">
+      <div class="plan-intro">
+        <div class="tag">One plan.<br>One price.<br>Less worry.</div>
+        <button class="compare">COMPARE PLANS</button>
+      </div>
+      <article class="plan-card"><div class="badge">A</div><h3>MAINTENANCE PLAN</h3><ul><li>Annual boiler maintenance</li><li>System inspection &amp; testing</li><li>Clean and tune system</li><li>Repair discounts</li></ul><a class="learn" href="#">LEARN MORE &nbsp;→</a></article>
+      <article class="plan-card"><div class="badge">B</div><h3>BASIC PARTS PLAN</h3><ul><li>Everything in Plan A</li><li>Covered replacement parts</li><li>Priority service</li><li>No service charge</li></ul><a class="learn" href="#">LEARN MORE &nbsp;→</a></article>
+      <article class="plan-card"><div class="badge">C</div><h3>FAST RESPONSE PLAN</h3><ul><li>Everything in Plan B</li><li>Parts &amp; labor protection</li><li>24/7 emergency service</li><li>Priority scheduling</li></ul><a class="learn" href="#">LEARN MORE &nbsp;→</a></article>
+    </div>
+  </section>
+
+  <section id="about" style="height:1px"></section>
+  <section id="contact" style="height:1px"></section>
+</main>
+</body>
+</html>
