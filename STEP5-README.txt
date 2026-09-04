@@ -18,3 +18,7 @@ DEPLOYMENT
 
 NOTE
 The forecast is currently fixed to Brooklyn, NY, matching Heatspan's core service area.
+
+WEATHER REFINEMENT
+- Each forecast day now includes its calendar date.
+- Removed the Brooklyn-specific forecast heading so the widget better represents Heatspan's Brooklyn & Queens service area.

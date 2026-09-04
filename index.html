@@ -45,7 +45,7 @@
   margin: auto;
   padding: 9px 28px 10px;
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 1fr;
   gap: 18px;
   align-items: center;
 }
@@ -108,11 +108,13 @@
       const j = await r.json();
       const d = j.daily;
       target.innerHTML = d.time.map((date, i) => {
-        const day = new Date(date + "T12:00:00").toLocaleDateString("en-US",{weekday:"short"});
+        const dt = new Date(date + "T12:00:00");
+        const day = dt.toLocaleDateString("en-US",{weekday:"short"});
+        const displayDate = dt.toLocaleDateString("en-US",{month:"numeric",day:"numeric"});
         const hi = Math.round(d.temperature_2m_max[i]);
         const lo = Math.round(d.temperature_2m_min[i]);
         return `<div class="hs-day">
-          <div class="hs-day-name">${day}</div>
+          <div class="hs-day-name">${day} <span style="font-weight:600;opacity:.85">${displayDate}</span></div>
           <div class="hs-day-icon">${weatherIcon(d.weather_code[i])}</div>
           <div class="hs-day-temp">${hi}° / ${lo}°</div>
         </div>`;
@@ -149,7 +151,6 @@
 
 <div class="hs-weather" aria-label="Brooklyn weekly weather forecast">
   <div class="hs-weather-inner">
-    <div class="hs-weather-title">BROOKLYN 7-DAY FORECAST<span>Live local weather</span></div>
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
