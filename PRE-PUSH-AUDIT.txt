@@ -1,109 +1,24 @@
-HEATSPAN STEP 11 — PRE-PUSH QA
+STEP 12 AUDIT
 
-{
-  "result": "PASS",
-  "checks": {
-    "home_index_not_in_package": true,
-    "global_stylesheet_not_in_package": true,
-    "backend_file_present": true,
-    "backend_js_syntax_valid": true,
-    "resend_env_key_preserved": true,
-    "test_delivery_preserved": true,
-    "customer_fields_preserved": true
-  },
-  "page_checks": {
-    "parts-protection-plan.html": {
-      "new_top_section_present": true,
-      "exactly_one_new_top_section": true,
-      "no_old_hero_component_left": true,
-      "clean_scene_asset_exists": true,
-      "clean_scene_asset_uses_no_mock_header": true,
-      "weather_widget_preserved": true,
-      "hover_dropdown_preserved": true,
-      "phone_links_preserved": true,
-      "request_service_links_preserved": true,
-      "known_internal_links_valid": true,
-      "simple_enrollment_removed": true,
-      "underlying_content_still_present": true
-    },
-    "water-heaters.html": {
-      "new_top_section_present": true,
-      "exactly_one_new_top_section": true,
-      "no_old_hero_component_left": true,
-      "clean_scene_asset_exists": true,
-      "clean_scene_asset_uses_no_mock_header": true,
-      "weather_widget_preserved": true,
-      "hover_dropdown_preserved": true,
-      "phone_links_preserved": true,
-      "request_service_links_preserved": true,
-      "known_internal_links_valid": true,
-      "underlying_content_still_present": true
-    },
-    "heating-boilers.html": {
-      "new_top_section_present": true,
-      "exactly_one_new_top_section": true,
-      "no_old_hero_component_left": true,
-      "clean_scene_asset_exists": true,
-      "clean_scene_asset_uses_no_mock_header": true,
-      "weather_widget_preserved": true,
-      "hover_dropdown_preserved": true,
-      "phone_links_preserved": true,
-      "request_service_links_preserved": true,
-      "known_internal_links_valid": true,
-      "underlying_content_still_present": true
-    },
-    "air-conditioning.html": {
-      "new_top_section_present": true,
-      "exactly_one_new_top_section": true,
-      "no_old_hero_component_left": true,
-      "clean_scene_asset_exists": true,
-      "clean_scene_asset_uses_no_mock_header": true,
-      "weather_widget_preserved": true,
-      "hover_dropdown_preserved": true,
-      "phone_links_preserved": true,
-      "request_service_links_preserved": true,
-      "known_internal_links_valid": true,
-      "underlying_content_still_present": true
-    },
-    "chimney-services.html": {
-      "new_top_section_present": true,
-      "exactly_one_new_top_section": true,
-      "no_old_hero_component_left": true,
-      "clean_scene_asset_exists": true,
-      "clean_scene_asset_uses_no_mock_header": true,
-      "weather_widget_preserved": true,
-      "hover_dropdown_preserved": true,
-      "phone_links_preserved": true,
-      "request_service_links_preserved": true,
-      "known_internal_links_valid": true,
-      "underlying_content_still_present": true
-    },
-    "contact.html": {
-      "new_top_section_present": true,
-      "exactly_one_new_top_section": true,
-      "no_old_hero_component_left": true,
-      "clean_scene_asset_exists": true,
-      "clean_scene_asset_uses_no_mock_header": true,
-      "weather_widget_preserved": true,
-      "hover_dropdown_preserved": true,
-      "phone_links_preserved": true,
-      "request_service_links_preserved": true,
-      "known_internal_links_valid": true,
-      "request_form_preserved": true,
-      "backend_fetch_preserved": true,
-      "financing_option_preserved": true,
-      "service_needed_required_preserved": true,
-      "service_manager_wording_present": true,
-      "underlying_content_still_present": true
-    }
-  },
-  "notes": [
-    "Only six requested service pages, six clean scene assets, the existing api/request-service.js backend, and this audit report are included.",
-    "index.html is intentionally excluded, so the current Home van hero cannot be overwritten.",
-    "styles.css is intentionally excluded, so the current global stylesheet remains untouched.",
-    "The clean scene images were cropped from BELOW the mockup header area, preventing a duplicate navigation/header from appearing inside the rebuilt section.",
-    "Existing informational content below each redesigned top section is preserved.",
-    "Current Resend test delivery is preserved. Real delivery to info@heatspan.com remains pending DNS/domain verification.",
-    "Address autocomplete remains a planned future Contact-page enhancement and is not falsely marked as active."
-  ]
-}
+PASS - no mockup exact assets
+PASS - no scene crop assets
+PASS - air-conditioning.html visual asset
+PASS - air-conditioning.html one service section
+PASS - heating-boilers.html visual asset
+PASS - heating-boilers.html one service section
+PASS - chimney-services.html visual asset
+PASS - chimney-services.html one service section
+PASS - contact.html visual asset
+PASS - contact.html one service section
+PASS - parts-protection-plan.html visual asset
+PASS - parts-protection-plan.html one service section
+PASS - water-heaters.html visual asset
+PASS - water-heaters.html one service section
+PASS - backend present
+PASS - financing option
+PASS - weather function
+PASS - hover dropdowns
+PASS - home excluded
+PASS - styles excluded
+
+OVERALL: PASS
