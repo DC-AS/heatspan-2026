@@ -131,113 +131,196 @@
 .ppp-hero-note{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.ppp-pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:9px 13px;border-radius:999px;font-weight:800;font-size:13px}.ppp-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}.ppp-benefit{background:#fff;border:1px solid #dbe5f1;border-radius:14px;padding:22px;box-shadow:0 8px 24px rgba(7,50,105,.06)}.ppp-benefit .ico{font-size:26px;margin-bottom:9px}.ppp-benefit h3{margin:0 0 8px;color:#0648b7}.ppp-benefit p{margin:0;line-height:1.55}.ppp-band{background:linear-gradient(135deg,#032f69,#0a63ad);color:#fff}.ppp-band h2,.ppp-band .lead{color:#fff}.ppp-included{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin-top:22px}.ppp-included div{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.18);font-weight:700}.ppp-included span{margin-right:9px}.ppp-categories{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.ppp-categories details{background:#fff;border:1px solid #dbe5f1;border-radius:12px;padding:0 18px}.ppp-categories summary{cursor:pointer;font-weight:900;color:#0648b7;padding:17px 0;list-style:none}.ppp-categories summary:after{content:'+';float:right;font-size:22px}.ppp-categories details[open] summary:after{content:'–'}.ppp-parts{columns:2;column-gap:24px;margin:0 0 18px;padding-left:18px}.ppp-parts li{break-inside:avoid;margin:7px 0;line-height:1.35}.ppp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.ppp-step{padding:22px;border-left:4px solid #1477e8;background:#f4f8fd;border-radius:8px}.ppp-step strong{display:block;color:#0648b7;margin-bottom:7px}.ppp-pricebox{background:#eef6ff;border:1px solid #cfe2f8;border-radius:14px;padding:22px;margin-top:24px}.ppp-pricebox h3{margin-top:0;color:#0648b7}.ppp-sticky{position:sticky;bottom:14px;z-index:50;width:min(900px,calc(100% - 30px));margin:20px auto;background:#fff;border:1px solid #d9e5f2;box-shadow:0 12px 34px rgba(0,0,0,.16);border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:15px}.ppp-sticky strong{color:#063b82}.ppp-sticky .btn{white-space:nowrap}@media(max-width:900px){.ppp-overview{grid-template-columns:repeat(2,1fr)}.ppp-categories,.ppp-steps{grid-template-columns:1fr}.ppp-included{grid-template-columns:1fr}.ppp-sticky{position:static;flex-direction:column;align-items:stretch}.ppp-parts{columns:1}}@media(max-width:560px){.ppp-overview{grid-template-columns:1fr}}
 </style>
 
-<style id="heatspan-custom-hero">
-.hs-custom-hero{
+
+<style id="heatspan-mockup-hero-v9">
+.svc-hero{
+  --hero-blue:#063e80;
   position:relative;
-  min-height:410px;
+  min-height:350px;
   overflow:hidden;
-  background:#073d7d;
   color:#fff;
+  background:var(--hero-blue);
+  isolation:isolate;
 }
-.hs-custom-hero .hero-art{
+.svc-hero__media{
   position:absolute;
-  z-index:0;
-  right:0;
+  z-index:-3;
   top:0;
-  width:52%;
+  right:0;
+  width:56%;
   height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   overflow:hidden;
-  background:#0a4e91;
+  background:#0b579c;
 }
-.hs-custom-hero .hero-art img{
+.svc-hero__media img{
   width:100%;
   height:100%;
   display:block;
-}
-.hs-custom-hero.fit-contain .hero-art img{
-  object-fit:contain;
-  object-position:center;
-}
-.hs-custom-hero.fit-cover .hero-art img{
   object-fit:cover;
   object-position:center;
 }
-.hs-custom-hero.fit-contact .hero-art img{
+.svc-hero--protection .svc-hero__media img{
   object-fit:cover;
-  object-position:55% center;
+  object-position:center;
 }
-.hs-custom-hero::before{
-  content:"";
+.svc-hero--contact .svc-hero__media{
+  width:53%;
+}
+.svc-hero--contact .svc-hero__media img{
+  object-position:center 34%;
+}
+.svc-hero__wash{
   position:absolute;
+  z-index:-2;
   inset:0;
-  z-index:1;
-  pointer-events:none;
-  background:linear-gradient(90deg,
-    #073d7d 0%,
-    #073d7d 42%,
-    rgba(7,61,125,.96) 52%,
-    rgba(7,61,125,.72) 63%,
-    rgba(7,61,125,.18) 78%,
-    rgba(7,61,125,0) 100%);
+  background:
+    linear-gradient(90deg,
+      #073d7d 0%,
+      #073d7d 37%,
+      rgba(7,61,125,.98) 46%,
+      rgba(7,61,125,.82) 56%,
+      rgba(7,61,125,.36) 70%,
+      rgba(7,61,125,.05) 85%,
+      rgba(7,61,125,0) 100%);
 }
-.hs-custom-hero .hero-inner{
-  position:relative;
-  z-index:2;
-  width:min(1450px,100%);
-  margin:auto;
-  padding:58px 35px 46px;
+.svc-hero__inner{
+  width:min(1240px,100%);
+  min-height:350px;
+  margin:0 auto;
+  padding:38px 32px 20px;
+  display:flex;
+  flex-direction:column;
 }
-.hs-custom-hero .eyebrow{
-  color:#75c7ff;
+.svc-hero__copy{
+  width:min(610px,52%);
+}
+.svc-hero__eyebrow{
+  margin:0 0 8px;
+  color:#74caff;
+  font-size:13px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:1.25px;
+}
+.svc-hero h1{
+  margin:0 0 12px;
+  color:#fff;
+  font-size:42px;
+  line-height:1.05;
+  letter-spacing:-.7px;
+  font-weight:900;
+}
+.svc-hero__desc{
+  margin:0 0 18px;
+  max-width:585px;
+  color:#fff;
+  font-size:16px;
+  line-height:1.48;
+}
+.svc-hero__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.svc-hero__actions .btn{
+  min-height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 20px;
+  border-radius:4px;
   font-size:14px;
   font-weight:900;
-  letter-spacing:1.2px;
-  margin-bottom:12px;
+  letter-spacing:.15px;
 }
-.hs-custom-hero h1{
+.svc-hero__actions .btn.primary{
+  background:#0784ee;
   color:#fff;
-  font-size:54px;
-  line-height:1.02;
-  margin:0 0 16px;
-  max-width:720px;
+  border:1px solid #0784ee;
 }
-.hs-custom-hero p{
-  font-size:19px;
-  line-height:1.55;
-  max-width:640px;
-  margin:0 0 23px;
+.svc-hero__actions .btn.secondary{
+  background:rgba(3,36,78,.38);
+  color:#fff;
+  border:2px solid rgba(255,255,255,.9);
 }
-.hs-custom-hero .hero-pills{
+.svc-hero__benefits{
+  margin-top:auto;
+  padding-top:20px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  width:min(780px,67%);
+}
+.svc-benefit{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:22px;
-  max-width:760px;
-}
-.hs-custom-hero .hero-pill{
-  padding:9px 13px;
-  border-radius:999px;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.22);
+  align-items:center;
+  gap:9px;
+  min-width:0;
+  color:#fff;
   font-size:12px;
+  line-height:1.2;
   font-weight:800;
 }
-@media(max-width:850px){
-  .hs-custom-hero{min-height:620px}
-  .hs-custom-hero .hero-art{
-    width:100%;
-    height:42%;
+.svc-benefit svg{
+  width:25px;
+  height:25px;
+  flex:0 0 25px;
+  stroke:#fff;
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.svc-hero--contact .svc-hero__copy{width:min(540px,48%)}
+.svc-hero--contact .svc-hero__benefits{width:min(710px,62%)}
+
+@media (max-width:1000px){
+  .svc-hero__inner{padding-left:24px;padding-right:24px}
+  .svc-hero__copy{width:56%}
+  .svc-hero h1{font-size:38px}
+  .svc-hero__benefits{width:72%;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .svc-hero{
+    min-height:640px;
+  }
+  .svc-hero__inner{
+    min-height:640px;
+    padding:28px 20px 20px;
+  }
+  .svc-hero__media,
+  .svc-hero--contact .svc-hero__media{
     top:auto;
     bottom:0;
+    width:100%;
+    height:42%;
   }
-  .hs-custom-hero::before{
-    background:linear-gradient(#073d7d 0%,#073d7d 50%,rgba(7,61,125,.86) 61%,rgba(7,61,125,.28) 76%,transparent 100%);
+  .svc-hero__media img,
+  .svc-hero--contact .svc-hero__media img{
+    object-position:center;
   }
-  .hs-custom-hero .hero-inner{padding:34px 22px}
-  .hs-custom-hero h1{font-size:40px}
+  .svc-hero__wash{
+    background:linear-gradient(
+      180deg,
+      #073d7d 0%,
+      #073d7d 50%,
+      rgba(7,61,125,.92) 61%,
+      rgba(7,61,125,.42) 75%,
+      rgba(7,61,125,.04) 100%
+    );
+  }
+  .svc-hero__copy,
+  .svc-hero--contact .svc-hero__copy{
+    width:100%;
+  }
+  .svc-hero h1{font-size:35px}
+  .svc-hero__desc{font-size:15px}
+  .svc-hero__benefits,
+  .svc-hero--contact .svc-hero__benefits{
+    width:100%;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    padding-bottom:6px;
+  }
 }
 </style>
 
@@ -251,13 +334,21 @@
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
-<section class="hs-custom-hero fit-contain"><div class="hero-art" aria-hidden="true"><img src="assets/hero-shield.jpg" alt=""></div><div class="hero-inner">
-<div class="eyebrow">YEAR-ROUND HEATING PROTECTION</div>
-<h1>Parts Protection Plan</h1>
-<p>Help protect your home heating system from unexpected covered repair costs with priority service, maintenance benefits, emergency support, and coverage for a broad range of heating-system parts.</p>
-<div class="actions"><a class="btn primary" href="contact.html">REQUEST PLAN INFORMATION</a><a class="btn secondary" href="tel:17183753320">CALL 718-375-3320</a></div>
-<div class="hero-pills"><span class="hero-pill">24/7 Emergency Service</span><span class="hero-pill">Priority Service</span><span class="hero-pill">Parts & Labor Coverage</span><span class="hero-pill">Annual Maintenance Benefits</span></div>
-</div>
+<section class="svc-hero svc-hero--protection">
+  <div class="svc-hero__media" aria-hidden="true"><img src="assets/hero-protection-v2.jpg" alt=""></div>
+  <div class="svc-hero__wash" aria-hidden="true"></div>
+  <div class="svc-hero__inner">
+    <div class="svc-hero__copy">
+      <div class="svc-hero__eyebrow">YEAR-ROUND HEATING PROTECTION</div>
+      <h1>Parts Protection Plan</h1>
+      <p class="svc-hero__desc">Help protect your home heating system from unexpected covered repair costs with priority service, maintenance benefits, emergency support, and coverage for a broad range of heating-system parts.</p>
+      <div class="svc-hero__actions">
+        <a class="btn primary" href="contact.html">REQUEST PLAN INFORMATION</a>
+        <a class="btn secondary" href="tel:17183753320">CALL 718-375-3320</a>
+      </div>
+    </div>
+    <div class="svc-hero__benefits"><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>24/7 Emergency Service</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-1-1-4z"/></svg><span>Priority Service</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Parts & Labor Coverage</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/></svg><span>Annual Maintenance Benefits</span></div></div>
+  </div>
 </section>
 <section class="section"><div class="wrap"><h2>Peace of Mind. Year-Round Protection.</h2><p class="lead">Heating equipment works hardest when you need it most. The Heatspan Parts Protection Plan is designed to make covered service easier to manage by combining priority response, preventative maintenance, emergency availability, and broad parts protection into one plan.</p><div class="ppp-overview">
 <div class="ppp-benefit"><div class="ico">⚡</div><h3>Priority Service</h3><p>Plan customers receive priority service when heating problems arise.</p></div>
