@@ -1,0 +1,80 @@
+{
+  "result": "PASS",
+  "global": {
+    "index_excluded": true,
+    "styles_excluded": true,
+    "backend_present": true,
+    "backend_valid": true,
+    "resend_env_preserved": true,
+    "test_delivery_preserved": true
+  },
+  "pages": {
+    "parts-protection-plan.html": {
+      "header_once": true,
+      "hero_once": true,
+      "four_benefits": true,
+      "live_weather": true,
+      "dropdowns": true,
+      "phone_link": true,
+      "content_below_preserved": true,
+      "simple_enrollment_removed": true
+    },
+    "water-heaters.html": {
+      "header_once": true,
+      "hero_once": true,
+      "four_benefits": true,
+      "live_weather": true,
+      "dropdowns": true,
+      "phone_link": true,
+      "content_below_preserved": true
+    },
+    "heating-boilers.html": {
+      "header_once": true,
+      "hero_once": true,
+      "four_benefits": true,
+      "live_weather": true,
+      "dropdowns": true,
+      "phone_link": true,
+      "content_below_preserved": true
+    },
+    "air-conditioning.html": {
+      "header_once": true,
+      "hero_once": true,
+      "four_benefits": true,
+      "live_weather": true,
+      "dropdowns": true,
+      "phone_link": true,
+      "content_below_preserved": true
+    },
+    "chimney-services.html": {
+      "header_once": true,
+      "hero_once": true,
+      "four_benefits": true,
+      "live_weather": true,
+      "dropdowns": true,
+      "phone_link": true,
+      "content_below_preserved": true
+    },
+    "contact.html": {
+      "header_once": true,
+      "hero_once": true,
+      "four_benefits": true,
+      "live_weather": true,
+      "dropdowns": true,
+      "phone_link": true,
+      "content_below_preserved": true,
+      "request_form_preserved": true,
+      "backend_fetch_preserved": true,
+      "financing_option_preserved": true,
+      "required_service_dropdown": true
+    }
+  },
+  "notes": [
+    "The six top sections were recreated against the approved 768px panel geometry and scale up proportionally on desktop.",
+    "The mockup collage itself is not embedded as a page screenshot.",
+    "Navigation, CTAs, live weather and benefit items are real HTML/CSS.",
+    "All existing content below the redesigned top sections remains in place.",
+    "Contact Request Service and Resend backend remain intact.",
+    "Home remains untouched."
+  ]
+}

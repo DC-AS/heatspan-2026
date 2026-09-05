@@ -1,0 +1,84 @@
+{
+  "result": "PASS",
+  "global": {
+    "index_excluded": true,
+    "styles_excluded": true,
+    "backend_present": true,
+    "backend_valid": true,
+    "resend_env_preserved": true,
+    "test_delivery_preserved": true
+  },
+  "pages": {
+    "parts-protection-plan.html": {
+      "header_present": true,
+      "hero_present": true,
+      "scene_asset_present": true,
+      "old_weather_strip_removed": true,
+      "weather_code_present": true,
+      "dropdowns_present": true,
+      "phone_link_present": true,
+      "content_below_preserved": true,
+      "simple_enrollment_removed": true
+    },
+    "water-heaters.html": {
+      "header_present": true,
+      "hero_present": true,
+      "scene_asset_present": true,
+      "old_weather_strip_removed": true,
+      "weather_code_present": true,
+      "dropdowns_present": true,
+      "phone_link_present": true,
+      "content_below_preserved": true
+    },
+    "heating-boilers.html": {
+      "header_present": true,
+      "hero_present": true,
+      "scene_asset_present": true,
+      "old_weather_strip_removed": true,
+      "weather_code_present": true,
+      "dropdowns_present": true,
+      "phone_link_present": true,
+      "content_below_preserved": true
+    },
+    "air-conditioning.html": {
+      "header_present": true,
+      "hero_present": true,
+      "scene_asset_present": true,
+      "old_weather_strip_removed": true,
+      "weather_code_present": true,
+      "dropdowns_present": true,
+      "phone_link_present": true,
+      "content_below_preserved": true
+    },
+    "chimney-services.html": {
+      "header_present": true,
+      "hero_present": true,
+      "scene_asset_present": true,
+      "old_weather_strip_removed": true,
+      "weather_code_present": true,
+      "dropdowns_present": true,
+      "phone_link_present": true,
+      "content_below_preserved": true
+    },
+    "contact.html": {
+      "header_present": true,
+      "hero_present": true,
+      "scene_asset_present": true,
+      "old_weather_strip_removed": true,
+      "weather_code_present": true,
+      "dropdowns_present": true,
+      "phone_link_present": true,
+      "content_below_preserved": true,
+      "form_preserved": true,
+      "backend_fetch_preserved": true,
+      "financing_option_preserved": true,
+      "service_needed_required": true
+    }
+  },
+  "notes": [
+    "Scene assets are cleaned visual-only crops with duplicate reference icon/text overlays removed.",
+    "The complete top composition is real HTML/CSS: compact header, nav, live weather, CTA row and benefit row.",
+    "Everything beneath the top composition remains in the page.",
+    "Home remains untouched."
+  ]
+}

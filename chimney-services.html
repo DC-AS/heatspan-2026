@@ -1,325 +1,338 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chimney Services | Heatspan</title><link rel="stylesheet" href="styles.css">
-<style id="heatspan-step5-enhancements">
-/* Reliable desktop hover dropdowns */
-.drop { position: relative; }
-.drop > .menu {
-  display: none;
-  position: absolute;
-  top: calc(100% - 2px);
-  left: -14px;
-  z-index: 1000;
-  min-width: 245px;
-  background: #fff;
-  border: 1px solid #d9e1eb;
-  border-radius: 8px;
-  box-shadow: 0 14px 32px rgba(0,0,0,.14);
-  padding: 8px;
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Chimney Services | Heatspan</title><link href="styles.css" rel="stylesheet"/>
+<style id="heatspan-reference-replica-v19">
+html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;}
+:root{
+  --hs-blue:#063f80;
+  --hs-bright:#0787ef;
 }
-.drop::after {
-  content: "";
-  position: absolute;
-  left: -18px;
-  right: -18px;
-  top: 100%;
-  height: 14px;
-}
-.drop:hover > .menu,
-.drop:focus-within > .menu { display: block; }
-.drop > .menu a {
-  display: block;
-  padding: 11px 13px;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-.drop > .menu a:hover,
-.drop > .menu a:focus { background: #eef5ff; color: #0648b7; }
 
-/* Weekly weather strip */
-.hs-weather {
-  background: linear-gradient(90deg,#022b5e,#0a5fa8);
-  color: #fff;
-  border-bottom: 1px solid rgba(255,255,255,.16);
-}
-.hs-weather-inner {
-  width: min(1450px,100%);
-  margin: auto;
-  padding: 9px 28px 10px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-  align-items: center;
-}
-.hs-weather-title {
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .7px;
-  line-height: 1.3;
-}
-.hs-weather-title span {
-  display: block;
-  opacity: .8;
-  font-weight: 600;
-  letter-spacing: 0;
-  margin-top: 2px;
-}
-.hs-weather-days {
-  display: grid;
-  grid-template-columns: repeat(7,minmax(74px,1fr));
-  gap: 8px;
-}
-.hs-day {
-  text-align: center;
-  padding: 4px 6px;
-  border-left: 1px solid rgba(255,255,255,.16);
-}
-.hs-day:first-child { border-left: 0; }
-.hs-day-name { font-size: 11px; font-weight: 900; }
-.hs-day-icon { font-size: 18px; line-height: 1.2; margin: 2px 0; }
-.hs-day-temp { font-size: 12px; font-weight: 800; }
-.hs-weather-status { font-size: 12px; opacity: .85; }
-@media (max-width: 900px) {
-  .hs-weather-inner { grid-template-columns: 1fr; padding: 8px 16px; gap: 7px; }
-  .hs-weather-title { text-align:center; }
-  .hs-weather-days { overflow-x:auto; grid-template-columns:repeat(7,86px); padding-bottom:3px; }
-  .drop > .menu { position: static; box-shadow:none; margin-top:0; }
-}
-</style>
-<script>
-(function () {
-  function weatherIcon(code) {
-    if (code === 0) return "☀️";
-    if ([1,2].includes(code)) return "🌤️";
-    if (code === 3) return "☁️";
-    if ([45,48].includes(code)) return "🌫️";
-    if ([51,53,55,56,57].includes(code)) return "🌦️";
-    if ([61,63,65,66,67,80,81,82].includes(code)) return "🌧️";
-    if ([71,73,75,77,85,86].includes(code)) return "🌨️";
-    if ([95,96,99].includes(code)) return "⛈️";
-    return "🌡️";
-  }
-
-  async function loadHeatspanWeather() {
-    const target = document.getElementById("hs-weather-days");
-    if (!target) return;
-    try {
-      const url = "https://api.open-meteo.com/v1/forecast?latitude=40.6501&longitude=-73.9496&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=7";
-      const r = await fetch(url);
-      if (!r.ok) throw new Error("forecast unavailable");
-      const j = await r.json();
-      const d = j.daily;
-      target.innerHTML = d.time.map((date, i) => {
-        const dt = new Date(date + "T12:00:00");
-        const day = dt.toLocaleDateString("en-US",{weekday:"short"});
-        const displayDate = dt.toLocaleDateString("en-US",{month:"numeric",day:"numeric"});
-        const hi = Math.round(d.temperature_2m_max[i]);
-        const lo = Math.round(d.temperature_2m_min[i]);
-        return `<div class="hs-day">
-          <div class="hs-day-name">${day} <span style="font-weight:600;opacity:.85">${displayDate}</span></div>
-          <div class="hs-day-icon">${weatherIcon(d.weather_code[i])}</div>
-          <div class="hs-day-temp">${hi}° / ${lo}°</div>
-        </div>`;
-      }).join("");
-    } catch (e) {
-      target.innerHTML = '<div class="hs-weather-status">Forecast temporarily unavailable.</div>';
-    }
-  }
-  document.addEventListener("DOMContentLoaded", loadHeatspanWeather);
-})();
-</script>
-
-
-
-
-
-<style id="heatspan-approved-layout-v14">
-.hs-approved{
-  --blue:#063f80;
-  --bright:#0786ef;
+/* ---- Full top-of-page replica shell ---- */
+.hs-ref-header, .hs-ref-hero, .hs-ref-header *, .hs-ref-hero *{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+.hs-ref-header{
+  height:clamp(62px,8.073vw,124px);
+  background:#fff;
+  border-bottom:1px solid #e3eaf3;
   position:relative;
-  height:390px;
+  z-index:1000;
+}
+.hs-ref-head-inner{
+  height:100%;
+  width:min(100%,1536px);
+  margin:0 auto;
+  padding:0 clamp(18px,2.344vw,36px);
+  display:grid;
+  grid-template-columns:clamp(170px,22.135vw,340px) 1fr clamp(365px,47.526vw,730px);
+  grid-template-rows:50% 50%;
+  column-gap:clamp(6px,.781vw,12px);
+  align-items:center;
+}
+.hs-ref-logo{
+  grid-row:1/3;
+  display:flex;
+  align-items:center;
+}
+.hs-ref-logo img{
+  width:clamp(150px,19.531vw,300px);
+  display:block;
+}
+.hs-ref-util{
+  grid-column:3;
+  grid-row:1;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:clamp(12px,1.563vw,24px);
+  color:#0750a5;
+  white-space:nowrap;
+  font-size:clamp(10px,1.302vw,20px);
+  font-weight:800;
+}
+.hs-ref-phone{color:#0750a5;text-decoration:none}
+.hs-ref-emergency{
+  background:#0a4da2;
+  color:#fff;
+  padding:clamp(7px,.911vw,14px) clamp(10px,1.302vw,20px);
+  border-radius:clamp(3px,.391vw,6px);
+  font-size:clamp(9px,1.172vw,18px);
+}
+.hs-ref-weather{
+  display:flex;
+  align-items:center;
+  gap:clamp(5px,.651vw,10px);
+  position:relative;
+  cursor:default;
+}
+.hs-ref-weather-icon{font-size:clamp(24px,3.125vw,48px);line-height:1}
+.hs-ref-weather-place{line-height:.95}
+.hs-ref-weather-place b{font-size:clamp(9px,1.172vw,18px)}
+.hs-ref-temp{font-size:clamp(23px,2.995vw,46px);line-height:1;font-weight:900}
+.hs-ref-forecast{
+  display:none;
+  position:absolute;
+  top:calc(100% + 10px);
+  right:0;
+  width:min(700px,85vw);
+  padding:14px;
+  background:#fff;
+  border:1px solid #dae5f1;
+  border-radius:7px;
+  box-shadow:0 14px 32px rgba(0,35,75,.18);
+  z-index:3000;
+}
+.hs-ref-weather:hover .hs-ref-forecast,
+.hs-ref-weather:focus-within .hs-ref-forecast{display:block}
+.hs-ref-forecast-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.hs-ref-day{text-align:center;font-size:11px;color:#17324d}
+.hs-ref-day b,.hs-ref-day span{display:block}
+.hs-ref-day b{color:#073d7d;margin-bottom:4px}
+.hs-ref-day span{font-weight:800;margin-top:3px}
+
+.hs-ref-nav{
+  grid-column:2/4;
+  grid-row:2;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  white-space:nowrap;
+}
+.hs-ref-nav>a,.hs-ref-drop>a{
+  color:#073d7d;
+  text-decoration:none;
+  font-size:clamp(8px,1.042vw,16px);
+  font-weight:800;
+  padding:clamp(8px,1.042vw,16px) clamp(6px,.781vw,12px);
+  border-radius:3px;
+}
+.hs-ref-nav>a:hover,.hs-ref-drop:hover>a,.hs-ref-drop:focus-within>a{background:#edf5fd;color:#0566cb}
+.hs-ref-drop{position:relative}
+.hs-ref-menu{
+  display:none;
+  position:absolute;
+  left:0;
+  top:78%;
+  min-width:220px;
+  background:#fff;
+  border:1px solid #dce6f1;
+  border-radius:5px;
+  box-shadow:0 12px 28px rgba(0,35,75,.18);
+  padding:7px;
+  z-index:2500;
+}
+.hs-ref-drop:hover .hs-ref-menu,.hs-ref-drop:focus-within .hs-ref-menu{display:block}
+.hs-ref-menu a{
+  display:block;
+  padding:9px 10px;
+  color:#073d7d;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  border-radius:4px;
+}
+.hs-ref-menu a:hover{background:#edf5fd}
+.hs-ref-request{
+  background:#0662cf!important;
+  color:#fff!important;
+  padding:clamp(10px,1.302vw,20px) clamp(14px,1.823vw,28px)!important;
+  border-radius:3px;
+  margin-left:clamp(6px,.781vw,12px);
+  transform:translateY(clamp(4px,.521vw,8px));
+}
+
+/* ---- Reference hero ---- */
+.hs-ref-hero{
+  height:clamp(279px,36.328vw,558px);
+  position:relative;
   overflow:hidden;
-  background:#063f80;
+  background:var(--hs-blue);
   color:#fff;
 }
-.hs-approved *{box-sizing:border-box}
-.hs-approved__visual{
+.hs-ref-scene{
   position:absolute;
   right:0;top:0;
-  width:54%;
+  width:53%;
   height:100%;
-  overflow:hidden;
-  background:linear-gradient(135deg,#0a5ba5,#073f80);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
 }
-.hs-approved__visual img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-  object-position:center;
+.hs-ref-hero.parts .hs-ref-scene{
+  width:52%;
+  background-size:cover;
 }
-.hs-approved--parts .hs-approved__visual{
-  background:
-    radial-gradient(circle at 55% 45%,rgba(55,190,255,.45),transparent 38%),
-    linear-gradient(135deg,#0b63b3,#05346f);
-}
-.hs-approved--parts .hs-approved__visual img{object-fit:contain}
-.hs-approved--contact .hs-approved__visual{width:50%}
-.hs-approved--contact .hs-approved__visual img{object-fit:cover;object-position:center}
-
-.hs-approved__gradient{
+.hs-ref-hero.contact .hs-ref-scene{width:52%;background-position:right center}
+.hs-ref-fade{
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,
-    #063f80 0%,
-    #063f80 38%,
-    rgba(6,63,128,.98) 47%,
-    rgba(6,63,128,.82) 56%,
-    rgba(6,63,128,.38) 68%,
-    rgba(6,63,128,.08) 80%,
-    rgba(6,63,128,0) 91%);
-  pointer-events:none;
+  background:linear-gradient(90deg,#063f80 0%,#063f80 39%,rgba(6,63,128,.95) 48%,rgba(6,63,128,.45) 59%,rgba(6,63,128,0) 73%);
 }
-.hs-approved__inner{
-  position:relative;
-  z-index:2;
-  width:min(1240px,100%);
+.hs-ref-inner{
+  width:min(100%,1536px);
   height:100%;
   margin:0 auto;
-  padding:34px 30px 18px;
+  position:relative;
+  z-index:2;
+  padding:clamp(20px,2.604vw,40px) clamp(36px,4.688vw,72px) clamp(14px,1.823vw,28px);
   display:flex;
   flex-direction:column;
 }
-.hs-approved__copy{
-  width:min(580px,47%);
-}
-.hs-approved__eyebrow{
-  color:#76cbff;
-  font-size:13px;
-  line-height:1.2;
+.hs-ref-copy{width:50%;max-width:780px}
+.hs-ref-kicker{
+  color:#6cc7ff;
+  font-size:clamp(12px,1.563vw,24px);
   font-weight:900;
-  letter-spacing:1.35px;
-  margin-bottom:9px;
+  letter-spacing:clamp(1.2px,.156vw,2.4px);
+  margin-bottom:clamp(8px,1.042vw,16px);
 }
-.hs-approved h1{
+.hs-ref-hero h1{
+  margin:0 0 clamp(10px,1.302vw,20px);
   color:#fff;
-  margin:0 0 12px;
-  font-size:44px;
-  line-height:1.02;
+  font-size:clamp(32px,4.167vw,64px);
+  line-height:1;
   font-weight:900;
-  letter-spacing:-.7px;
 }
-.hs-approved__text{
+.hs-ref-lead{
+  margin:0 0 clamp(14px,1.823vw,28px);
   color:#fff;
-  margin:0 0 20px;
-  font-size:16px;
+  font-size:clamp(13px,1.693vw,26px);
   line-height:1.45;
-  max-width:560px;
+  max-width:680px;
 }
-.hs-approved__actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-}
-.hs-approved__actions a{
-  min-height:46px;
-  padding:0 20px;
+.hs-ref-actions{display:flex;gap:clamp(12px,1.563vw,24px);flex-wrap:wrap}
+.hs-ref-btn{
+  min-height:clamp(42px,5.469vw,84px);
+  padding:0 clamp(18px,2.344vw,36px);
   display:inline-flex;
   align-items:center;
   justify-content:center;
   border-radius:3px;
   text-decoration:none;
-  font-size:14px;
+  color:#fff;
+  font-size:clamp(11px,1.432vw,22px);
   font-weight:900;
+  white-space:nowrap;
 }
-.hs-approved__actions .primary{
-  color:#fff;
-  background:#0786ef;
-  border:1px solid #0786ef;
-}
-.hs-approved__actions .secondary{
-  color:#fff;
-  background:rgba(0,35,75,.32);
-  border:2px solid rgba(255,255,255,.96);
-}
-.hs-approved__benefits{
-  width:min(800px,66%);
+.hs-ref-primary{background:var(--hs-bright);border:1px solid var(--hs-bright)}
+.hs-ref-secondary{border:2px solid #fff;background:rgba(0,0,0,.15)}
+.hs-ref-hero.parts .hs-ref-primary{min-width:clamp(198px,25.781vw,396px)}
+.hs-ref-benefits{
   margin-top:auto;
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:18px;
-  padding-top:16px;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(16px,2.083vw,32px);
 }
-.hs-approved__benefit{
-  min-width:0;
+.hs-ref-benefit{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:clamp(8px,1.042vw,16px);
   color:#fff;
-  font-size:12px;
-  line-height:1.15;
+  font-size:clamp(10px,1.302vw,20px);
   font-weight:800;
+  line-height:1.1;
+  min-width:0;
 }
-.hs-approved__benefit svg{
-  width:28px;height:28px;
-  flex:0 0 28px;
-  fill:none;stroke:#fff;stroke-width:2;
-  stroke-linecap:round;stroke-linejoin:round;
+.hs-ref-benefit svg{
+  width:clamp(28px,3.646vw,56px);
+  height:clamp(28px,3.646vw,56px);
+  flex:0 0 auto;
+  fill:none;
+  stroke:#fff;
+  stroke-width:2.1;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
-.hs-approved--contact .hs-approved__copy{width:min(535px,44%)}
-.hs-approved--contact .hs-approved__benefits{width:min(760px,63%)}
 
-@media(max-width:1000px){
-  .hs-approved{height:445px}
-  .hs-approved__copy{width:53%}
-  .hs-approved h1{font-size:39px}
-  .hs-approved__benefits{width:75%;grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+/* ---- Mobile ---- */
 @media(max-width:760px){
-  .hs-approved{height:690px}
-  .hs-approved__visual,
-  .hs-approved--contact .hs-approved__visual{
-    width:100%;height:40%;top:auto;bottom:0;
+  .hs-ref-header{height:auto}
+  .hs-ref-head-inner{
+    min-height:118px;
+    grid-template-columns:145px 1fr;
+    grid-template-rows:58px auto;
+    padding:0 12px;
   }
-  .hs-approved__gradient{
-    background:linear-gradient(180deg,
-      #063f80 0%,#063f80 48%,
-      rgba(6,63,128,.96) 58%,
-      rgba(6,63,128,.48) 72%,
-      rgba(6,63,128,.05) 100%);
+  .hs-ref-logo{grid-column:1;grid-row:1}.hs-ref-logo img{width:135px}
+  .hs-ref-util{grid-column:2;grid-row:1;gap:8px;font-size:11px}
+  .hs-ref-emergency{display:none}
+  .hs-ref-weather-place{display:none}
+  .hs-ref-nav{grid-column:1/3;grid-row:2;overflow-x:auto;justify-content:flex-start}
+  .hs-ref-nav>a,.hs-ref-drop>a{font-size:10px;padding:9px 7px}
+  .hs-ref-request{transform:none}
+  .hs-ref-hero{height:650px}
+  .hs-ref-scene,.hs-ref-hero.parts .hs-ref-scene,.hs-ref-hero.contact .hs-ref-scene{
+    width:100%;height:42%;top:auto;bottom:0;
   }
-  .hs-approved__inner{padding:26px 20px 18px}
-  .hs-approved__copy,.hs-approved--contact .hs-approved__copy{width:100%}
-  .hs-approved h1{font-size:35px}
-  .hs-approved__text{font-size:15px}
-  .hs-approved__benefits,.hs-approved--contact .hs-approved__benefits{
-    width:100%;grid-template-columns:repeat(2,minmax(0,1fr));
+  .hs-ref-fade{
+    background:linear-gradient(180deg,#063f80 0%,#063f80 48%,rgba(6,63,128,.93) 58%,rgba(6,63,128,.35) 76%,rgba(6,63,128,0) 100%);
   }
+  .hs-ref-inner{padding:28px 20px 18px}
+  .hs-ref-copy{width:100%}
+  .hs-ref-benefits{grid-template-columns:repeat(2,1fr);gap:14px}
 }
 </style>
-
-</head><body><header><div class="header wrap"><a class="brand" href="index.html"><img src="assets/heatspan-logo.png" alt="Heatspan"></a><nav>
-<a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers & Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
-<a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
-<div class="top"><div class="phone"><small>24/7 HEATING & AC SERVICE</small><strong>718-375-3320</strong></div><a class="request" href="contact.html">REQUEST SERVICE</a></div></div></header>
-
-<div class="hs-weather" aria-label="Brooklyn weekly weather forecast">
-  <div class="hs-weather-inner">
-    <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
-  </div>
+</head><body>
+<header class="hs-ref-header">
+<div class="hs-ref-head-inner">
+<a class="hs-ref-logo" href="index.html"><img alt="Heatspan" src="assets/heatspan-reference-logo.png"/></a>
+<div class="hs-ref-util">
+<a class="hs-ref-phone" href="tel:17183753320">☎ 718-375-3320</a>
+<span class="hs-ref-emergency">24/7 Emergency Service</span>
+<div class="hs-ref-weather" tabindex="0">
+<span class="hs-ref-weather-icon">🌤️</span>
+<span class="hs-ref-weather-place"><b>Brooklyn, NY</b><br/>H: <span id="hs-hi">82°</span><br/>L: <span id="hs-lo">68°</span></span>
+<span class="hs-ref-temp" id="hs-now">78°</span>
+<div class="hs-ref-forecast"><div class="hs-ref-forecast-grid" id="hs-ref-days"></div></div>
 </div>
-<section class="hs-approved hs-approved--chimney">
-<div class="hs-approved__visual" aria-hidden="true"><img src="assets/chimney-clean-scene.jpg" alt=""></div>
-<div class="hs-approved__gradient" aria-hidden="true"></div>
-<div class="hs-approved__inner">
-  <div class="hs-approved__copy">
-    <div class="hs-approved__eyebrow">SAFE HOMES. CLEANER AIR.</div>
-    <h1>Chimney Services</h1>
-    <p class="hs-approved__text">Inspection, cleaning, repair, relining, and related chimney services that support safe and effective heating-system venting.</p>
-    <div class="hs-approved__actions">
-      <a class="primary" href="contact.html">REQUEST SERVICE</a>
-      <a class="secondary" href="tel:17183753320">CALL 718-375-3320</a>
-    </div>
-  </div>
-  <div class="hs-approved__benefits"><div class="hs-approved__benefit"><svg viewBox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-1-1-4z"/></svg><span>Chimney Cleaning</span></div><div class="hs-approved__benefit"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></svg><span>Inspections</span></div><div class="hs-approved__benefit"><svg viewBox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-1-1-4z"/></svg><span>Repairs</span></div><div class="hs-approved__benefit"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Safer Homes</span></div></div>
 </div>
-</section><section class='section'><div class='wrap'><h2>Chimney Inspection & Service</h2><p class='lead'>Heatspan provides chimney services alongside its heating work. The final production page will preserve useful historical chimney information while aligning it with current offerings.</p></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn & Queens<br>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers & Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br>Brooklyn, NY 11234</div></div></div></footer></body></html>
+<nav aria-label="Primary navigation" class="hs-ref-nav">
+<a href="index.html">Home</a>
+<div class="hs-ref-drop"><a href="heating-boilers.html">Heating / Boilers⌄</a><div class="hs-ref-menu">
+<a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="boiler-repair.html">Boiler Repair</a>
+<a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a>
+</div></div>
+<a href="air-conditioning.html">Air Conditioning</a>
+<a href="water-heaters.html">Water Heaters</a>
+<a href="chimney-services.html">Chimney</a>
+<div class="hs-ref-drop"><a href="parts-protection-plan.html">Protection⌄</a><div class="hs-ref-menu">
+<a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a>
+</div></div>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a class="hs-ref-request" href="contact.html">REQUEST SERVICE</a>
+</nav>
+</div>
+</header>
+
+
+<section class="hs-ref-hero chimney">
+<div class="hs-ref-scene" style="background-image:url('assets/reference-chimney.jpg')"></div>
+<div class="hs-ref-fade"></div>
+<div class="hs-ref-inner">
+<div class="hs-ref-copy">
+<div class="hs-ref-kicker">SAFE HOMES. CLEANER AIR.</div>
+<h1>Chimney Services</h1>
+<p class="hs-ref-lead">Inspection, cleaning, repair, relining, and related chimney services that support safe and effective heating-system venting.</p>
+<div class="hs-ref-actions">
+<a class="hs-ref-btn hs-ref-primary" href="contact.html">REQUEST SERVICE</a>
+<a class="hs-ref-btn hs-ref-secondary" href="tel:17183753320">CALL 718-375-3320</a>
+</div>
+</div>
+<div class="hs-ref-benefits"><div class="hs-ref-benefit"><svg viewbox="0 0 24 24"><path d="M3 6h18v12H3zM3 10h18M3 14h18M8 6v4M16 6v4M6 10v4M14 10v4M8 14v4M16 14v4"></path></svg><span>Chimney Cleaning</span></div><div class="hs-ref-benefit"><svg viewbox="0 0 24 24"><circle cx="10" cy="10" r="6"></circle><path d="M15 15l6 6"></path></svg><span>Inspections</span></div><div class="hs-ref-benefit"><svg viewbox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-1-1-4z"></path></svg><span>Repairs</span></div><div class="hs-ref-benefit"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span>Safer Homes</span></div></div>
+</div>
+</section><section class="section"><div class="wrap"><h2>Chimney Inspection &amp; Service</h2><p class="lead">Heatspan provides chimney services alongside its heating work. The final production page will preserve useful historical chimney information while aligning it with current offerings.</p></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div></footer>
+<script id="heatspan-reference-weather-v19">
+(function(){
+ const days=document.getElementById("hs-ref-days"); if(!days) return;
+ const icon=c=>c===0?"☀️":[1,2].includes(c)?"🌤️":c===3?"☁️":[45,48].includes(c)?"🌫️":[71,73,75,77,85,86].includes(c)?"🌨️":[95,96,99].includes(c)?"⛈️":"🌧️";
+ const url="https://api.open-meteo.com/v1/forecast?latitude=40.6782&longitude=-73.9442&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=7";
+ fetch(url).then(r=>r.json()).then(d=>{
+   document.getElementById("hs-now").textContent=Math.round(d.current.temperature_2m)+"°";
+   document.getElementById("hs-hi").textContent=Math.round(d.daily.temperature_2m_max[0])+"°";
+   document.getElementById("hs-lo").textContent=Math.round(d.daily.temperature_2m_min[0])+"°";
+   const fmt=new Intl.DateTimeFormat("en-US",{weekday:"short",month:"numeric",day:"numeric"});
+   days.innerHTML=d.daily.time.map((x,i)=>'<div class="hs-ref-day"><b>'+fmt.format(new Date(x+"T12:00:00"))+'</b><div>'+icon(d.daily.weather_code[i])+'</div><span>'+Math.round(d.daily.temperature_2m_max[i])+'° / '+Math.round(d.daily.temperature_2m_min[i])+'°</span></div>').join("");
+ }).catch(()=>{days.innerHTML='<div style="padding:8px">Forecast temporarily unavailable.</div>';});
+})();
+</script>
+</body></html>
