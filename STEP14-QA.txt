@@ -1,0 +1,93 @@
+{
+  "result": "PASS",
+  "global": {
+    "home_not_overwritten": true,
+    "styles_not_overwritten": true,
+    "backend_present": true,
+    "backend_js_valid": true,
+    "resend_env_preserved": true,
+    "current_test_delivery_preserved": true
+  },
+  "pages": {
+    "parts-protection-plan.html": {
+      "new_layout_once": true,
+      "old_experimental_layout_removed": true,
+      "clean_visual_asset_exists": true,
+      "weather_function_preserved": true,
+      "hover_dropdowns_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_links_preserved": true,
+      "internal_links_valid": true,
+      "simple_enrollment_removed": true,
+      "content_below_section_preserved": true
+    },
+    "water-heaters.html": {
+      "new_layout_once": true,
+      "old_experimental_layout_removed": true,
+      "clean_visual_asset_exists": true,
+      "weather_function_preserved": true,
+      "hover_dropdowns_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_links_preserved": true,
+      "internal_links_valid": true,
+      "content_below_section_preserved": true
+    },
+    "heating-boilers.html": {
+      "new_layout_once": true,
+      "old_experimental_layout_removed": true,
+      "clean_visual_asset_exists": true,
+      "weather_function_preserved": true,
+      "hover_dropdowns_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_links_preserved": true,
+      "internal_links_valid": true,
+      "content_below_section_preserved": true
+    },
+    "air-conditioning.html": {
+      "new_layout_once": true,
+      "old_experimental_layout_removed": true,
+      "clean_visual_asset_exists": true,
+      "weather_function_preserved": true,
+      "hover_dropdowns_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_links_preserved": true,
+      "internal_links_valid": true,
+      "content_below_section_preserved": true
+    },
+    "chimney-services.html": {
+      "new_layout_once": true,
+      "old_experimental_layout_removed": true,
+      "clean_visual_asset_exists": true,
+      "weather_function_preserved": true,
+      "hover_dropdowns_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_links_preserved": true,
+      "internal_links_valid": true,
+      "content_below_section_preserved": true
+    },
+    "contact.html": {
+      "new_layout_once": true,
+      "old_experimental_layout_removed": true,
+      "clean_visual_asset_exists": true,
+      "weather_function_preserved": true,
+      "hover_dropdowns_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_links_preserved": true,
+      "internal_links_valid": true,
+      "contact_form_preserved": true,
+      "contact_backend_fetch_preserved": true,
+      "financing_option_preserved": true,
+      "service_needed_required": true,
+      "content_below_section_preserved": true
+    }
+  },
+  "notes": [
+    "The approved six-panel mockup screenshot is NOT included in this website package.",
+    "The six JPG files are clean service-scene crops only; they contain no duplicated website header/navigation.",
+    "All page headings, copy, CTAs, benefit rows, blue gradients, sizing and responsive behavior are real HTML/CSS.",
+    "Everything below each rebuilt section remains in the existing page.",
+    "Home/index.html and styles.css are intentionally excluded.",
+    "Current Resend test mode is preserved. Production delivery to info@heatspan.com still awaits DNS verification.",
+    "Address autocomplete remains a future Contact-page enhancement."
+  ]
+}
