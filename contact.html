@@ -133,25 +133,52 @@
   position:relative;
   min-height:410px;
   overflow:hidden;
-  background:#06346f;
+  background:#073d7d;
   color:#fff;
 }
-.hs-custom-hero::after{
-  content:"";
+.hs-custom-hero .hero-art{
   position:absolute;
-  inset:0 0 0 auto;
-  width:48%;
-  background-image:var(--hero-image);
-  background-size:cover;
-  background-position:center;
   z-index:0;
+  right:0;
+  top:0;
+  width:52%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#0a4e91;
+}
+.hs-custom-hero .hero-art img{
+  width:100%;
+  height:100%;
+  display:block;
+}
+.hs-custom-hero.fit-contain .hero-art img{
+  object-fit:contain;
+  object-position:center;
+}
+.hs-custom-hero.fit-cover .hero-art img{
+  object-fit:cover;
+  object-position:center;
+}
+.hs-custom-hero.fit-contact .hero-art img{
+  object-fit:cover;
+  object-position:55% center;
 }
 .hs-custom-hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,#06346f 0%,#06346f 44%,rgba(6,52,111,.94) 56%,rgba(6,52,111,.35) 72%,rgba(6,52,111,0) 100%);
   z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,
+    #073d7d 0%,
+    #073d7d 42%,
+    rgba(7,61,125,.96) 52%,
+    rgba(7,61,125,.72) 63%,
+    rgba(7,61,125,.18) 78%,
+    rgba(7,61,125,0) 100%);
 }
 .hs-custom-hero .hero-inner{
   position:relative;
@@ -172,12 +199,12 @@
   font-size:54px;
   line-height:1.02;
   margin:0 0 16px;
-  max-width:760px;
+  max-width:720px;
 }
 .hs-custom-hero p{
   font-size:19px;
   line-height:1.55;
-  max-width:700px;
+  max-width:640px;
   margin:0 0 23px;
 }
 .hs-custom-hero .hero-pills{
@@ -185,6 +212,7 @@
   gap:10px;
   flex-wrap:wrap;
   margin-top:22px;
+  max-width:760px;
 }
 .hs-custom-hero .hero-pill{
   padding:9px 13px;
@@ -195,9 +223,16 @@
   font-weight:800;
 }
 @media(max-width:850px){
-  .hs-custom-hero{min-height:600px}
-  .hs-custom-hero::after{width:100%;height:43%;top:auto;bottom:0}
-  .hs-custom-hero::before{background:linear-gradient(#06346f 0%,#06346f 53%,rgba(6,52,111,.7) 67%,rgba(6,52,111,.1) 80%,transparent 100%)}
+  .hs-custom-hero{min-height:620px}
+  .hs-custom-hero .hero-art{
+    width:100%;
+    height:42%;
+    top:auto;
+    bottom:0;
+  }
+  .hs-custom-hero::before{
+    background:linear-gradient(#073d7d 0%,#073d7d 50%,rgba(7,61,125,.86) 61%,rgba(7,61,125,.28) 76%,transparent 100%);
+  }
   .hs-custom-hero .hero-inner{padding:34px 22px}
   .hs-custom-hero h1{font-size:40px}
 }
@@ -213,8 +248,7 @@
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
-<section class="hs-custom-hero" style="--hero-image:url('assets/hero-service-manager.jpg')">
-<div class="hero-inner">
+<section class="hs-custom-hero fit-contact"><div class="hero-art" aria-hidden="true"><img src="assets/hero-service-manager.jpg" alt=""></div><div class="hero-inner">
 <div class="eyebrow">WE'RE HERE TO HELP</div>
 <h1>Contact Heatspan</h1>
 <p>Have a question or need to schedule service? Our service managers are ready to help connect you with the right Heatspan service.</p>

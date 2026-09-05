@@ -136,25 +136,52 @@
   position:relative;
   min-height:410px;
   overflow:hidden;
-  background:#06346f;
+  background:#073d7d;
   color:#fff;
 }
-.hs-custom-hero::after{
-  content:"";
+.hs-custom-hero .hero-art{
   position:absolute;
-  inset:0 0 0 auto;
-  width:48%;
-  background-image:var(--hero-image);
-  background-size:cover;
-  background-position:center;
   z-index:0;
+  right:0;
+  top:0;
+  width:52%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#0a4e91;
+}
+.hs-custom-hero .hero-art img{
+  width:100%;
+  height:100%;
+  display:block;
+}
+.hs-custom-hero.fit-contain .hero-art img{
+  object-fit:contain;
+  object-position:center;
+}
+.hs-custom-hero.fit-cover .hero-art img{
+  object-fit:cover;
+  object-position:center;
+}
+.hs-custom-hero.fit-contact .hero-art img{
+  object-fit:cover;
+  object-position:55% center;
 }
 .hs-custom-hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,#06346f 0%,#06346f 44%,rgba(6,52,111,.94) 56%,rgba(6,52,111,.35) 72%,rgba(6,52,111,0) 100%);
   z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,
+    #073d7d 0%,
+    #073d7d 42%,
+    rgba(7,61,125,.96) 52%,
+    rgba(7,61,125,.72) 63%,
+    rgba(7,61,125,.18) 78%,
+    rgba(7,61,125,0) 100%);
 }
 .hs-custom-hero .hero-inner{
   position:relative;
@@ -175,12 +202,12 @@
   font-size:54px;
   line-height:1.02;
   margin:0 0 16px;
-  max-width:760px;
+  max-width:720px;
 }
 .hs-custom-hero p{
   font-size:19px;
   line-height:1.55;
-  max-width:700px;
+  max-width:640px;
   margin:0 0 23px;
 }
 .hs-custom-hero .hero-pills{
@@ -188,6 +215,7 @@
   gap:10px;
   flex-wrap:wrap;
   margin-top:22px;
+  max-width:760px;
 }
 .hs-custom-hero .hero-pill{
   padding:9px 13px;
@@ -198,9 +226,16 @@
   font-weight:800;
 }
 @media(max-width:850px){
-  .hs-custom-hero{min-height:600px}
-  .hs-custom-hero::after{width:100%;height:43%;top:auto;bottom:0}
-  .hs-custom-hero::before{background:linear-gradient(#06346f 0%,#06346f 53%,rgba(6,52,111,.7) 67%,rgba(6,52,111,.1) 80%,transparent 100%)}
+  .hs-custom-hero{min-height:620px}
+  .hs-custom-hero .hero-art{
+    width:100%;
+    height:42%;
+    top:auto;
+    bottom:0;
+  }
+  .hs-custom-hero::before{
+    background:linear-gradient(#073d7d 0%,#073d7d 50%,rgba(7,61,125,.86) 61%,rgba(7,61,125,.28) 76%,transparent 100%);
+  }
   .hs-custom-hero .hero-inner{padding:34px 22px}
   .hs-custom-hero h1{font-size:40px}
 }
@@ -216,8 +251,7 @@
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
-<section class="hs-custom-hero" style="--hero-image:url('assets/hero-shield.jpg')">
-<div class="hero-inner">
+<section class="hs-custom-hero fit-contain"><div class="hero-art" aria-hidden="true"><img src="assets/hero-shield.jpg" alt=""></div><div class="hero-inner">
 <div class="eyebrow">YEAR-ROUND HEATING PROTECTION</div>
 <h1>Parts Protection Plan</h1>
 <p>Help protect your home heating system from unexpected covered repair costs with priority service, maintenance benefits, emergency support, and coverage for a broad range of heating-system parts.</p>
@@ -241,6 +275,6 @@
 <details><summary>Electrical & System Components</summary><ul class="ppp-parts"><li>Transformers</li><li>Filter controls</li><li>Flame sensors</li><li>Flame spreaders</li><li>Vertical diverter</li><li>Gauge glass & washers</li><li>Generator lead</li><li>Batteries</li><li>Blower motor</li><li>Pigtail</li></ul></details>
 </div><div class="notice"><strong>Coverage note:</strong> Parts coverage is subject to the plan's current eligibility, terms, exclusions, equipment condition, and applicable service requirements. Heatspan can confirm coverage for your specific system during enrollment.</div></div></section>
 <section class="section"><div class="wrap"><h2>Designed for Natural-Gas Heating Customers</h2><p class="lead">The plan is intended to help natural-gas customers keep boilers, furnaces, and related hot-water heating equipment maintained and protected. Heating systems are built for long service life, but even dependable equipment eventually needs maintenance and replacement parts.</p><div class="grid-3"><div class="card"><div class="body"><h3>Reduce Repair Surprises</h3><p>A single heating repair can involve a service visit, replacement components, and labor. Plan coverage helps make eligible repairs more predictable.</p></div></div><div class="card"><div class="body"><h3>Support Equipment Longevity</h3><p>Seasonal maintenance and attention to developing problems can help keep equipment operating reliably.</p></div></div><div class="card"><div class="body"><h3>Comfort & Safety</h3><p>Emergency availability, maintenance, and carbon-monoxide awareness are combined with covered-parts protection.</p></div></div></div></div></section>
-<section class="section soft"><div class="wrap"><h2>Simple Enrollment</h2><div class="ppp-steps"><div class="ppp-step"><strong>1. Request Plan Information</strong>Tell us about your home and heating equipment through the website or by phone.</div><div class="ppp-step"><strong>2. Confirm Eligibility & Current Terms</strong>Heatspan confirms the equipment, current plan price, coverage details, and enrollment requirements.</div><div class="ppp-step"><strong>3. Activate Your Protection</strong>Complete enrollment and keep your plan information available when service is needed.</div></div><div class="ppp-pricebox"><h3>Current Plan Pricing</h3><p>Historical Heatspan materials contain older plan and service prices. Those amounts are intentionally not being presented as current pricing. Contact Heatspan for today's enrollment price and current plan terms.</p><div class="actions"><a class="btn primary" href="contact.html?service=Parts%20Protection%20Plan">GET CURRENT PLAN INFORMATION</a></div></div></div></section>
+
 <div class="ppp-sticky"><div><strong>Interested in year-round heating protection?</strong><br><span>Request plan information without leaving the Heatspan website.</span></div><a class="btn primary" href="contact.html?service=Parts%20Protection%20Plan">REQUEST INFORMATION</a></div>
 <footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn & Queens<br>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers & Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br>Brooklyn, NY 11234</div></div></div></footer></body></html>
