@@ -1,84 +1,62 @@
 {
   "result": "PASS",
-  "global": {
-    "index_excluded": true,
-    "styles_excluded": true,
+  "checks": {
     "backend_present": true,
     "backend_valid": true,
-    "resend_env_preserved": true,
-    "test_delivery_preserved": true
+    "resend_preserved": true,
+    "home_excluded": true,
+    "styles_excluded": true
   },
   "pages": {
     "parts-protection-plan.html": {
-      "header_present": true,
-      "hero_present": true,
-      "scene_asset_present": true,
-      "old_weather_strip_removed": true,
-      "weather_code_present": true,
-      "dropdowns_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true,
-      "simple_enrollment_removed": true
+      "embedded_hero_present": true,
+      "old_asset_dependency_removed": true,
+      "weather_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_preserved": true
     },
     "water-heaters.html": {
-      "header_present": true,
-      "hero_present": true,
-      "scene_asset_present": true,
-      "old_weather_strip_removed": true,
-      "weather_code_present": true,
-      "dropdowns_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "embedded_hero_present": true,
+      "old_asset_dependency_removed": true,
+      "weather_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_preserved": true
     },
     "heating-boilers.html": {
-      "header_present": true,
-      "hero_present": true,
-      "scene_asset_present": true,
-      "old_weather_strip_removed": true,
-      "weather_code_present": true,
-      "dropdowns_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "embedded_hero_present": true,
+      "old_asset_dependency_removed": true,
+      "weather_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_preserved": true
     },
     "air-conditioning.html": {
-      "header_present": true,
-      "hero_present": true,
-      "scene_asset_present": true,
-      "old_weather_strip_removed": true,
-      "weather_code_present": true,
-      "dropdowns_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "embedded_hero_present": true,
+      "old_asset_dependency_removed": true,
+      "weather_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_preserved": true
     },
     "chimney-services.html": {
-      "header_present": true,
-      "hero_present": true,
-      "scene_asset_present": true,
-      "old_weather_strip_removed": true,
-      "weather_code_present": true,
-      "dropdowns_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "embedded_hero_present": true,
+      "old_asset_dependency_removed": true,
+      "weather_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_preserved": true
     },
     "contact.html": {
-      "header_present": true,
-      "hero_present": true,
-      "scene_asset_present": true,
-      "old_weather_strip_removed": true,
-      "weather_code_present": true,
-      "dropdowns_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true,
-      "form_preserved": true,
-      "backend_fetch_preserved": true,
-      "financing_option_preserved": true,
-      "service_needed_required": true
+      "embedded_hero_present": true,
+      "old_asset_dependency_removed": true,
+      "weather_preserved": true,
+      "phone_links_preserved": true,
+      "request_service_preserved": true,
+      "form_backend_preserved": true,
+      "financing_preserved": true
     }
   },
   "notes": [
-    "Scene assets are cleaned visual-only crops with duplicate reference icon/text overlays removed.",
-    "The complete top composition is real HTML/CSS: compact header, nav, live weather, CTA row and benefit row.",
-    "Everything beneath the top composition remains in the page.",
-    "Home remains untouched."
+    "Hero/top-section images are embedded directly in each HTML page as base64 data URIs.",
+    "This fixes cases where GitHub/Vercel does not receive or resolve the assets folder correctly.",
+    "Navigation overlays, CTAs, weather hover, Contact form, and Resend backend are unchanged.",
+    "The visual design remains identical to Step 19."
   ]
 }

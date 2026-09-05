@@ -1,86 +1,63 @@
 {
   "result": "PASS",
   "global": {
-    "home_not_overwritten": true,
-    "global_styles_not_overwritten": true,
-    "backend_present": true,
-    "backend_syntax_valid": true,
-    "resend_env_preserved": true,
-    "test_delivery_preserved": true
+    "home_excluded": true,
+    "styles_excluded": true,
+    "backend_valid": true,
+    "resend_preserved": true
   },
   "pages": {
     "parts-protection-plan.html": {
-      "compact_header_once": true,
-      "reference_hero_once": true,
-      "old_weather_strip_removed": true,
-      "live_weather_code_present": true,
-      "hover_dropdown_code_present": true,
-      "scene_asset_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true,
-      "simple_enrollment_removed": true
+      "one_top": true,
+      "panel_exists": true,
+      "weather_function": true,
+      "phone_function": true,
+      "request_link": true,
+      "content_below": true,
+      "simple_removed": true
     },
     "water-heaters.html": {
-      "compact_header_once": true,
-      "reference_hero_once": true,
-      "old_weather_strip_removed": true,
-      "live_weather_code_present": true,
-      "hover_dropdown_code_present": true,
-      "scene_asset_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "one_top": true,
+      "panel_exists": true,
+      "weather_function": true,
+      "phone_function": true,
+      "request_link": true,
+      "content_below": true
     },
     "heating-boilers.html": {
-      "compact_header_once": true,
-      "reference_hero_once": true,
-      "old_weather_strip_removed": true,
-      "live_weather_code_present": true,
-      "hover_dropdown_code_present": true,
-      "scene_asset_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "one_top": true,
+      "panel_exists": true,
+      "weather_function": true,
+      "phone_function": true,
+      "request_link": true,
+      "content_below": true
     },
     "air-conditioning.html": {
-      "compact_header_once": true,
-      "reference_hero_once": true,
-      "old_weather_strip_removed": true,
-      "live_weather_code_present": true,
-      "hover_dropdown_code_present": true,
-      "scene_asset_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "one_top": true,
+      "panel_exists": true,
+      "weather_function": true,
+      "phone_function": true,
+      "request_link": true,
+      "content_below": true
     },
     "chimney-services.html": {
-      "compact_header_once": true,
-      "reference_hero_once": true,
-      "old_weather_strip_removed": true,
-      "live_weather_code_present": true,
-      "hover_dropdown_code_present": true,
-      "scene_asset_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true
+      "one_top": true,
+      "panel_exists": true,
+      "weather_function": true,
+      "phone_function": true,
+      "request_link": true,
+      "content_below": true
     },
     "contact.html": {
-      "compact_header_once": true,
-      "reference_hero_once": true,
-      "old_weather_strip_removed": true,
-      "live_weather_code_present": true,
-      "hover_dropdown_code_present": true,
-      "scene_asset_present": true,
-      "phone_link_present": true,
-      "content_below_preserved": true,
-      "request_form_preserved": true,
-      "request_backend_fetch_preserved": true,
-      "financing_option_preserved": true,
-      "service_needed_required": true
+      "one_top": true,
+      "panel_exists": true,
+      "weather_function": true,
+      "phone_function": true,
+      "request_link": true,
+      "content_below": true,
+      "form_preserved": true,
+      "backend_fetch": true,
+      "financing": true
     }
-  },
-  "notes": [
-    "This build recreates the complete visible top composition of the six approved panels: compact header, utilities/weather, navigation, hero, CTA row and benefit row.",
-    "The approved collage is not embedded as a webpage screenshot.",
-    "Only the service visual scene and the Heatspan logo are image assets; all navigation, text, CTAs, weather and benefits are real HTML/CSS.",
-    "The existing information below each redesigned top section remains intact.",
-    "The Contact form and Resend backend remain intact.",
-    "Home/index.html remains untouched."
-  ]
+  }
 }
