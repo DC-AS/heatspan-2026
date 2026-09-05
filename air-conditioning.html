@@ -127,6 +127,82 @@
 })();
 </script>
 
+
+<style id="heatspan-custom-hero">
+.hs-custom-hero{
+  position:relative;
+  min-height:410px;
+  overflow:hidden;
+  background:#06346f;
+  color:#fff;
+}
+.hs-custom-hero::after{
+  content:"";
+  position:absolute;
+  inset:0 0 0 auto;
+  width:48%;
+  background-image:var(--hero-image);
+  background-size:cover;
+  background-position:center;
+  z-index:0;
+}
+.hs-custom-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#06346f 0%,#06346f 44%,rgba(6,52,111,.94) 56%,rgba(6,52,111,.35) 72%,rgba(6,52,111,0) 100%);
+  z-index:1;
+}
+.hs-custom-hero .hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(1450px,100%);
+  margin:auto;
+  padding:58px 35px 46px;
+}
+.hs-custom-hero .eyebrow{
+  color:#75c7ff;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1.2px;
+  margin-bottom:12px;
+}
+.hs-custom-hero h1{
+  color:#fff;
+  font-size:54px;
+  line-height:1.02;
+  margin:0 0 16px;
+  max-width:760px;
+}
+.hs-custom-hero p{
+  font-size:19px;
+  line-height:1.55;
+  max-width:700px;
+  margin:0 0 23px;
+}
+.hs-custom-hero .hero-pills{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+.hs-custom-hero .hero-pill{
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);
+  font-size:12px;
+  font-weight:800;
+}
+@media(max-width:850px){
+  .hs-custom-hero{min-height:600px}
+  .hs-custom-hero::after{width:100%;height:43%;top:auto;bottom:0}
+  .hs-custom-hero::before{background:linear-gradient(#06346f 0%,#06346f 53%,rgba(6,52,111,.7) 67%,rgba(6,52,111,.1) 80%,transparent 100%)}
+  .hs-custom-hero .hero-inner{padding:34px 22px}
+  .hs-custom-hero h1{font-size:40px}
+}
+</style>
+
 </head><body><header><div class="header wrap"><a class="brand" href="index.html"><img src="assets/heatspan-logo.png" alt="Heatspan"></a><nav>
 <a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers & Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
 <a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
@@ -137,4 +213,12 @@
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
-<section class="hero"><div class="wrap"><div class="eyebrow">COOLING SERVICES</div><h1>Air Conditioning</h1><p>Maintenance, repair and replacement services to help Brooklyn and Queens homeowners stay comfortable during warm weather.</p><div class="actions"><a class="btn primary" href="tel:17183753320">CALL 718-375-3320</a><a class="btn secondary" href="contact.html">REQUEST SERVICE</a></div></div></section><section class='section'><div class='wrap'><h2>AC Service</h2><p class='lead'>Heatspan services and replaces cooling equipment and offers same-day appointments and 24/7 availability. If an air conditioner is not cooling properly, a technician can evaluate whether maintenance, repair or replacement is appropriate.</p></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn & Queens<br>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers & Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br>Brooklyn, NY 11234</div></div></div></footer></body></html>
+<section class="hs-custom-hero" style="--hero-image:url('assets/hero-ac.jpg')">
+<div class="hero-inner">
+<div class="eyebrow">STAY COOL. ALL SEASON LONG.</div>
+<h1>Air Conditioning Services</h1>
+<p>Maintenance, repair, and replacement services to help keep Brooklyn and Queens homes comfortable through warmer weather.</p>
+<div class="actions"><a class="btn primary" href="contact.html">REQUEST SERVICE</a><a class="btn secondary" href="tel:17183753320">CALL 718-375-3320</a></div>
+<div class="hero-pills"><span class="hero-pill">AC Maintenance</span><span class="hero-pill">Fast Repairs</span><span class="hero-pill">Replacement Options</span><span class="hero-pill">Comfort All Summer</span></div>
+</div>
+</section><section class='section'><div class='wrap'><h2>AC Service</h2><p class='lead'>Heatspan services and replaces cooling equipment and offers same-day appointments and 24/7 availability. If an air conditioner is not cooling properly, a technician can evaluate whether maintenance, repair or replacement is appropriate.</p></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn & Queens<br>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers & Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br>Brooklyn, NY 11234</div></div></div></footer></body></html>

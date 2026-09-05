@@ -127,6 +127,82 @@
 })();
 </script>
 
+
+<style id="heatspan-custom-hero">
+.hs-custom-hero{
+  position:relative;
+  min-height:410px;
+  overflow:hidden;
+  background:#06346f;
+  color:#fff;
+}
+.hs-custom-hero::after{
+  content:"";
+  position:absolute;
+  inset:0 0 0 auto;
+  width:48%;
+  background-image:var(--hero-image);
+  background-size:cover;
+  background-position:center;
+  z-index:0;
+}
+.hs-custom-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#06346f 0%,#06346f 44%,rgba(6,52,111,.94) 56%,rgba(6,52,111,.35) 72%,rgba(6,52,111,0) 100%);
+  z-index:1;
+}
+.hs-custom-hero .hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(1450px,100%);
+  margin:auto;
+  padding:58px 35px 46px;
+}
+.hs-custom-hero .eyebrow{
+  color:#75c7ff;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1.2px;
+  margin-bottom:12px;
+}
+.hs-custom-hero h1{
+  color:#fff;
+  font-size:54px;
+  line-height:1.02;
+  margin:0 0 16px;
+  max-width:760px;
+}
+.hs-custom-hero p{
+  font-size:19px;
+  line-height:1.55;
+  max-width:700px;
+  margin:0 0 23px;
+}
+.hs-custom-hero .hero-pills{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+.hs-custom-hero .hero-pill{
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);
+  font-size:12px;
+  font-weight:800;
+}
+@media(max-width:850px){
+  .hs-custom-hero{min-height:600px}
+  .hs-custom-hero::after{width:100%;height:43%;top:auto;bottom:0}
+  .hs-custom-hero::before{background:linear-gradient(#06346f 0%,#06346f 53%,rgba(6,52,111,.7) 67%,rgba(6,52,111,.1) 80%,transparent 100%)}
+  .hs-custom-hero .hero-inner{padding:34px 22px}
+  .hs-custom-hero h1{font-size:40px}
+}
+</style>
+
 </head><body><header><div class="header wrap"><a class="brand" href="index.html"><img src="assets/heatspan-logo.png" alt="Heatspan"></a><nav>
 <a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers & Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
 <a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
@@ -137,7 +213,15 @@
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
-<section class="hero"><div class="wrap"><div class="eyebrow">HEATING SERVICES</div><h1>Boilers & Heaters</h1><p>Professional boiler and heating service for Brooklyn and Queens, backed by decades of local experience.</p><div class="actions"><a class="btn primary" href="tel:17183753320">CALL 718-375-3320</a><a class="btn secondary" href="contact.html">REQUEST SERVICE</a></div></div></section>
+<section class="hs-custom-hero" style="--hero-image:url('assets/hero-boiler.jpg')">
+<div class="hero-inner">
+<div class="eyebrow">POWERFUL HEAT. RELIABLE PERFORMANCE.</div>
+<h1>Boiler Services</h1>
+<p>Installation, repair, and maintenance for residential boiler and heating systems designed to keep your home warm, dependable, and comfortable.</p>
+<div class="actions"><a class="btn primary" href="contact.html">REQUEST SERVICE</a><a class="btn secondary" href="tel:17183753320">CALL 718-375-3320</a></div>
+<div class="hero-pills"><span class="hero-pill">Expert Technicians</span><span class="hero-pill">Boiler Repair</span><span class="hero-pill">Preventative Maintenance</span><span class="hero-pill">Installation & Replacement</span></div>
+</div>
+</section>
 
 <section class="section"><div class="wrap"><h2>Reliable Heat Starts With the Right Service</h2><p class="lead">Heatspan provides residential boiler and heating services throughout Brooklyn and Queens. Whether your system needs routine maintenance, a targeted repair, or full replacement, the goal is dependable heat, safe operation, and year-round comfort.</p><div class="grid-3">
 <a class="card" href="boiler-repair.html"><div class="body"><h3>Boiler & Heater Repair</h3><p>Professional troubleshooting for systems that are not heating evenly, are making unusual noises, shutting down early, or no longer producing reliable heat.</p><span class="learn">EXPLORE REPAIR →</span></div></a>

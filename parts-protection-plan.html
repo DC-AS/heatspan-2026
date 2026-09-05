@@ -130,6 +130,82 @@
 <style id="heatspan-protection-plan-v7">
 .ppp-hero-note{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.ppp-pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:9px 13px;border-radius:999px;font-weight:800;font-size:13px}.ppp-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}.ppp-benefit{background:#fff;border:1px solid #dbe5f1;border-radius:14px;padding:22px;box-shadow:0 8px 24px rgba(7,50,105,.06)}.ppp-benefit .ico{font-size:26px;margin-bottom:9px}.ppp-benefit h3{margin:0 0 8px;color:#0648b7}.ppp-benefit p{margin:0;line-height:1.55}.ppp-band{background:linear-gradient(135deg,#032f69,#0a63ad);color:#fff}.ppp-band h2,.ppp-band .lead{color:#fff}.ppp-included{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin-top:22px}.ppp-included div{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.18);font-weight:700}.ppp-included span{margin-right:9px}.ppp-categories{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}.ppp-categories details{background:#fff;border:1px solid #dbe5f1;border-radius:12px;padding:0 18px}.ppp-categories summary{cursor:pointer;font-weight:900;color:#0648b7;padding:17px 0;list-style:none}.ppp-categories summary:after{content:'+';float:right;font-size:22px}.ppp-categories details[open] summary:after{content:'–'}.ppp-parts{columns:2;column-gap:24px;margin:0 0 18px;padding-left:18px}.ppp-parts li{break-inside:avoid;margin:7px 0;line-height:1.35}.ppp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.ppp-step{padding:22px;border-left:4px solid #1477e8;background:#f4f8fd;border-radius:8px}.ppp-step strong{display:block;color:#0648b7;margin-bottom:7px}.ppp-pricebox{background:#eef6ff;border:1px solid #cfe2f8;border-radius:14px;padding:22px;margin-top:24px}.ppp-pricebox h3{margin-top:0;color:#0648b7}.ppp-sticky{position:sticky;bottom:14px;z-index:50;width:min(900px,calc(100% - 30px));margin:20px auto;background:#fff;border:1px solid #d9e5f2;box-shadow:0 12px 34px rgba(0,0,0,.16);border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:15px}.ppp-sticky strong{color:#063b82}.ppp-sticky .btn{white-space:nowrap}@media(max-width:900px){.ppp-overview{grid-template-columns:repeat(2,1fr)}.ppp-categories,.ppp-steps{grid-template-columns:1fr}.ppp-included{grid-template-columns:1fr}.ppp-sticky{position:static;flex-direction:column;align-items:stretch}.ppp-parts{columns:1}}@media(max-width:560px){.ppp-overview{grid-template-columns:1fr}}
 </style>
+
+<style id="heatspan-custom-hero">
+.hs-custom-hero{
+  position:relative;
+  min-height:410px;
+  overflow:hidden;
+  background:#06346f;
+  color:#fff;
+}
+.hs-custom-hero::after{
+  content:"";
+  position:absolute;
+  inset:0 0 0 auto;
+  width:48%;
+  background-image:var(--hero-image);
+  background-size:cover;
+  background-position:center;
+  z-index:0;
+}
+.hs-custom-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#06346f 0%,#06346f 44%,rgba(6,52,111,.94) 56%,rgba(6,52,111,.35) 72%,rgba(6,52,111,0) 100%);
+  z-index:1;
+}
+.hs-custom-hero .hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(1450px,100%);
+  margin:auto;
+  padding:58px 35px 46px;
+}
+.hs-custom-hero .eyebrow{
+  color:#75c7ff;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1.2px;
+  margin-bottom:12px;
+}
+.hs-custom-hero h1{
+  color:#fff;
+  font-size:54px;
+  line-height:1.02;
+  margin:0 0 16px;
+  max-width:760px;
+}
+.hs-custom-hero p{
+  font-size:19px;
+  line-height:1.55;
+  max-width:700px;
+  margin:0 0 23px;
+}
+.hs-custom-hero .hero-pills{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:22px;
+}
+.hs-custom-hero .hero-pill{
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);
+  font-size:12px;
+  font-weight:800;
+}
+@media(max-width:850px){
+  .hs-custom-hero{min-height:600px}
+  .hs-custom-hero::after{width:100%;height:43%;top:auto;bottom:0}
+  .hs-custom-hero::before{background:linear-gradient(#06346f 0%,#06346f 53%,rgba(6,52,111,.7) 67%,rgba(6,52,111,.1) 80%,transparent 100%)}
+  .hs-custom-hero .hero-inner{padding:34px 22px}
+  .hs-custom-hero h1{font-size:40px}
+}
+</style>
+
 </head><body><header><div class="header wrap"><a class="brand" href="index.html"><img src="assets/heatspan-logo.png" alt="Heatspan"></a><nav>
 <a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers & Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
 <a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
@@ -140,7 +216,15 @@
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
-<section class="hero"><div class="wrap"><div class="eyebrow">YEAR-ROUND HEATING PROTECTION</div><h1>Parts Protection Plan</h1><p>Help protect your home heating system from unexpected covered repair costs with priority service, maintenance benefits, emergency support, and coverage for a broad range of heating-system parts.</p><div class="actions"><a class="btn primary" href="contact.html?service=Parts%20Protection%20Plan">REQUEST PLAN INFORMATION</a><a class="btn secondary" href="tel:17183753320">CALL 718-375-3320</a></div><div class="ppp-hero-note"><span class="ppp-pill">24/7 Emergency Service</span><span class="ppp-pill">Priority Service</span><span class="ppp-pill">Parts & Labor Coverage</span><span class="ppp-pill">Annual Maintenance Benefits</span></div></div></section>
+<section class="hs-custom-hero" style="--hero-image:url('assets/hero-shield.jpg')">
+<div class="hero-inner">
+<div class="eyebrow">YEAR-ROUND HEATING PROTECTION</div>
+<h1>Parts Protection Plan</h1>
+<p>Help protect your home heating system from unexpected covered repair costs with priority service, maintenance benefits, emergency support, and coverage for a broad range of heating-system parts.</p>
+<div class="actions"><a class="btn primary" href="contact.html">REQUEST PLAN INFORMATION</a><a class="btn secondary" href="tel:17183753320">CALL 718-375-3320</a></div>
+<div class="hero-pills"><span class="hero-pill">24/7 Emergency Service</span><span class="hero-pill">Priority Service</span><span class="hero-pill">Parts & Labor Coverage</span><span class="hero-pill">Annual Maintenance Benefits</span></div>
+</div>
+</section>
 <section class="section"><div class="wrap"><h2>Peace of Mind. Year-Round Protection.</h2><p class="lead">Heating equipment works hardest when you need it most. The Heatspan Parts Protection Plan is designed to make covered service easier to manage by combining priority response, preventative maintenance, emergency availability, and broad parts protection into one plan.</p><div class="ppp-overview">
 <div class="ppp-benefit"><div class="ico">⚡</div><h3>Priority Service</h3><p>Plan customers receive priority service when heating problems arise.</p></div>
 <div class="ppp-benefit"><div class="ico">🕐</div><h3>24/7 Emergency</h3><p>Emergency heating service is included for covered plan customers.</p></div>
