@@ -129,198 +129,178 @@
 
 
 
-<style id="heatspan-mockup-hero-v9">
-.svc-hero{
-  --hero-blue:#063e80;
+
+<style id="heatspan-section-match-v10">
+.section-hero{
   position:relative;
-  min-height:350px;
+  height:clamp(430px,30vw,500px);
   overflow:hidden;
+  background:#073d7d;
   color:#fff;
-  background:var(--hero-blue);
   isolation:isolate;
 }
-.svc-hero__media{
+.section-hero__art{
   position:absolute;
   z-index:-3;
-  top:0;
-  right:0;
-  width:58%;
+  inset:0 0 0 auto;
+  width:61%;
   height:100%;
   overflow:hidden;
-  background:#0b579c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background:#0b5ca5;
 }
-.svc-hero__media img{
+.section-hero__art img{
   width:100%;
   height:100%;
-  display:block;
-  object-fit:contain;
-  object-position:center center;
-}
-.svc-hero--protection .svc-hero__media img{
   object-fit:cover;
   object-position:center;
+  display:block;
 }
-.svc-hero--contact .svc-hero__media{
-  width:56%;
-}
-.svc-hero--contact .svc-hero__media img{
-  object-fit:contain;
-  object-position:center center;
-}
-.svc-hero__wash{
+.section-hero--parts .section-hero__art img{object-position:center center}
+.section-hero--water .section-hero__art img{object-position:center center}
+.section-hero--boiler .section-hero__art img{object-position:center center}
+.section-hero--ac .section-hero__art img{object-position:center center}
+.section-hero--chimney .section-hero__art img{object-position:center center}
+.section-hero--contact .section-hero__art img{object-position:center center}
+
+.section-hero__overlay{
   position:absolute;
   z-index:-2;
   inset:0;
   background:
     linear-gradient(90deg,
       #073d7d 0%,
-      #073d7d 37%,
-      rgba(7,61,125,.98) 46%,
-      rgba(7,61,125,.82) 56%,
-      rgba(7,61,125,.36) 70%,
-      rgba(7,61,125,.05) 85%,
-      rgba(7,61,125,0) 100%);
+      #073d7d 34%,
+      rgba(7,61,125,.98) 43%,
+      rgba(7,61,125,.84) 51%,
+      rgba(7,61,125,.43) 64%,
+      rgba(7,61,125,.10) 77%,
+      rgba(7,61,125,0) 88%);
 }
-.svc-hero__inner{
+.section-hero__inner{
   width:min(1240px,100%);
-  min-height:350px;
-  margin:0 auto;
-  padding:38px 32px 20px;
+  height:100%;
+  margin:auto;
+  padding:44px 32px 24px;
   display:flex;
   flex-direction:column;
+  position:relative;
+  z-index:2;
 }
-.svc-hero__copy{
-  width:min(590px,48%);
+.section-hero__copy{
+  width:min(600px,47%);
 }
-.svc-hero__eyebrow{
-  margin:0 0 8px;
+.section-hero__eyebrow{
+  margin-bottom:10px;
   color:#74caff;
-  font-size:13px;
-  line-height:1.2;
+  font-size:14px;
   font-weight:900;
-  letter-spacing:1.25px;
+  letter-spacing:1.35px;
 }
-.svc-hero h1{
-  margin:0 0 12px;
+.section-hero h1{
   color:#fff;
-  font-size:42px;
-  line-height:1.05;
-  letter-spacing:-.7px;
+  margin:0 0 14px;
+  font-size:48px;
+  line-height:1.03;
   font-weight:900;
+  letter-spacing:-.8px;
 }
-.svc-hero__desc{
-  margin:0 0 18px;
-  max-width:585px;
+.section-hero__desc{
   color:#fff;
-  font-size:16px;
+  margin:0 0 22px;
+  font-size:17px;
   line-height:1.48;
+  max-width:585px;
 }
-.svc-hero__actions{
+.section-hero__actions{
   display:flex;
+  gap:13px;
   flex-wrap:wrap;
-  gap:12px;
 }
-.svc-hero__actions .btn{
-  min-height:46px;
+.section-hero__actions .btn{
+  min-height:48px;
+  padding:0 22px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:0 20px;
   border-radius:4px;
   font-size:14px;
   font-weight:900;
-  letter-spacing:.15px;
+  text-decoration:none;
 }
-.svc-hero__actions .btn.primary{
+.section-hero__actions .primary{
   background:#0784ee;
-  color:#fff;
   border:1px solid #0784ee;
-}
-.svc-hero__actions .btn.secondary{
-  background:rgba(3,36,78,.38);
   color:#fff;
-  border:2px solid rgba(255,255,255,.9);
 }
-.svc-hero__benefits{
+.section-hero__actions .secondary{
+  background:rgba(2,34,73,.38);
+  border:2px solid #fff;
+  color:#fff;
+}
+.section-hero__benefits{
   margin-top:auto;
-  padding-top:20px;
+  width:min(825px,68%);
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:16px;
-  width:min(760px,64%);
+  gap:18px;
+  padding-top:18px;
 }
-.svc-benefit{
+.section-hero__benefit{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:10px;
   min-width:0;
   color:#fff;
-  font-size:12px;
-  line-height:1.2;
+  font-size:13px;
   font-weight:800;
+  line-height:1.2;
 }
-.svc-benefit svg{
-  width:25px;
-  height:25px;
-  flex:0 0 25px;
+.section-hero__benefit svg{
+  width:29px;
+  height:29px;
+  flex:0 0 29px;
   stroke:#fff;
   fill:none;
   stroke-width:2;
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-.svc-hero--contact .svc-hero__copy{width:min(540px,48%)}
-.svc-hero--contact .svc-hero__benefits{width:min(710px,62%)}
+.section-hero--contact .section-hero__copy{width:min(570px,45%)}
+.section-hero--contact .section-hero__benefits{width:min(790px,65%)}
 
-@media (max-width:1000px){
-  .svc-hero__inner{padding-left:24px;padding-right:24px}
-  .svc-hero__copy{width:56%}
-  .svc-hero h1{font-size:38px}
-  .svc-hero__benefits{width:72%;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:1000px){
+  .section-hero{height:470px}
+  .section-hero__inner{padding-left:24px;padding-right:24px}
+  .section-hero__copy{width:52%}
+  .section-hero h1{font-size:42px}
+  .section-hero__benefits{width:74%;grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media (max-width:760px){
-  .svc-hero{
-    min-height:640px;
-  }
-  .svc-hero__inner{
-    min-height:640px;
-    padding:28px 20px 20px;
-  }
-  .svc-hero__media,
-  .svc-hero--contact .svc-hero__media{
+@media(max-width:760px){
+  .section-hero{height:720px}
+  .section-hero__inner{padding:30px 20px 20px}
+  .section-hero__art{
+    width:100%;
+    height:43%;
     top:auto;
     bottom:0;
-    width:100%;
-    height:42%;
   }
-  .svc-hero__media img,
-  .svc-hero--contact .svc-hero__media img{
-    object-position:center;
-  }
-  .svc-hero__wash{
-    background:linear-gradient(
-      180deg,
+  .section-hero__overlay{
+    background:linear-gradient(180deg,
       #073d7d 0%,
-      #073d7d 50%,
-      rgba(7,61,125,.92) 61%,
-      rgba(7,61,125,.42) 75%,
-      rgba(7,61,125,.04) 100%
-    );
+      #073d7d 48%,
+      rgba(7,61,125,.94) 59%,
+      rgba(7,61,125,.44) 74%,
+      rgba(7,61,125,.05) 100%);
   }
-  .svc-hero__copy,
-  .svc-hero--contact .svc-hero__copy{
-    width:100%;
-  }
-  .svc-hero h1{font-size:35px}
-  .svc-hero__desc{font-size:15px}
-  .svc-hero__benefits,
-  .svc-hero--contact .svc-hero__benefits{
+  .section-hero__copy,
+  .section-hero--contact .section-hero__copy{width:100%}
+  .section-hero h1{font-size:36px}
+  .section-hero__desc{font-size:15px}
+  .section-hero__benefits,
+  .section-hero--contact .section-hero__benefits{
     width:100%;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    padding-bottom:6px;
+    padding-bottom:4px;
   }
 }
 </style>
@@ -335,20 +315,20 @@
     <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
   </div>
 </div>
-<section class="svc-hero svc-hero--contact">
-  <div class="svc-hero__media" aria-hidden="true"><img src="assets/hero-contact-v3.jpg" alt=""></div>
-  <div class="svc-hero__wash" aria-hidden="true"></div>
-  <div class="svc-hero__inner">
-    <div class="svc-hero__copy">
-      <div class="svc-hero__eyebrow">WE'RE HERE TO HELP</div>
+<section class="section-hero section-hero--contact">
+  <div class="section-hero__art" aria-hidden="true"><img src="assets/hero-contact-exact.jpg" alt=""></div>
+  <div class="section-hero__overlay" aria-hidden="true"></div>
+  <div class="section-hero__inner">
+    <div class="section-hero__copy">
+      <div class="section-hero__eyebrow">WE'RE HERE TO HELP</div>
       <h1>Contact Heatspan</h1>
-      <p class="svc-hero__desc">Have a question or need to schedule service? Our service managers are ready to help connect you with the right Heatspan service.</p>
-      <div class="svc-hero__actions">
+      <p class="section-hero__desc">Have a question or need to schedule service? Our service managers are ready to help connect you with the right Heatspan service.</p>
+      <div class="section-hero__actions">
         <a class="btn primary" href="tel:17183753320">CALL 718-375-3320</a>
         <a class="btn secondary" href="#service-form">SEND A MESSAGE</a>
       </div>
     </div>
-    <div class="svc-hero__benefits"><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M4 13h3v6H5a1 1 0 0 1-1-1zM20 13h-3v6h2a1 1 0 0 0 1-1z"/><path d="M17 20c-1 1-2 1-4 1"/></svg><span>Speak with a Service Manager</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/></svg><span>Schedule Service</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.8 1.7c-1.3 1.2-2.3 1.7-2.3 3.3"/><path d="M12 18h.01"/></svg><span>Ask a Question</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-6 6-12a6 6 0 1 0-12 0c0 6 6 12 6 12z"/><circle cx="12" cy="9" r="2"/></svg><span>Get Directions</span></div></div>
+    <div class="section-hero__benefits"><div class="section-hero__benefit"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M4 13h3v6H5a1 1 0 0 1-1-1zM20 13h-3v6h2a1 1 0 0 0 1-1z"/></svg><span>Speak with a Service Manager</span></div><div class="section-hero__benefit"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/></svg><span>Schedule Service</span></div><div class="section-hero__benefit"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.8 1.7c-1.3 1.2-2.3 1.7-2.3 3.3"/><path d="M12 18h.01"/></svg><span>Ask a Question</span></div><div class="section-hero__benefit"><svg viewBox="0 0 24 24"><path d="M12 21s6-6 6-12a6 6 0 1 0-12 0c0 6 6 12 6 12z"/><circle cx="12" cy="9" r="2"/></svg><span>Get Directions</span></div></div>
   </div>
 </section><section class="section"><div class="wrap contact-grid"><div><h2>Contact Heatspan</h2><p class="lead"><strong>Phone:</strong> 718-375-3320<br><strong>Service Area:</strong> Brooklyn &amp; Queens<br><strong>South Office:</strong> 1980 E 35th St, Brooklyn, NY 11234<br><strong>License:</strong> #2032300-DCA</p><div class="notice"><strong>Emergency?</strong> For urgent heating or cooling service, call <a href="tel:17183753320"><strong>718-375-3320</strong></a>.</div></div><form id="service-form"><h2>Request Service</h2><div class="grid-2"><div><label>First Name *</label><input name="firstName" required></div><div><label>Last Name *</label><input name="lastName" required></div></div><label>Phone *</label><input name="phone" type="tel" required><label>Email *</label><input name="email" type="email" required><label>Service Address</label><input name="address"><label>Customer Status</label><select name="customerStatus"><option value="">Select one</option><option>New customer</option><option>Existing customer</option><option>Not sure</option></select><label>Service Needed *</label><select name="serviceNeeded" required><option value="">Select a service</option><option>Boiler / Heating Repair</option><option>Boiler Maintenance</option><option>Boiler Installation / Replacement</option><option>Air Conditioning</option><option>Water Heater</option><option>Chimney Service</option><option>Parts Protection Plan</option>
         <option>Financing Options</option><option>Other</option></select><label>Urgency</label><select name="urgency"><option>Routine / Flexible</option><option>As soon as possible</option><option>Emergency — I will also call 718-375-3320</option></select><label>How can we help? *</label><textarea name="message" required></textarea><div style="position:absolute;left:-9999px" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div><button id="submit-btn" class="btn primary" type="submit" style="margin-top:15px">SEND TEST REQUEST</button><p id="form-status" role="status" style="font-weight:700;margin-top:14px"></p><p class="small" style="color:#52647a">TEST MODE: This verifies the form and backend without changing the live Heatspan domain.</p></form></div></section><script>const f=document.getElementById('service-form'),s=document.getElementById('form-status'),b=document.getElementById('submit-btn');f.addEventListener('submit',async e=>{e.preventDefault();s.textContent='';b.disabled=true;b.textContent='SENDING...';try{const r=await fetch('/api/request-service',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f).entries()))});const j=await r.json();if(!r.ok||!j.ok)throw new Error(j.message||'Unable to send request.');f.reset();s.style.color='#0b6b2d';s.textContent='Thank you. Your test service request was submitted successfully. For emergency service, call 718-375-3320.';}catch(err){s.style.color='#a32020';s.textContent=err.message||'Something went wrong. Please call 718-375-3320.';}finally{b.disabled=false;b.textContent='SEND TEST REQUEST';}});</script><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn & Queens<br>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers & Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br>Brooklyn, NY 11234</div></div></div></footer></body></html>

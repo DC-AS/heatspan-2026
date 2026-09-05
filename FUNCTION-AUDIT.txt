@@ -1,0 +1,101 @@
+HEATSPAN STEP 10.1 — PRE-PUSH FUNCTION AUDIT
+
+RESULT: PASS
+
+This package was intentionally narrowed to the six redesigned sections plus their required image assets and the existing working Vercel/Resend backend.
+
+Verified:
+- Existing Home/index.html is NOT included, so the current van hero is protected.
+- Existing styles.css is NOT included, so the current global stylesheet is protected.
+- Live Open-Meteo weekly weather code is still present on all six pages.
+- Hover/focus dropdown navigation is still present.
+- Click-to-call links are still present.
+- Request Service navigation is still present.
+- Contact Request Service form is still present and still calls /api/request-service.
+- Financing Options remains in Service Needed.
+- The Resend backend is included, uses RESEND_API_KEY, and remains in the already-tested test-delivery mode.
+- Backend JavaScript syntax passes Node validation.
+- Parts Protection Simple Enrollment remains removed.
+- Internal page links referenced by these six pages match known site pages.
+
+NOT YET A CURRENT FUNCTION:
+- Service-address autocomplete is still a future enhancement on the project checklist.
+- Live delivery to info@heatspan.com is still pending DNS/Resend domain verification; this package intentionally preserves test mode.
+
+Full machine audit:
+{
+  "backend": {
+    "api_file_included": true,
+    "post_only_guard": true,
+    "resend_environment_key_preserved": true,
+    "test_delivery_mode_preserved": true,
+    "customer_fields_preserved": true,
+    "javascript_syntax_valid": true
+  },
+  "pages": {
+    "air-conditioning.html": {
+      "live_weather_code_preserved": true,
+      "hover_dropdown_behavior_preserved": true,
+      "clickable_phone_preserved": true,
+      "request_service_navigation_preserved": true,
+      "new_section_visual_component_present": true,
+      "new_hero_asset_present": true,
+      "known_internal_links_valid": true
+    },
+    "chimney-services.html": {
+      "live_weather_code_preserved": true,
+      "hover_dropdown_behavior_preserved": true,
+      "clickable_phone_preserved": true,
+      "request_service_navigation_preserved": true,
+      "new_section_visual_component_present": true,
+      "new_hero_asset_present": true,
+      "known_internal_links_valid": true
+    },
+    "contact.html": {
+      "live_weather_code_preserved": true,
+      "hover_dropdown_behavior_preserved": true,
+      "clickable_phone_preserved": true,
+      "request_service_navigation_preserved": true,
+      "new_section_visual_component_present": true,
+      "new_hero_asset_present": true,
+      "known_internal_links_valid": true,
+      "request_service_form_preserved": true,
+      "form_posts_to_backend": true,
+      "financing_option_preserved": true,
+      "required_service_dropdown_preserved": true
+    },
+    "heating-boilers.html": {
+      "live_weather_code_preserved": true,
+      "hover_dropdown_behavior_preserved": true,
+      "clickable_phone_preserved": true,
+      "request_service_navigation_preserved": true,
+      "new_section_visual_component_present": true,
+      "new_hero_asset_present": true,
+      "known_internal_links_valid": true
+    },
+    "parts-protection-plan.html": {
+      "live_weather_code_preserved": true,
+      "hover_dropdown_behavior_preserved": true,
+      "clickable_phone_preserved": true,
+      "request_service_navigation_preserved": true,
+      "new_section_visual_component_present": true,
+      "new_hero_asset_present": true,
+      "known_internal_links_valid": true,
+      "simple_enrollment_removed_as_requested": true
+    },
+    "water-heaters.html": {
+      "live_weather_code_preserved": true,
+      "hover_dropdown_behavior_preserved": true,
+      "clickable_phone_preserved": true,
+      "request_service_navigation_preserved": true,
+      "new_section_visual_component_present": true,
+      "new_hero_asset_present": true,
+      "known_internal_links_valid": true
+    }
+  },
+  "overall": true,
+  "protected_existing_files": {
+    "home_index_not_included": true,
+    "global_stylesheet_not_included": true
+  }
+}
