@@ -1,0 +1,206 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;font-family:Arial,sans-serif}.btn{text-decoration:none}</style><style id="heatspan-mockup-hero-v9">
+.svc-hero{
+  --hero-blue:#063e80;
+  position:relative;
+  min-height:350px;
+  overflow:hidden;
+  color:#fff;
+  background:var(--hero-blue);
+  isolation:isolate;
+}
+.svc-hero__media{
+  position:absolute;
+  z-index:-3;
+  top:0;
+  right:0;
+  width:56%;
+  height:100%;
+  overflow:hidden;
+  background:#0b579c;
+}
+.svc-hero__media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+.svc-hero--protection .svc-hero__media img{
+  object-fit:cover;
+  object-position:center;
+}
+.svc-hero--contact .svc-hero__media{
+  width:53%;
+}
+.svc-hero--contact .svc-hero__media img{
+  object-position:center 34%;
+}
+.svc-hero__wash{
+  position:absolute;
+  z-index:-2;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      #073d7d 0%,
+      #073d7d 37%,
+      rgba(7,61,125,.98) 46%,
+      rgba(7,61,125,.82) 56%,
+      rgba(7,61,125,.36) 70%,
+      rgba(7,61,125,.05) 85%,
+      rgba(7,61,125,0) 100%);
+}
+.svc-hero__inner{
+  width:min(1240px,100%);
+  min-height:350px;
+  margin:0 auto;
+  padding:38px 32px 20px;
+  display:flex;
+  flex-direction:column;
+}
+.svc-hero__copy{
+  width:min(610px,52%);
+}
+.svc-hero__eyebrow{
+  margin:0 0 8px;
+  color:#74caff;
+  font-size:13px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:1.25px;
+}
+.svc-hero h1{
+  margin:0 0 12px;
+  color:#fff;
+  font-size:42px;
+  line-height:1.05;
+  letter-spacing:-.7px;
+  font-weight:900;
+}
+.svc-hero__desc{
+  margin:0 0 18px;
+  max-width:585px;
+  color:#fff;
+  font-size:16px;
+  line-height:1.48;
+}
+.svc-hero__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.svc-hero__actions .btn{
+  min-height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 20px;
+  border-radius:4px;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.15px;
+}
+.svc-hero__actions .btn.primary{
+  background:#0784ee;
+  color:#fff;
+  border:1px solid #0784ee;
+}
+.svc-hero__actions .btn.secondary{
+  background:rgba(3,36,78,.38);
+  color:#fff;
+  border:2px solid rgba(255,255,255,.9);
+}
+.svc-hero__benefits{
+  margin-top:auto;
+  padding-top:20px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  width:min(780px,67%);
+}
+.svc-benefit{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+  color:#fff;
+  font-size:12px;
+  line-height:1.2;
+  font-weight:800;
+}
+.svc-benefit svg{
+  width:25px;
+  height:25px;
+  flex:0 0 25px;
+  stroke:#fff;
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.svc-hero--contact .svc-hero__copy{width:min(540px,48%)}
+.svc-hero--contact .svc-hero__benefits{width:min(710px,62%)}
+
+@media (max-width:1000px){
+  .svc-hero__inner{padding-left:24px;padding-right:24px}
+  .svc-hero__copy{width:56%}
+  .svc-hero h1{font-size:38px}
+  .svc-hero__benefits{width:72%;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .svc-hero{
+    min-height:640px;
+  }
+  .svc-hero__inner{
+    min-height:640px;
+    padding:28px 20px 20px;
+  }
+  .svc-hero__media,
+  .svc-hero--contact .svc-hero__media{
+    top:auto;
+    bottom:0;
+    width:100%;
+    height:42%;
+  }
+  .svc-hero__media img,
+  .svc-hero--contact .svc-hero__media img{
+    object-position:center;
+  }
+  .svc-hero__wash{
+    background:linear-gradient(
+      180deg,
+      #073d7d 0%,
+      #073d7d 50%,
+      rgba(7,61,125,.92) 61%,
+      rgba(7,61,125,.42) 75%,
+      rgba(7,61,125,.04) 100%
+    );
+  }
+  .svc-hero__copy,
+  .svc-hero--contact .svc-hero__copy{
+    width:100%;
+  }
+  .svc-hero h1{font-size:35px}
+  .svc-hero__desc{font-size:15px}
+  .svc-hero__benefits,
+  .svc-hero--contact .svc-hero__benefits{
+    width:100%;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    padding-bottom:6px;
+  }
+}
+</style></head><body><section class="svc-hero svc-hero--boiler">
+  <div class="svc-hero__media" aria-hidden="true"><img src="assets/hero-boiler-v2.jpg" alt=""></div>
+  <div class="svc-hero__wash" aria-hidden="true"></div>
+  <div class="svc-hero__inner">
+    <div class="svc-hero__copy">
+      <div class="svc-hero__eyebrow">POWERFUL HEAT. RELIABLE PERFORMANCE.</div>
+      <h1>Boiler Services</h1>
+      <p class="svc-hero__desc">Installation, repair, and maintenance for residential boiler and heating systems designed to keep your home warm, dependable, and comfortable.</p>
+      <div class="svc-hero__actions">
+        <a class="btn primary" href="contact.html">REQUEST SERVICE</a>
+        <a class="btn secondary" href="tel:17183753320">CALL 718-375-3320</a>
+      </div>
+    </div>
+    <div class="svc-hero__benefits"><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-1-1-4z"/></svg><span>Expert Technicians</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Boiler Repair</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16"/></svg><span>Preventative Maintenance</span></div><div class="svc-benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><span>Installation & Replacement</span></div></div>
+  </div>
+</section></body></html>
