@@ -1,0 +1,16 @@
+HEATSPAN NEXT V2 — TASKS 5–9
+
+Implemented:
+1. HVAC SERVICES now opens a new HVAC Services landing page instead of redirecting straight to Boilers. The dropdown remains and contains Air Conditioning, Heating / Boilers and Water Heaters.
+2. Header service/phone/request-service block now uses the exact Home-page markup across production pages for a consistent appearance.
+3. Contact page now includes a Google Reviews panel in the previously blank left-side area. It displays only 5-star reviews returned by Google.
+4. Home Financing button now goes directly to the supplied EnerBank application URL with Program Phone 866-405-7600, Contractor ID 10047 and Loan Code DEL2622 already passed in the URL.
+5. PROTECTION dropdown was removed. PROTECTION now links directly to Parts Protection Plan.
+
+LIVE GOOGLE REVIEWS SETUP
+The review module is wired to /api/google-reviews.js. To activate live Google data in Vercel, add this Environment Variable:
+GOOGLE_PLACES_API_KEY = your Google Maps Platform API key with Places API (New) enabled.
+
+Google's Places review response is limited to a small current sample. The website filters that returned sample so only 5-star reviews are displayed. If the API key is not configured, the panel fails gracefully and provides a link to Heatspan's Google reviews.
+
+No Heatspan live-domain DNS changes are included.

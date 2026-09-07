@@ -1,0 +1,15 @@
+{
+  "version": "Heatspan Next v2 \u2014 Tasks 5-9",
+  "files_checked": 14,
+  "checks": {
+    "hvac_parent_links_to_new_landing": true,
+    "hvac_landing_exists": true,
+    "protection_dropdown_removed": true,
+    "protection_direct_link": true,
+    "header_phone_markup_matches_home": true,
+    "home_financing_direct_enerbank": true,
+    "contact_reviews_panel": true,
+    "contact_reviews_5star_filter": true,
+    "google_reviews_api_exists": true
+  }
+}
