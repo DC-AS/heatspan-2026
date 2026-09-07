@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Boilers &amp; Heaters | Heatspan</title><link href="styles.css" rel="stylesheet"/>
 <style id="heatspan-step5-enhancements">
 /* Reliable desktop hover dropdowns */
@@ -188,40 +189,88 @@
   white-space:nowrap;
 }
 </style>
-
-
-<style id="heatspan-boiler-perfect-image-fit">
-.hs-rhero--boiler .hs-rhero__art{
-  position:absolute;
-  overflow:hidden;
-  background:#07539a;
-  --hero-fit-image:url("assets/hero-boiler-reference.png");
+<style id="heatspan-boiler-single-image-text-safe">
+/* FINAL hero correction: one image only; no duplicated background layer. */
+.hs-rhero--boiler {
+  background:#064f99 !important;
+  background-image:none !important;
+  overflow:hidden !important;
+  position:relative !important;
 }
-.hs-rhero--boiler .hs-rhero__art::before{
-  content:"";
-  position:absolute;
-  inset:-5%;
-  background-image:var(--hero-fit-image);
-  background-size:cover;
-  background-position:center;
-  filter:blur(16px) saturate(.92);
-  opacity:.52;
-  transform:scale(1.06);
+.hs-rhero--boiler::before {
+  background:none !important;
+  background-image:none !important;
 }
-.hs-rhero--boiler .hs-rhero__art img{
-  position:relative;
-  z-index:1;
+.hs-rhero--boiler .hs-rhero__inner {
+  position:relative !important;
+  z-index:3 !important;
+}
+.hs-rhero--boiler .hs-rhero__copy {
+  position:relative !important;
+  z-index:4 !important;
+  width:48% !important;
+  max-width:600px !important;
+  min-width:0 !important;
+  padding-right:24px !important;
+  box-sizing:border-box !important;
+}
+.hs-rhero--boiler .hs-rhero__copy h1,
+.hs-rhero--boiler .hs-rhero__copy p {
+  max-width:100% !important;
+  overflow:visible !important;
+}
+.hs-rhero--boiler .hs-rhero__art {
+  position:absolute !important;
+  z-index:1 !important;
+  right:0 !important;
+  left:auto !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:50% !important;
+  height:100% !important;
+  overflow:hidden !important;
+  background:#064f99 !important;
+  background-image:none !important;
+}
+.hs-rhero--boiler .hs-rhero__art::before,
+.hs-rhero--boiler .hs-rhero__art::after {
+  content:none !important;
+  display:none !important;
+  background:none !important;
+}
+.hs-rhero--boiler .hs-rhero__art img {
+  position:absolute !important;
+  inset:0 !important;
   display:block !important;
   width:100% !important;
   height:100% !important;
+  max-width:none !important;
   margin:0 !important;
   object-fit:contain !important;
   object-position:center center !important;
-  max-width:none !important;
+  background:#064f99 !important;
 }
-</style>
-
-</head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
+/* A CSS-only fade, not a second image. */
+.hs-rhero--boiler .hs-rhero__art {
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 14%, #000 100%);
+  mask-image:linear-gradient(to right, transparent 0, #000 14%, #000 100%);
+}
+@media(max-width:900px) {
+  .hs-rhero--boiler .hs-rhero__copy {
+    width:100% !important;
+    max-width:none !important;
+    padding-right:0 !important;
+  }
+  .hs-rhero--boiler .hs-rhero__art {
+    position:relative !important;
+    width:100% !important;
+    height:280px !important;
+    margin-top:22px !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+  }
+}
+</style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
 <a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
 <div class="top"><div class="phone"><small>24/7 HEATING &amp; AC SERVICE</small><strong>718-375-3320</strong></div><a class="request" href="contact.html">REQUEST SERVICE</a></div></div></header>
@@ -230,7 +279,7 @@
 <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
 </div>
 </div>
-<section class="hs-rhero hs-rhero--boiler"><div class="hs-rhero__art"><img alt="" src="assets/hero-boiler-reference.png"/></div><div class="hs-rhero__fade"></div><div class="hs-rhero__inner"><div class="hs-rhero__copy"><div class="hs-rhero__eyebrow">POWERFUL HEAT. RELIABLE PERFORMANCE.</div><h1>Boiler Services</h1><p class="hs-rhero__lead">Installation, repair, and maintenance for residential and commercial boilers. Keep your property warm, efficient, and operating at its best.</p><div class="hs-rhero__actions"><a class="primary" href="contact.html">REQUEST SERVICE</a><div class="phone-outline-box"><a class="" href="tel:17183753320">CALL 718-375-3320</a></div></div></div><div class="hs-rhero__benefits"><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"></path><circle cx="12" cy="12" r="4"></circle></svg><span>Expert Technicians</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"></path><circle cx="12" cy="12" r="4"></circle></svg><span>All Boiler Brands</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M5 20V12M12 20V8M19 20V4"></path></svg><span>Improved Efficiency</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span>Safe &amp; Reliable</span></div></div></div></section>
+<section class="hs-rhero hs-rhero--boiler"><div class="hs-rhero__art"><img alt="" src="assets/hero-boiler-final.jpg"/></div><div class="hs-rhero__fade"></div><div class="hs-rhero__inner"><div class="hs-rhero__copy"><div class="hs-rhero__eyebrow">POWERFUL HEAT. RELIABLE PERFORMANCE.</div><h1>Boiler Services</h1><p class="hs-rhero__lead">Installation, repair, and maintenance for residential and commercial boilers. Keep your property warm, efficient, and operating at its best.</p><div class="hs-rhero__actions"><a class="primary" href="contact.html">REQUEST SERVICE</a><div class="phone-outline-box"><a class="" href="tel:17183753320">CALL 718-375-3320</a></div></div></div><div class="hs-rhero__benefits"><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"></path><circle cx="12" cy="12" r="4"></circle></svg><span>Expert Technicians</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"></path><circle cx="12" cy="12" r="4"></circle></svg><span>All Boiler Brands</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M5 20V12M12 20V8M19 20V4"></path></svg><span>Improved Efficiency</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span>Safe &amp; Reliable</span></div></div></div></section>
 <section class="section"><div class="wrap"><h2>Reliable Heat Starts With the Right Service</h2><p class="lead">Heatspan provides residential boiler and heating services throughout Brooklyn and Queens. Whether your system needs routine maintenance, a targeted repair, or full replacement, the goal is dependable heat, safe operation, and year-round comfort.</p><div class="grid-3">
 <a class="card" href="boiler-repair.html"><div class="body"><h3>Boiler &amp; Heater Repair</h3><p>Professional troubleshooting for systems that are not heating evenly, are making unusual noises, shutting down early, or no longer producing reliable heat.</p><span class="learn">EXPLORE REPAIR →</span></div></a>
 <a class="card" href="boiler-maintenance.html"><div class="body"><h3>Boiler Maintenance</h3><p>Preventative service designed to identify developing problems, support efficiency, and prepare your heating system for winter operation.</p><span class="learn">EXPLORE MAINTENANCE →</span></div></a>

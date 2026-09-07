@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "locked_pages_unchanged": true,
+  "changed_pages": [
+    "heating-boilers.html",
+    "air-conditioning.html",
+    "water-heaters.html"
+  ],
+  "locked_pages": [
+    "contact.html",
+    "chimney-services.html",
+    "parts-protection-plan.html"
+  ],
+  "fit": "full image contained; right aligned; no crop"
+}

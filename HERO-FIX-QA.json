@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "fixes": [
+    "Removed hero background-image duplication on Boiler, AC, Water Heater",
+    "Single isolated hero image panel only",
+    "Protected/widened left text column so headings and copy do not clip",
+    "Preserved current photo scale using object-fit: contain",
+    "Contact, Chimney, Protection unchanged"
+  ],
+  "locked_pages_unchanged": true
+}

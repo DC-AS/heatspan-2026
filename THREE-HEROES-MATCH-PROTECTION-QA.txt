@@ -1,0 +1,30 @@
+{
+  "result": "PASS",
+  "locked_pages_unchanged": true,
+  "pages": {
+    "heating-boilers.html": {
+      "hero_present": true,
+      "protection_clone_style": true,
+      "approved_image_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "air-conditioning.html": {
+      "hero_present": true,
+      "protection_clone_style": true,
+      "approved_image_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "water-heaters.html": {
+      "hero_present": true,
+      "protection_clone_style": true,
+      "approved_image_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    }
+  }
+}

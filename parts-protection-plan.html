@@ -193,35 +193,10 @@
 </style>
 
 
-<style id="heatspan-parts-perfect-image-fit">
-.hs-rhero--parts .hs-rhero__art{
-  position:absolute;
-  overflow:hidden;
-  background:#07539a;
-  --hero-fit-image:url("assets/hero-parts-reference.png");
-}
-.hs-rhero--parts .hs-rhero__art::before{
-  content:"";
-  position:absolute;
-  inset:-5%;
-  background-image:var(--hero-fit-image);
-  background-size:cover;
-  background-position:center;
-  filter:blur(16px) saturate(.92);
-  opacity:.52;
-  transform:scale(1.06);
-}
-.hs-rhero--parts .hs-rhero__art img{
-  position:relative;
-  z-index:1;
-  display:block !important;
-  width:100% !important;
-  height:100% !important;
-  margin:0 !important;
-  object-fit:contain !important;
-  object-position:center center !important;
-  max-width:none !important;
-}
+
+<style id="heatspan-parts-final-fit">
+.hs-rhero--parts .hs-rhero__art{right:-1.5% !important;width:53.5% !important}
+.hs-rhero--parts .hs-rhero__art img{object-position:54% center !important}
 </style>
 
 </head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
