@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "locked_pages_unchanged": true,
+  "pages": {
+    "chimney-services.html": {
+      "single_image_element": true,
+      "exact_approved_css_present": true,
+      "object_fit_contain": true,
+      "object_position_center": true,
+      "art_width_50": true,
+      "copy_width_48": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "parts-protection-plan.html": {
+      "single_image_element": true,
+      "exact_approved_css_present": true,
+      "object_fit_contain": true,
+      "object_position_center": true,
+      "art_width_50": true,
+      "copy_width_48": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "contact.html": {
+      "single_image_element": true,
+      "exact_approved_css_present": true,
+      "object_fit_contain": true,
+      "object_position_center": true,
+      "art_width_50": true,
+      "copy_width_48": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "form_preserved": true,
+      "backend_preserved": true,
+      "extra_shirt_overlay_removed": true
+    }
+  }
+}
