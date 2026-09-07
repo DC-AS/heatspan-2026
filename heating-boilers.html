@@ -160,21 +160,6 @@
  .hs-rhero--contact .hs-rhero__shirt{display:none}
 }
 </style>
-<style id="heatspan-hero-balanced-fit">
-.hs-rhero__art{overflow:hidden;background:#07539a}
-.hs-rhero__art img{
- width:96% !important;height:96% !important;max-width:none !important;
- object-fit:contain !important;object-position:center center !important;
- margin:2% auto !important;display:block !important;
-}
-.hs-rhero--parts .hs-rhero__art{
- background:radial-gradient(circle at 55% 45%,rgba(61,195,255,.48),transparent 40%),linear-gradient(135deg,#0875d2,#063f80)
-}
-@media(max-width:900px){
- .hs-rhero__art img{width:97% !important;height:97% !important;margin:1.5% auto !important}
-}
-</style>
-
 <style id="heatspan-phone-wrapper-fix">
 .hs-rhero__actions .phone-outline-box{
   display:inline-flex;
@@ -201,6 +186,38 @@
   font-size:clamp(12px,.95vw,15px);
   font-weight:900;
   white-space:nowrap;
+}
+</style>
+
+
+<style id="heatspan-boiler-perfect-image-fit">
+.hs-rhero--boiler .hs-rhero__art{
+  position:absolute;
+  overflow:hidden;
+  background:#07539a;
+  --hero-fit-image:url("assets/hero-boiler-reference.png");
+}
+.hs-rhero--boiler .hs-rhero__art::before{
+  content:"";
+  position:absolute;
+  inset:-5%;
+  background-image:var(--hero-fit-image);
+  background-size:cover;
+  background-position:center;
+  filter:blur(16px) saturate(.92);
+  opacity:.52;
+  transform:scale(1.06);
+}
+.hs-rhero--boiler .hs-rhero__art img{
+  position:relative;
+  z-index:1;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  max-width:none !important;
 }
 </style>
 

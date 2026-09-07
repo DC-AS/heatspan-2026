@@ -1,0 +1,52 @@
+{
+  "result": "PASS",
+  "contact_untouched": true,
+  "contact_sha256": "49763b75bebd70d2ac38d00c555114b22e957a2bd52fd470ec18df213155b703",
+  "pages": {
+    "heating-boilers.html": {
+      "hero_present": true,
+      "new_fit_rule_present": true,
+      "old_balanced_fit_removed": true,
+      "hero_asset_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "air-conditioning.html": {
+      "hero_present": true,
+      "new_fit_rule_present": true,
+      "old_balanced_fit_removed": true,
+      "hero_asset_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "water-heaters.html": {
+      "hero_present": true,
+      "new_fit_rule_present": true,
+      "old_balanced_fit_removed": true,
+      "hero_asset_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "chimney-services.html": {
+      "hero_present": true,
+      "new_fit_rule_present": true,
+      "old_balanced_fit_removed": true,
+      "hero_asset_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "parts-protection-plan.html": {
+      "hero_present": true,
+      "new_fit_rule_present": true,
+      "old_balanced_fit_removed": true,
+      "hero_asset_present": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    }
+  }
+}
