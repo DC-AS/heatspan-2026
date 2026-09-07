@@ -556,6 +556,94 @@
     ) !important;
   }
 }
+</style><style id="heatspan-home-master-overlap-fix">
+/* =========================================================
+   OVERLAP FIX — preserve Home-master visual styling
+   ========================================================= */
+
+.hs-rhero {
+  min-height: clamp(560px, 38vw, 620px) !important;
+}
+
+/* Let copy flow naturally instead of using fixed absolute action positions */
+.hs-rhero .hs-rhero__copy {
+  min-height: 0 !important;
+}
+
+/* CTA row goes directly under description */
+.hs-rhero .hs-rhero__copy .hs-rhero__actions {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  margin-top: 4px !important;
+  margin-bottom: 26px !important;
+}
+
+/* Benefits sit beneath buttons in normal document flow */
+.hs-rhero .hs-rhero__benefits {
+  position: static !important;
+  left: auto !important;
+  bottom: auto !important;
+  order: 3 !important;
+  width: 43% !important;
+  max-width: 660px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  gap: 16px 20px !important;
+}
+
+/* Keep inner layout stacked and text safe */
+.hs-rhero .hs-rhero__inner {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+/* Prevent buttons and feature labels from colliding */
+.hs-rhero .hs-rhero__actions {
+  flex-wrap: wrap !important;
+}
+.hs-rhero .hs-rhero__actions a,
+.hs-rhero .phone-outline-box {
+  flex: 0 0 auto !important;
+}
+.hs-rhero .hs-rhero__benefit {
+  min-width: 0 !important;
+  align-items: center !important;
+}
+.hs-rhero .hs-rhero__benefit span {
+  display: block !important;
+  min-width: 0 !important;
+  white-space: normal !important;
+}
+
+/* Slightly more breathing room for longer Contact/Protection copy */
+.hs-rhero--contact,
+.hs-rhero--parts {
+  min-height: clamp(585px, 39vw, 645px) !important;
+}
+
+@media(max-width:1180px) {
+  .hs-rhero .hs-rhero__benefits {
+    width: 46% !important;
+  }
+}
+
+@media(max-width:900px) {
+  .hs-rhero,
+  .hs-rhero--contact,
+  .hs-rhero--parts {
+    min-height: 860px !important;
+  }
+  .hs-rhero .hs-rhero__benefits {
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    margin-top: 18px !important;
+  }
+}
 </style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
 <a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
