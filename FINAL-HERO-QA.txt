@@ -1,0 +1,70 @@
+{
+  "result": "PASS",
+  "global": {
+    "backend_valid": true,
+    "resend_preserved": true,
+    "home_excluded": true,
+    "styles_excluded": true
+  },
+  "pages": {
+    "parts-protection-plan.html": {
+      "hero_once": true,
+      "real_html_heading": true,
+      "art_asset": true,
+      "weather": true,
+      "dropdown": true,
+      "phone": true,
+      "content_below": true,
+      "simple_removed": true
+    },
+    "water-heaters.html": {
+      "hero_once": true,
+      "real_html_heading": true,
+      "art_asset": true,
+      "weather": true,
+      "dropdown": true,
+      "phone": true,
+      "content_below": true
+    },
+    "heating-boilers.html": {
+      "hero_once": true,
+      "real_html_heading": true,
+      "art_asset": true,
+      "weather": true,
+      "dropdown": true,
+      "phone": true,
+      "content_below": true
+    },
+    "air-conditioning.html": {
+      "hero_once": true,
+      "real_html_heading": true,
+      "art_asset": true,
+      "weather": true,
+      "dropdown": true,
+      "phone": true,
+      "content_below": true
+    },
+    "chimney-services.html": {
+      "hero_once": true,
+      "real_html_heading": true,
+      "art_asset": true,
+      "weather": true,
+      "dropdown": true,
+      "phone": true,
+      "content_below": true
+    },
+    "contact.html": {
+      "hero_once": true,
+      "real_html_heading": true,
+      "art_asset": true,
+      "weather": true,
+      "dropdown": true,
+      "phone": true,
+      "content_below": true,
+      "form": true,
+      "backend_fetch": true,
+      "financing": true,
+      "shirt_logo_asset": true
+    }
+  }
+}
