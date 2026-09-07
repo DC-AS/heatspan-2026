@@ -1,0 +1,61 @@
+{
+  "about.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true,
+    "since_1982": true,
+    "40_years": true,
+    "same_day": true
+  },
+  "index.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true,
+    "parts_home_removed": true,
+    "financing_kept": true
+  },
+  "parts-protection-plan.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true,
+    "maintenance_added": true,
+    "organized_details": true
+  },
+  "contact.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "boiler-maintenance.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "air-conditioning.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "boiler-repair.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "boiler-installation.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "chimney-services.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "financing.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "water-heaters.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "emergency-service.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  },
+  "heating-boilers.html": {
+    "new_nav": true,
+    "old_top_nav_removed": true
+  }
+}
