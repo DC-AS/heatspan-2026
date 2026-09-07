@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "pages": {
+    "heating-boilers.html": {
+      "master_style": true,
+      "stacked_title": true,
+      "single_image": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "air-conditioning.html": {
+      "master_style": true,
+      "stacked_title": true,
+      "single_image": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "water-heaters.html": {
+      "master_style": true,
+      "stacked_title": true,
+      "single_image": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "chimney-services.html": {
+      "master_style": true,
+      "stacked_title": true,
+      "single_image": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "parts-protection-plan.html": {
+      "master_style": true,
+      "stacked_title": true,
+      "single_image": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true
+    },
+    "contact.html": {
+      "master_style": true,
+      "stacked_title": true,
+      "single_image": true,
+      "phone_preserved": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "form_preserved": true,
+      "backend_preserved": true
+    }
+  }
+}

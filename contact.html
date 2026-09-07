@@ -316,6 +316,246 @@
   font-weight: 700 !important;
   letter-spacing: 0 !important;
 }
+</style><style id="heatspan-home-master-service-hero">
+/* =========================================================
+   SERVICE HERO — HOME PAGE MASTER MATCH
+   ========================================================= */
+.hs-rhero {
+  min-height: clamp(525px, 36vw, 590px) !important;
+  background:#063f80 !important;
+  position:relative !important;
+  overflow:hidden !important;
+}
+.hs-rhero .hs-rhero__inner {
+  width:100% !important;
+  max-width:none !important;
+  min-height:inherit !important;
+  margin:0 !important;
+  padding:30px 34px 30px !important;
+  position:relative !important;
+  z-index:4 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.hs-rhero .hs-rhero__copy {
+  width:39% !important;
+  max-width:620px !important;
+  min-width:0 !important;
+  padding:0 !important;
+  position:relative !important;
+  z-index:5 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.hs-rhero .hs-rhero__eyebrow {
+  display:none !important;
+}
+
+/* Exact Home-style display hierarchy */
+.hs-rhero h1 {
+  margin:0 0 16px !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(48px,4.25vw,66px) !important;
+  line-height:.92 !important;
+  font-weight:900 !important;
+  letter-spacing:-1.1px !important;
+  text-transform:uppercase !important;
+  max-width:100% !important;
+}
+.hs-rhero h1 .hs-home-line {
+  display:block !important;
+  color:#fff !important;
+}
+.hs-rhero h1 .hs-home-line.accent {
+  color:#43aaf4 !important;
+}
+
+.hs-rhero .hs-rhero__lead {
+  margin:0 0 22px !important;
+  color:#fff !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(16px,1.18vw,19px) !important;
+  line-height:1.42 !important;
+  font-weight:400 !important;
+  max-width:590px !important;
+}
+
+/* Put the service benefits inside the left-side Home-style trust area */
+.hs-rhero .hs-rhero__benefits {
+  order:2 !important;
+  width:39% !important;
+  max-width:620px !important;
+  margin:0 !important;
+  padding:0 0 18px !important;
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px 18px !important;
+  position:relative !important;
+  z-index:5 !important;
+}
+.hs-rhero .hs-rhero__benefit {
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:9px !important;
+  min-width:0 !important;
+  color:#fff !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(11px,.8vw,13px) !important;
+  line-height:1.18 !important;
+  font-weight:800 !important;
+}
+.hs-rhero .hs-rhero__benefit svg {
+  width:28px !important;
+  height:28px !important;
+  flex:0 0 28px !important;
+  stroke:#43aaf4 !important;
+}
+
+/* Home-style CTA placement beneath trust items */
+.hs-rhero .hs-rhero__actions {
+  margin-top:0 !important;
+  display:flex !important;
+  gap:12px !important;
+  flex-wrap:wrap !important;
+}
+.hs-rhero .hs-rhero__actions a {
+  min-height:50px !important;
+  padding:0 20px !important;
+  border-radius:4px !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(12px,.9vw,14px) !important;
+  font-weight:900 !important;
+}
+.hs-rhero .hs-rhero__actions .primary {
+  background:#0787ef !important;
+  border-color:#0787ef !important;
+}
+
+/* The image remains the approved image, but visually behaves like Home's large background art */
+.hs-rhero .hs-rhero__art {
+  position:absolute !important;
+  z-index:1 !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:auto !important;
+  width:61% !important;
+  height:100% !important;
+  overflow:hidden !important;
+  background:#063f80 !important;
+  background-image:none !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+.hs-rhero .hs-rhero__art::before,
+.hs-rhero .hs-rhero__art::after {
+  content:none !important;
+  display:none !important;
+}
+.hs-rhero .hs-rhero__art img {
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  background:#063f80 !important;
+}
+
+/* Home's strong text-to-photo blend, CSS only */
+.hs-rhero .hs-rhero__fade {
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:3 !important;
+  pointer-events:none !important;
+  background:linear-gradient(
+    90deg,
+    #063f80 0%,
+    #063f80 31%,
+    rgba(6,63,128,.99) 37%,
+    rgba(6,63,128,.92) 44%,
+    rgba(6,63,128,.67) 52%,
+    rgba(6,63,128,.30) 60%,
+    rgba(6,63,128,.06) 69%,
+    rgba(6,63,128,0) 76%
+  ) !important;
+}
+
+/* Move actions before benefits visually: copy contains actions, benefits are sibling.
+   Make copy end higher, then position benefits and actions to mirror Home rhythm. */
+.hs-rhero .hs-rhero__copy .hs-rhero__actions {
+  position:absolute !important;
+  left:0 !important;
+  top:360px !important;
+}
+.hs-rhero .hs-rhero__benefits {
+  position:absolute !important;
+  left:34px !important;
+  bottom:91px !important;
+}
+.hs-rhero .hs-rhero__copy {
+  min-height:430px !important;
+}
+
+/* Contact is a little longer; give its paragraph enough room */
+.hs-rhero--contact .hs-rhero__copy {
+  width:41% !important;
+  max-width:650px !important;
+}
+.hs-rhero--contact .hs-rhero__benefits {
+  width:41% !important;
+  max-width:650px !important;
+}
+
+/* Responsive safeguards */
+@media(max-width:1180px) {
+  .hs-rhero .hs-rhero__copy,
+  .hs-rhero .hs-rhero__benefits {
+    width:44% !important;
+  }
+  .hs-rhero .hs-rhero__art { width:58% !important; }
+  .hs-rhero h1 { font-size:clamp(44px,5vw,60px) !important; }
+}
+@media(max-width:900px) {
+  .hs-rhero { min-height:820px !important; }
+  .hs-rhero .hs-rhero__inner { padding:26px 22px 22px !important; }
+  .hs-rhero .hs-rhero__copy {
+    width:100% !important;
+    max-width:none !important;
+    min-height:390px !important;
+  }
+  .hs-rhero h1 { font-size:clamp(42px,10vw,56px) !important; }
+  .hs-rhero .hs-rhero__copy .hs-rhero__actions {
+    position:static !important;
+    margin-top:18px !important;
+  }
+  .hs-rhero .hs-rhero__benefits {
+    position:static !important;
+    width:100% !important;
+    max-width:none !important;
+    margin-top:20px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .hs-rhero .hs-rhero__art {
+    width:100% !important;
+    height:40% !important;
+    top:auto !important;
+    bottom:0 !important;
+  }
+  .hs-rhero .hs-rhero__fade {
+    background:linear-gradient(
+      180deg,
+      #063f80 0%,
+      #063f80 48%,
+      rgba(6,63,128,.94) 58%,
+      rgba(6,63,128,.45) 73%,
+      rgba(6,63,128,0) 100%
+    ) !important;
+  }
+}
 </style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
 <a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
@@ -325,5 +565,5 @@
 <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
 </div>
 </div>
-<section class="hs-rhero hs-rhero--contact"><div class="hs-rhero__art"><img alt="" src="assets/hero-contact-approved-match.jpg"/></div><div class="hs-rhero__fade"></div><div class="hs-rhero__inner"><div class="hs-rhero__copy"><div class="hs-rhero__eyebrow">WE'RE HERE TO HELP</div><h1>Contact Heatspan</h1><p class="hs-rhero__lead">Have a question or need to schedule service? Our service managers are ready to help. Get in touch and we'll make sure you get the support you need.</p><div class="hs-rhero__actions"><a class="primary" href="tel:17183753320">CALL 718-375-3320</a><a class="secondary" href="#service-form">SEND A MESSAGE</a></div></div><div class="hs-rhero__benefits"><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"></path><path d="M4 13h3v6H5a1 1 0 0 1-1-1zM20 13h-3v6h2a1 1 0 0 0 1-1z"></path></svg><span>Speak with a Service Manager</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><rect height="15" rx="2" width="16" x="4" y="5"></rect><path d="M8 3v4M16 3v4M4 9h16"></path></svg><span>Schedule Service</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.7 2.7 0 1 1 4.8 1.7c-1.3 1.2-2.3 1.7-2.3 3.3"></path><path d="M12 18h.01"></path></svg><span>Ask a Question</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 21s6-6 6-12a6 6 0 1 0-12 0c0 6 6 12 6 12z"></path><circle cx="12" cy="9" r="2"></circle></svg><span>Get Directions</span></div></div></div></section><section class="section"><div class="wrap contact-grid"><div><h2>Contact Heatspan</h2><p class="lead"><strong>Phone:</strong> 718-375-3320<br/><strong>Service Area:</strong> Brooklyn &amp; Queens<br/><strong>South Office:</strong> 1980 E 35th St, Brooklyn, NY 11234<br/><strong>License:</strong> #2032300-DCA</p><div class="notice"><strong>Emergency?</strong> For urgent heating or cooling service, call <a href="tel:17183753320"><strong>718-375-3320</strong></a>.</div></div><form id="service-form"><h2>Request Service</h2><div class="grid-2"><div><label>First Name *</label><input name="firstName" required=""/></div><div><label>Last Name *</label><input name="lastName" required=""/></div></div><label>Phone *</label><input name="phone" required="" type="tel"/><label>Email *</label><input name="email" required="" type="email"/><label>Service Address</label><input name="address"/><label>Customer Status</label><select name="customerStatus"><option value="">Select one</option><option>New customer</option><option>Existing customer</option><option>Not sure</option></select><label>Service Needed *</label><select name="serviceNeeded" required=""><option value="">Select a service</option><option>Boiler / Heating Repair</option><option>Boiler Maintenance</option><option>Boiler Installation / Replacement</option><option>Air Conditioning</option><option>Water Heater</option><option>Chimney Service</option><option>Parts Protection Plan</option>
+<section class="hs-rhero hs-rhero--contact"><div class="hs-rhero__art"><img alt="" src="assets/hero-contact-approved-match.jpg"/></div><div class="hs-rhero__fade"></div><div class="hs-rhero__inner"><div class="hs-rhero__copy"><div class="hs-rhero__eyebrow">WE'RE HERE TO HELP</div><h1><span class="hs-home-line">CONTACT</span><span class="hs-home-line accent">HEATSPAN</span></h1><p class="hs-rhero__lead">Have a question or need to schedule service? Our service managers are ready to help. Get in touch and we'll make sure you get the support you need.</p><div class="hs-rhero__actions"><a class="primary" href="tel:17183753320">CALL 718-375-3320</a><a class="secondary" href="#service-form">SEND A MESSAGE</a></div></div><div class="hs-rhero__benefits"><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"></path><path d="M4 13h3v6H5a1 1 0 0 1-1-1zM20 13h-3v6h2a1 1 0 0 0 1-1z"></path></svg><span>Speak with a Service Manager</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><rect height="15" rx="2" width="16" x="4" y="5"></rect><path d="M8 3v4M16 3v4M4 9h16"></path></svg><span>Schedule Service</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.7 2.7 0 1 1 4.8 1.7c-1.3 1.2-2.3 1.7-2.3 3.3"></path><path d="M12 18h.01"></path></svg><span>Ask a Question</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 21s6-6 6-12a6 6 0 1 0-12 0c0 6 6 12 6 12z"></path><circle cx="12" cy="9" r="2"></circle></svg><span>Get Directions</span></div></div></div></section><section class="section"><div class="wrap contact-grid"><div><h2>Contact Heatspan</h2><p class="lead"><strong>Phone:</strong> 718-375-3320<br/><strong>Service Area:</strong> Brooklyn &amp; Queens<br/><strong>South Office:</strong> 1980 E 35th St, Brooklyn, NY 11234<br/><strong>License:</strong> #2032300-DCA</p><div class="notice"><strong>Emergency?</strong> For urgent heating or cooling service, call <a href="tel:17183753320"><strong>718-375-3320</strong></a>.</div></div><form id="service-form"><h2>Request Service</h2><div class="grid-2"><div><label>First Name *</label><input name="firstName" required=""/></div><div><label>Last Name *</label><input name="lastName" required=""/></div></div><label>Phone *</label><input name="phone" required="" type="tel"/><label>Email *</label><input name="email" required="" type="email"/><label>Service Address</label><input name="address"/><label>Customer Status</label><select name="customerStatus"><option value="">Select one</option><option>New customer</option><option>Existing customer</option><option>Not sure</option></select><label>Service Needed *</label><select name="serviceNeeded" required=""><option value="">Select a service</option><option>Boiler / Heating Repair</option><option>Boiler Maintenance</option><option>Boiler Installation / Replacement</option><option>Air Conditioning</option><option>Water Heater</option><option>Chimney Service</option><option>Parts Protection Plan</option>
 <option>Financing Options</option><option>Other</option></select><label>Urgency</label><select name="urgency"><option>Routine / Flexible</option><option>As soon as possible</option><option>Emergency — I will also call 718-375-3320</option></select><label>How can we help? *</label><textarea name="message" required=""></textarea><div aria-hidden="true" style="position:absolute;left:-9999px"><input autocomplete="off" name="website" tabindex="-1"/></div><button class="btn primary" id="submit-btn" style="margin-top:15px" type="submit">SEND TEST REQUEST</button><p id="form-status" role="status" style="font-weight:700;margin-top:14px"></p><p class="small" style="color:#52647a">TEST MODE: This verifies the form and backend without changing the live Heatspan domain.</p></form></div></section><script>const f=document.getElementById('service-form'),s=document.getElementById('form-status'),b=document.getElementById('submit-btn');f.addEventListener('submit',async e=>{e.preventDefault();s.textContent='';b.disabled=true;b.textContent='SENDING...';try{const r=await fetch('/api/request-service',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f).entries()))});const j=await r.json();if(!r.ok||!j.ok)throw new Error(j.message||'Unable to send request.');f.reset();s.style.color='#0b6b2d';s.textContent='Thank you. Your test service request was submitted successfully. For emergency service, call 718-375-3320.';}catch(err){s.style.color='#a32020';s.textContent=err.message||'Something went wrong. Please call 718-375-3320.';}finally{b.disabled=false;b.textContent='SEND TEST REQUEST';}});</script><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div></footer></body></html>

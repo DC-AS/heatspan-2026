@@ -316,6 +316,246 @@
   font-weight: 700 !important;
   letter-spacing: 0 !important;
 }
+</style><style id="heatspan-home-master-service-hero">
+/* =========================================================
+   SERVICE HERO — HOME PAGE MASTER MATCH
+   ========================================================= */
+.hs-rhero {
+  min-height: clamp(525px, 36vw, 590px) !important;
+  background:#063f80 !important;
+  position:relative !important;
+  overflow:hidden !important;
+}
+.hs-rhero .hs-rhero__inner {
+  width:100% !important;
+  max-width:none !important;
+  min-height:inherit !important;
+  margin:0 !important;
+  padding:30px 34px 30px !important;
+  position:relative !important;
+  z-index:4 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.hs-rhero .hs-rhero__copy {
+  width:39% !important;
+  max-width:620px !important;
+  min-width:0 !important;
+  padding:0 !important;
+  position:relative !important;
+  z-index:5 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.hs-rhero .hs-rhero__eyebrow {
+  display:none !important;
+}
+
+/* Exact Home-style display hierarchy */
+.hs-rhero h1 {
+  margin:0 0 16px !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(48px,4.25vw,66px) !important;
+  line-height:.92 !important;
+  font-weight:900 !important;
+  letter-spacing:-1.1px !important;
+  text-transform:uppercase !important;
+  max-width:100% !important;
+}
+.hs-rhero h1 .hs-home-line {
+  display:block !important;
+  color:#fff !important;
+}
+.hs-rhero h1 .hs-home-line.accent {
+  color:#43aaf4 !important;
+}
+
+.hs-rhero .hs-rhero__lead {
+  margin:0 0 22px !important;
+  color:#fff !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(16px,1.18vw,19px) !important;
+  line-height:1.42 !important;
+  font-weight:400 !important;
+  max-width:590px !important;
+}
+
+/* Put the service benefits inside the left-side Home-style trust area */
+.hs-rhero .hs-rhero__benefits {
+  order:2 !important;
+  width:39% !important;
+  max-width:620px !important;
+  margin:0 !important;
+  padding:0 0 18px !important;
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px 18px !important;
+  position:relative !important;
+  z-index:5 !important;
+}
+.hs-rhero .hs-rhero__benefit {
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:9px !important;
+  min-width:0 !important;
+  color:#fff !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(11px,.8vw,13px) !important;
+  line-height:1.18 !important;
+  font-weight:800 !important;
+}
+.hs-rhero .hs-rhero__benefit svg {
+  width:28px !important;
+  height:28px !important;
+  flex:0 0 28px !important;
+  stroke:#43aaf4 !important;
+}
+
+/* Home-style CTA placement beneath trust items */
+.hs-rhero .hs-rhero__actions {
+  margin-top:0 !important;
+  display:flex !important;
+  gap:12px !important;
+  flex-wrap:wrap !important;
+}
+.hs-rhero .hs-rhero__actions a {
+  min-height:50px !important;
+  padding:0 20px !important;
+  border-radius:4px !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:clamp(12px,.9vw,14px) !important;
+  font-weight:900 !important;
+}
+.hs-rhero .hs-rhero__actions .primary {
+  background:#0787ef !important;
+  border-color:#0787ef !important;
+}
+
+/* The image remains the approved image, but visually behaves like Home's large background art */
+.hs-rhero .hs-rhero__art {
+  position:absolute !important;
+  z-index:1 !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  left:auto !important;
+  width:61% !important;
+  height:100% !important;
+  overflow:hidden !important;
+  background:#063f80 !important;
+  background-image:none !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+.hs-rhero .hs-rhero__art::before,
+.hs-rhero .hs-rhero__art::after {
+  content:none !important;
+  display:none !important;
+}
+.hs-rhero .hs-rhero__art img {
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  background:#063f80 !important;
+}
+
+/* Home's strong text-to-photo blend, CSS only */
+.hs-rhero .hs-rhero__fade {
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:3 !important;
+  pointer-events:none !important;
+  background:linear-gradient(
+    90deg,
+    #063f80 0%,
+    #063f80 31%,
+    rgba(6,63,128,.99) 37%,
+    rgba(6,63,128,.92) 44%,
+    rgba(6,63,128,.67) 52%,
+    rgba(6,63,128,.30) 60%,
+    rgba(6,63,128,.06) 69%,
+    rgba(6,63,128,0) 76%
+  ) !important;
+}
+
+/* Move actions before benefits visually: copy contains actions, benefits are sibling.
+   Make copy end higher, then position benefits and actions to mirror Home rhythm. */
+.hs-rhero .hs-rhero__copy .hs-rhero__actions {
+  position:absolute !important;
+  left:0 !important;
+  top:360px !important;
+}
+.hs-rhero .hs-rhero__benefits {
+  position:absolute !important;
+  left:34px !important;
+  bottom:91px !important;
+}
+.hs-rhero .hs-rhero__copy {
+  min-height:430px !important;
+}
+
+/* Contact is a little longer; give its paragraph enough room */
+.hs-rhero--contact .hs-rhero__copy {
+  width:41% !important;
+  max-width:650px !important;
+}
+.hs-rhero--contact .hs-rhero__benefits {
+  width:41% !important;
+  max-width:650px !important;
+}
+
+/* Responsive safeguards */
+@media(max-width:1180px) {
+  .hs-rhero .hs-rhero__copy,
+  .hs-rhero .hs-rhero__benefits {
+    width:44% !important;
+  }
+  .hs-rhero .hs-rhero__art { width:58% !important; }
+  .hs-rhero h1 { font-size:clamp(44px,5vw,60px) !important; }
+}
+@media(max-width:900px) {
+  .hs-rhero { min-height:820px !important; }
+  .hs-rhero .hs-rhero__inner { padding:26px 22px 22px !important; }
+  .hs-rhero .hs-rhero__copy {
+    width:100% !important;
+    max-width:none !important;
+    min-height:390px !important;
+  }
+  .hs-rhero h1 { font-size:clamp(42px,10vw,56px) !important; }
+  .hs-rhero .hs-rhero__copy .hs-rhero__actions {
+    position:static !important;
+    margin-top:18px !important;
+  }
+  .hs-rhero .hs-rhero__benefits {
+    position:static !important;
+    width:100% !important;
+    max-width:none !important;
+    margin-top:20px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .hs-rhero .hs-rhero__art {
+    width:100% !important;
+    height:40% !important;
+    top:auto !important;
+    bottom:0 !important;
+  }
+  .hs-rhero .hs-rhero__fade {
+    background:linear-gradient(
+      180deg,
+      #063f80 0%,
+      #063f80 48%,
+      rgba(6,63,128,.94) 58%,
+      rgba(6,63,128,.45) 73%,
+      rgba(6,63,128,0) 100%
+    ) !important;
+  }
+}
 </style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a><div class="drop"><a href="heating-boilers.html">HEATING / BOILERS ▾</a><div class="menu"><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="boiler-repair.html">Boiler Repair</a><a href="boiler-maintenance.html">Boiler Maintenance</a><a href="boiler-installation.html">Boiler Installation</a></div></div>
 <a href="air-conditioning.html">AIR CONDITIONING</a><a href="water-heaters.html">WATER HEATERS</a><a href="chimney-services.html">CHIMNEY</a><div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="financing.html">Financing</a></div></div><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a></nav>
@@ -325,4 +565,4 @@
 <div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
 </div>
 </div>
-<section class="hs-rhero hs-rhero--water"><div class="hs-rhero__art"><img alt="" src="assets/hero-water-final.jpg"/></div><div class="hs-rhero__fade"></div><div class="hs-rhero__inner"><div class="hs-rhero__copy"><div class="hs-rhero__eyebrow">HOT WATER. NO WORRIES.</div><h1>Water Heater Services</h1><p class="hs-rhero__lead">Installation, repair, and maintenance for all types of water heaters. Reliable hot water when you need it most.</p><div class="hs-rhero__actions"><a class="primary" href="contact.html">REQUEST SERVICE</a><div class="phone-outline-box"><a class="" href="tel:17183753320">CALL 718-375-3320</a></div></div></div><div class="hs-rhero__benefits"><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"></path></svg><span>Expert Installation</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-1-1-4z"></path></svg><span>Fast Repairs</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span>All Major Brands</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M3 11l9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg><span>Energy-Efficient Options</span></div></div></div></section><section class="section"><div class="wrap"><h2>Water Heater Service</h2><p class="lead">Heatspan services water heaters as part of its residential comfort services. Contact the team if hot-water performance changes, equipment leaks or replacement is needed.</p></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div></footer></body></html>
+<section class="hs-rhero hs-rhero--water"><div class="hs-rhero__art"><img alt="" src="assets/hero-water-final.jpg"/></div><div class="hs-rhero__fade"></div><div class="hs-rhero__inner"><div class="hs-rhero__copy"><div class="hs-rhero__eyebrow">HOT WATER. NO WORRIES.</div><h1><span class="hs-home-line">WATER HEATER</span><span class="hs-home-line accent">SERVICES</span></h1><p class="hs-rhero__lead">Installation, repair, and maintenance for all types of water heaters. Reliable hot water when you need it most.</p><div class="hs-rhero__actions"><a class="primary" href="contact.html">REQUEST SERVICE</a><div class="phone-outline-box"><a class="" href="tel:17183753320">CALL 718-375-3320</a></div></div></div><div class="hs-rhero__benefits"><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11z"></path></svg><span>Expert Installation</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6L3 17l4 4 5-5a5 5 0 0 0 6-6l-3 3-4-1-1-4z"></path></svg><span>Fast Repairs</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span>All Major Brands</span></div><div class="hs-rhero__benefit"><svg viewbox="0 0 24 24"><path d="M3 11l9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg><span>Energy-Efficient Options</span></div></div></div></section><section class="section"><div class="wrap"><h2>Water Heater Service</h2><p class="lead">Heatspan services water heaters as part of its residential comfort services. Contact the team if hot-water performance changes, equipment leaks or replacement is needed.</p></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div></footer></body></html>
