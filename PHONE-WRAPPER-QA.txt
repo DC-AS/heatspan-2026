@@ -1,0 +1,65 @@
+{
+  "result": "PASS",
+  "pages": {
+    "parts-protection-plan.html": {
+      "balanced_fit_preserved": true,
+      "wrapper_style_present": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "phone_link_preserved": true,
+      "one_wrapper_box": true,
+      "one_phone_link_inside": true,
+      "phone_anchor_has_no_secondary_class": true
+    },
+    "water-heaters.html": {
+      "balanced_fit_preserved": true,
+      "wrapper_style_present": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "phone_link_preserved": true,
+      "one_wrapper_box": true,
+      "one_phone_link_inside": true,
+      "phone_anchor_has_no_secondary_class": true
+    },
+    "heating-boilers.html": {
+      "balanced_fit_preserved": true,
+      "wrapper_style_present": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "phone_link_preserved": true,
+      "one_wrapper_box": true,
+      "one_phone_link_inside": true,
+      "phone_anchor_has_no_secondary_class": true
+    },
+    "air-conditioning.html": {
+      "balanced_fit_preserved": true,
+      "wrapper_style_present": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "phone_link_preserved": true,
+      "one_wrapper_box": true,
+      "one_phone_link_inside": true,
+      "phone_anchor_has_no_secondary_class": true
+    },
+    "chimney-services.html": {
+      "balanced_fit_preserved": true,
+      "wrapper_style_present": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "phone_link_preserved": true,
+      "one_wrapper_box": true,
+      "one_phone_link_inside": true,
+      "phone_anchor_has_no_secondary_class": true
+    },
+    "contact.html": {
+      "balanced_fit_preserved": true,
+      "wrapper_style_present": true,
+      "weather_preserved": true,
+      "dropdown_preserved": true,
+      "phone_link_preserved": true,
+      "contact_primary_phone_preserved": true,
+      "contact_form_preserved": true,
+      "backend_preserved": true
+    }
+  }
+}

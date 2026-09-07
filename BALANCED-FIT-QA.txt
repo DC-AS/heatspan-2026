@@ -1,0 +1,55 @@
+{
+  "result": "PASS",
+  "pages": {
+    "parts-protection-plan.html": {
+      "hero": true,
+      "art": true,
+      "balanced_fit": true,
+      "phone": true,
+      "weather": true,
+      "dropdown": true
+    },
+    "water-heaters.html": {
+      "hero": true,
+      "art": true,
+      "balanced_fit": true,
+      "phone": true,
+      "weather": true,
+      "dropdown": true
+    },
+    "heating-boilers.html": {
+      "hero": true,
+      "art": true,
+      "balanced_fit": true,
+      "phone": true,
+      "weather": true,
+      "dropdown": true
+    },
+    "air-conditioning.html": {
+      "hero": true,
+      "art": true,
+      "balanced_fit": true,
+      "phone": true,
+      "weather": true,
+      "dropdown": true
+    },
+    "chimney-services.html": {
+      "hero": true,
+      "art": true,
+      "balanced_fit": true,
+      "phone": true,
+      "weather": true,
+      "dropdown": true
+    },
+    "contact.html": {
+      "hero": true,
+      "art": true,
+      "balanced_fit": true,
+      "phone": true,
+      "weather": true,
+      "dropdown": true,
+      "form": true,
+      "backend": true
+    }
+  }
+}
