@@ -1,0 +1,25 @@
+HEATSPAN PARTS PROTECTION PURCHASE NOTIFICATIONS
+
+This version includes: /api/paysimple-protection-webhook.js
+
+Purpose:
+- Receives PaySimple payment_created webhooks.
+- Filters for website/embeddable checkouts at $28.60 or $342.96.
+- Ignores later recurring subscription charges.
+- Emails info@heatspan.com using the existing Resend connection.
+
+ONE-TIME ACTIVATION AFTER THIS VERSION IS DEPLOYED:
+1. In PaySimple, create a webhook subscription for event type: payment_created
+2. Webhook URL:
+   https://YOUR-VERCEL-DEPLOYMENT.vercel.app/api/paysimple-protection-webhook
+   (When Heatspan goes live, change it to https://www.heatspan.com/api/paysimple-protection-webhook)
+3. Save the PaySimple webhook signature secret as this Vercel environment variable:
+   PAYSIMPLE_WEBHOOK_SECRET
+4. Ensure Vercel also has:
+   RESEND_API_KEY
+   PARTS_NOTIFICATION_TO=info@heatspan.com
+5. For production email delivery to info@heatspan.com, use a verified Resend sender/domain and optionally set:
+   RESEND_FROM=Heatspan Website <notifications@heatspan.com>
+
+Important:
+The public PaySimple merchant key used by the Buy Now embed is not an API credential and cannot create webhook subscriptions. The PaySimple webhook subscription itself must be enabled once in PaySimple after deployment.

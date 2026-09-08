@@ -1,0 +1,70 @@
+{
+  "about.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "financing.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "index.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "boiler-repair.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "emergency-service.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "boiler-installation.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "heating-boilers.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "contact.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "air-conditioning.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "hvac-services.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "chimney-services.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "water-heaters.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "parts-protection-plan.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "boiler-maintenance.html": {
+    "protection_dropdown": true,
+    "direct_old_protection_only": false
+  },
+  "contact_checks": {
+    "emergency_notice_removed": true,
+    "bbb_A_plus": true,
+    "review_containment_preserved": true
+  },
+  "notification_api": {
+    "info_email": true,
+    "monthly_amount": true,
+    "annual_amount": true,
+    "embeddable_only": true,
+    "signature_verification": true
+  }
+}
