@@ -86,51 +86,12 @@
   .drop > .menu { position: static; box-shadow:none; margin-top:0; }
 }
 </style>
-<script>
-(function () {
-  function weatherIcon(code) {
-    if (code === 0) return "☀️";
-    if ([1,2].includes(code)) return "🌤️";
-    if (code === 3) return "☁️";
-    if ([45,48].includes(code)) return "🌫️";
-    if ([51,53,55,56,57].includes(code)) return "🌦️";
-    if ([61,63,65,66,67,80,81,82].includes(code)) return "🌧️";
-    if ([71,73,75,77,85,86].includes(code)) return "🌨️";
-    if ([95,96,99].includes(code)) return "⛈️";
-    return "🌡️";
-  }
-
-  async function loadHeatspanWeather() {
-    const target = document.getElementById("hs-weather-days");
-    if (!target) return;
-    try {
-      const url = "https://api.open-meteo.com/v1/forecast?latitude=40.6501&longitude=-73.9496&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=7";
-      const r = await fetch(url);
-      if (!r.ok) throw new Error("forecast unavailable");
-      const j = await r.json();
-      const d = j.daily;
-      target.innerHTML = d.time.map((date, i) => {
-        const dt = new Date(date + "T12:00:00");
-        const day = dt.toLocaleDateString("en-US",{weekday:"short"});
-        const displayDate = dt.toLocaleDateString("en-US",{month:"numeric",day:"numeric"});
-        const hi = Math.round(d.temperature_2m_max[i]);
-        const lo = Math.round(d.temperature_2m_min[i]);
-        return `<div class="hs-day">
-          <div class="hs-day-name">${day} <span style="font-weight:600;opacity:.85">${displayDate}</span></div>
-          <div class="hs-day-icon">${weatherIcon(d.weather_code[i])}</div>
-          <div class="hs-day-temp">${hi}° / ${lo}°</div>
-        </div>`;
-      }).join("");
-    } catch (e) {
-      target.innerHTML = '<div class="hs-weather-status">Forecast temporarily unavailable.</div>';
-    }
-  }
-  document.addEventListener("DOMContentLoaded", loadHeatspanWeather);
-})();
-</script>
 <style id="task3-streamlined-nav">
 header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>a{white-space:nowrap}
 @media(max-width:1100px){header nav{gap:11px!important}header nav>a,header nav>.drop>a{font-size:12px!important}}
+</style><style id="task-next-home-van-swap">
+/* New van image only — preserve the approved Home hero geometry, crop, overlay and copy placement. */
+.hero.photo::after{background-image:url('assets/heatspan-home-van-new.png')!important;background-size:108% auto!important;background-position:46% 52%!important;background-repeat:no-repeat!important;}
 </style></head><body>
 <header><div class="header wrap">
 <a class="brand" href="index.html"><img alt="Heatspan Heating • Boilers • Chimneys" src="assets/heatspan-logo.png"/></a>
@@ -147,11 +108,6 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 </nav>
 <div class="top"><div class="phone"><div class="ico">☎</div><div><small>24/7 HEATING &amp; AC SERVICE</small><strong>718-375-3320</strong></div></div><a class="request" href="contact.html">REQUEST SERVICE</a></div>
 </div></header>
-<div aria-label="Brooklyn weekly weather forecast" class="hs-weather">
-<div class="hs-weather-inner">
-<div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
-</div>
-</div>
 <section class="hero photo"><div class="hero-inner">
 <h1>KEEP YOUR HOME WARM.<br/><span class="light">KEEP YOUR HEATING<br/>SYSTEM PROTECTED.</span></h1>
 <p>Professional heating, boiler, air conditioning, water heater and chimney services for homeowners throughout Brooklyn &amp; Queens.</p>
@@ -170,7 +126,6 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <a class="card" href="water-heaters.html"><div class="media" style="background-image:url('assets/installation.jpg')"></div><div class="body"><h3>Water Heaters</h3><p>Repair and installation support for traditional and tankless water heaters.</p><span class="learn">LEARN MORE →</span></div></a>
 <a class="card" href="chimney-services.html"><div class="media" style="background-image:url('assets/chimney.jpg')"></div><div class="body"><h3>Chimney Services</h3><p>Inspection, cleaning, repair, relining, caps, covers, screens and dampers.</p><span class="learn">LEARN MORE →</span></div></a>
 </div></div></section>
-
 <section class="section soft"><div class="wrap"><h2>FINANCING OPTIONS</h2><p class="lead">Flexible financing options can help make larger heating and cooling projects more manageable. Explore available options for qualifying Heatspan projects.</p><div class="actions"><a class="btn primary" href="https://application.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664057600&amp;contractorNumber=10047&amp;loanCode=DEL2622&amp;estimatedCost=&amp;projectTypeId=">VIEW FINANCING OPTIONS</a></div></div></section>
 <footer><div class="foot wrap">
 <div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens. License #2032300-DCA.</div></div>

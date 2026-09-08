@@ -1,0 +1,13 @@
+{
+  "baseline": "heatspan-next-v2-tasks-5-9.zip",
+  "checks": {
+    "hvac_intro_rewritten": true,
+    "review_carousel_cards": 20,
+    "paysimple_monthly_offering": true,
+    "paysimple_annual_offering": true,
+    "new_home_van_asset": true,
+    "weather_kept_on_chimney": true,
+    "weather_removed_from_home": true,
+    "weather_removed_from_contact": true
+  }
+}

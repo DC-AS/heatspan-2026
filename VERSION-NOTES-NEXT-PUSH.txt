@@ -1,0 +1,14 @@
+HEATSPAN NEXT PUSH
+
+Changes included:
+1. HVAC Services landing-page intro rewritten with a shorter, catchier line.
+2. Contact reviews rebuilt as one horizontal carousel with all 20 five-star customer reviews represented from Heatspan's current reviews page.
+3. Parts Protection now offers online enrollment through the two existing PaySimple recurring offerings: $28.60/month and $342.96/year (tax included), with CC + ACH.
+4. Home hero van image replaced with assets/heatspan-home-van-new.png while preserving the approved hero geometry and overlay.
+5. Weather strip and Open-Meteo loading script removed from every production section except chimney-services.html.
+
+PaySimple offerings:
+- Monthly: o_6033b2935f672371794ea3ed
+- Annual: o_6033b262033464a66a11cf58
+
+No live Heatspan DNS changes are included.

@@ -86,48 +86,6 @@
   .drop > .menu { position: static; box-shadow:none; margin-top:0; }
 }
 </style>
-<script>
-(function () {
-  function weatherIcon(code) {
-    if (code === 0) return "☀️";
-    if ([1,2].includes(code)) return "🌤️";
-    if (code === 3) return "☁️";
-    if ([45,48].includes(code)) return "🌫️";
-    if ([51,53,55,56,57].includes(code)) return "🌦️";
-    if ([61,63,65,66,67,80,81,82].includes(code)) return "🌧️";
-    if ([71,73,75,77,85,86].includes(code)) return "🌨️";
-    if ([95,96,99].includes(code)) return "⛈️";
-    return "🌡️";
-  }
-
-  async function loadHeatspanWeather() {
-    const target = document.getElementById("hs-weather-days");
-    if (!target) return;
-    try {
-      const url = "https://api.open-meteo.com/v1/forecast?latitude=40.6501&longitude=-73.9496&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=7";
-      const r = await fetch(url);
-      if (!r.ok) throw new Error("forecast unavailable");
-      const j = await r.json();
-      const d = j.daily;
-      target.innerHTML = d.time.map((date, i) => {
-        const dt = new Date(date + "T12:00:00");
-        const day = dt.toLocaleDateString("en-US",{weekday:"short"});
-        const displayDate = dt.toLocaleDateString("en-US",{month:"numeric",day:"numeric"});
-        const hi = Math.round(d.temperature_2m_max[i]);
-        const lo = Math.round(d.temperature_2m_min[i]);
-        return `<div class="hs-day">
-          <div class="hs-day-name">${day} <span style="font-weight:600;opacity:.85">${displayDate}</span></div>
-          <div class="hs-day-icon">${weatherIcon(d.weather_code[i])}</div>
-          <div class="hs-day-temp">${hi}° / ${lo}°</div>
-        </div>`;
-      }).join("");
-    } catch (e) {
-      target.innerHTML = '<div class="hs-weather-status">Forecast temporarily unavailable.</div>';
-    }
-  }
-  document.addEventListener("DOMContentLoaded", loadHeatspanWeather);
-})();
-</script>
 <style id="task3-streamlined-nav">
 header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>a{white-space:nowrap}
 @media(max-width:1100px){header nav{gap:11px!important}header nav>a,header nav>.drop>a{font-size:12px!important}}
@@ -145,13 +103,8 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a>
 </nav>
 <div class="top"><div class="phone"><div class="ico">☎</div><div><small>24/7 HEATING &amp; AC SERVICE</small><strong>718-375-3320</strong></div></div><a class="request" href="contact.html">REQUEST SERVICE</a></div></div></header>
-<div aria-label="Brooklyn weekly weather forecast" class="hs-weather">
-<div class="hs-weather-inner">
-<div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
-</div>
-</div>
-<section class="section"><div class="wrap"><div class="hvac-intro"><h1>HEATSPAN <span>HVAC SERVICES</span></h1><p>Choose the service you need. Each option takes you directly to the dedicated Heatspan service page for details, scheduling and support.</p></div><div class="hvac-choice-grid">
-<a class="hvac-choice" href="air-conditioning.html" style="text-decoration:none;color:inherit"><img src="assets/hero-ac-final.jpg" alt="Heatspan air conditioning service"/><div class="hvac-choice__copy"><h2>Air Conditioning</h2><p>Maintenance, repair and replacement support to keep your home comfortable through warmer weather.</p><span class="btn primary">AIR CONDITIONING SERVICES</span></div></a>
-<a class="hvac-choice" href="heating-boilers.html" style="text-decoration:none;color:inherit"><img src="assets/hero-boiler-final.jpg" alt="Heatspan heating and boiler service"/><div class="hvac-choice__copy"><h2>Heating / Boilers</h2><p>Boiler and heating maintenance, repair, installation and replacement for dependable home heat.</p><span class="btn primary">HEATING &amp; BOILER SERVICES</span></div></a>
-<a class="hvac-choice" href="water-heaters.html" style="text-decoration:none;color:inherit"><img src="assets/hero-water-final.jpg" alt="Heatspan water heater service"/><div class="hvac-choice__copy"><h2>Water Heaters</h2><p>Repair and installation support for traditional and tankless water heater systems.</p><span class="btn primary">WATER HEATER SERVICES</span></div></a>
+<section class="section"><div class="wrap"><div class="hvac-intro"><h1>HEATSPAN <span>HVAC SERVICES</span></h1><p>Comfort starts here. Choose your service and get the right Heatspan team for the job.</p></div><div class="hvac-choice-grid">
+<a class="hvac-choice" href="air-conditioning.html" style="text-decoration:none;color:inherit"><img alt="Heatspan air conditioning service" src="assets/hero-ac-final.jpg"/><div class="hvac-choice__copy"><h2>Air Conditioning</h2><p>Maintenance, repair and replacement support to keep your home comfortable through warmer weather.</p><span class="btn primary">AIR CONDITIONING SERVICES</span></div></a>
+<a class="hvac-choice" href="heating-boilers.html" style="text-decoration:none;color:inherit"><img alt="Heatspan heating and boiler service" src="assets/hero-boiler-final.jpg"/><div class="hvac-choice__copy"><h2>Heating / Boilers</h2><p>Boiler and heating maintenance, repair, installation and replacement for dependable home heat.</p><span class="btn primary">HEATING &amp; BOILER SERVICES</span></div></a>
+<a class="hvac-choice" href="water-heaters.html" style="text-decoration:none;color:inherit"><img alt="Heatspan water heater service" src="assets/hero-water-final.jpg"/><div class="hvac-choice__copy"><h2>Water Heaters</h2><p>Repair and installation support for traditional and tankless water heater systems.</p><span class="btn primary">WATER HEATER SERVICES</span></div></a>
 </div><div class="hvac-help"><div><h2>Not sure which service you need?</h2><p>Tell our service team what is happening and we will help point you in the right direction.</p></div><a class="btn primary" href="contact.html">REQUEST SERVICE</a></div></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div></footer></body></html>

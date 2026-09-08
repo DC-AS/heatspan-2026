@@ -86,48 +86,7 @@
   .drop > .menu { position: static; box-shadow:none; margin-top:0; }
 }
 </style>
-<script>
-(function () {
-  function weatherIcon(code) {
-    if (code === 0) return "☀️";
-    if ([1,2].includes(code)) return "🌤️";
-    if (code === 3) return "☁️";
-    if ([45,48].includes(code)) return "🌫️";
-    if ([51,53,55,56,57].includes(code)) return "🌦️";
-    if ([61,63,65,66,67,80,81,82].includes(code)) return "🌧️";
-    if ([71,73,75,77,85,86].includes(code)) return "🌨️";
-    if ([95,96,99].includes(code)) return "⛈️";
-    return "🌡️";
-  }
 
-  async function loadHeatspanWeather() {
-    const target = document.getElementById("hs-weather-days");
-    if (!target) return;
-    try {
-      const url = "https://api.open-meteo.com/v1/forecast?latitude=40.6501&longitude=-73.9496&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=7";
-      const r = await fetch(url);
-      if (!r.ok) throw new Error("forecast unavailable");
-      const j = await r.json();
-      const d = j.daily;
-      target.innerHTML = d.time.map((date, i) => {
-        const dt = new Date(date + "T12:00:00");
-        const day = dt.toLocaleDateString("en-US",{weekday:"short"});
-        const displayDate = dt.toLocaleDateString("en-US",{month:"numeric",day:"numeric"});
-        const hi = Math.round(d.temperature_2m_max[i]);
-        const lo = Math.round(d.temperature_2m_min[i]);
-        return `<div class="hs-day">
-          <div class="hs-day-name">${day} <span style="font-weight:600;opacity:.85">${displayDate}</span></div>
-          <div class="hs-day-icon">${weatherIcon(d.weather_code[i])}</div>
-          <div class="hs-day-temp">${hi}° / ${lo}°</div>
-        </div>`;
-      }).join("");
-    } catch (e) {
-      target.innerHTML = '<div class="hs-weather-status">Forecast temporarily unavailable.</div>';
-    }
-  }
-  document.addEventListener("DOMContentLoaded", loadHeatspanWeather);
-})();
-</script>
 <style id="task3-streamlined-nav">
 header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>a{white-space:nowrap}
 @media(max-width:1100px){header nav{gap:11px!important}header nav>a,header nav>.drop>a{font-size:12px!important}}
@@ -145,11 +104,7 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a>
 </nav>
 <div class="top"><div class="phone"><div class="ico">☎</div><div><small>24/7 HEATING &amp; AC SERVICE</small><strong>718-375-3320</strong></div></div><a class="request" href="contact.html">REQUEST SERVICE</a></div></div></header>
-<div aria-label="Brooklyn weekly weather forecast" class="hs-weather">
-<div class="hs-weather-inner">
-<div class="hs-weather-days" id="hs-weather-days"><div class="hs-weather-status">Loading forecast…</div></div>
-</div>
-</div>
+
 <section class="hero"><div class="wrap"><div class="eyebrow">LOCAL HVAC EXPERIENCE</div><h1>About Our Brooklyn HVAC Company</h1><p>Serving Brooklyn, Queens, and the surrounding areas since 1982 with dependable heating and cooling service.</p><div class="actions"><a class="btn primary" href="tel:17183753320">CALL 718-375-3320</a><a class="btn secondary" href="contact.html">REQUEST SERVICE</a></div></div></section><section class="section about-story"><div class="wrap">
 <div class="about-grid"><div><div class="eyebrow">LOCAL EXPERIENCE SINCE 1982</div><h2>More Than 40 Years of Local Service</h2>
 <p class="lead">For over 40 years, the team at Heatspan has been repairing and maintaining heating and cooling equipment throughout Brooklyn, Queens, and the surrounding areas.</p>
