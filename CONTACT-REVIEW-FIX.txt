@@ -1,0 +1,8 @@
+Heatspan Contact Review Carousel containment fix
+
+- Review carousel is constrained to the left Contact column.
+- Request Service form keeps its normal right-column width.
+- Carousel slides remain 100% of the carousel viewport and scroll internally.
+- Page-level horizontal overflow is suppressed.
+- Mobile layout stacks reviews above the Request Service form.
+- No other page content was intentionally changed.

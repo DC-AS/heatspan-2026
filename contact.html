@@ -607,6 +607,31 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 @media(max-width:1100px){header nav{gap:11px!important}header nav>a,header nav>.drop>a{font-size:12px!important}}
 </style>
 
+
+<style id="contact-review-containment-fix">
+/* Keep the reviews carousel confined to the left Contact column. */
+html,body{max-width:100%;overflow-x:hidden}
+.contact-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.08fr) minmax(360px,.72fr)!important;
+  gap:36px!important;
+  align-items:start!important;
+}
+.contact-grid>div,
+.contact-grid>form{min-width:0!important;max-width:100%!important;box-sizing:border-box}
+.contact-grid>div{width:100%!important;overflow:hidden}
+#service-form{width:100%!important;min-width:0!important;max-width:100%!important}
+.hs-review-panel{width:100%!important;max-width:100%!important;min-width:0!important;overflow:hidden!important;box-sizing:border-box}
+.hs-review-head,.hs-review-window,.hs-review-position,.hs-review-actions,.hs-review-note{max-width:100%!important;min-width:0!important;box-sizing:border-box}
+.hs-review-window{overflow:hidden!important}
+.hs-review-track{width:100%!important;max-width:100%!important;min-width:0!important;overflow-x:auto!important;overflow-y:hidden!important}
+.hs-review-card{flex:0 0 100%!important;width:100%!important;min-width:100%!important;max-width:100%!important;box-sizing:border-box!important;overflow-wrap:anywhere}
+.hs-review-text{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+  #service-form{width:100%!important}
+}
+</style>
 <style id="task-next-review-carousel">
 .hs-review-panel{margin-top:28px;border:1px solid #dbe5f0;border-radius:16px;background:#fff;box-shadow:0 12px 30px rgba(4,49,101,.08);overflow:hidden}
 .hs-review-head{padding:22px 22px 17px;background:linear-gradient(135deg,#f7fbff,#eef6ff);border-bottom:1px solid #dbe5f0}
