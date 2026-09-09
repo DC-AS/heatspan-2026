@@ -1,0 +1,10 @@
+Heatspan review flow update
+- Financing and OFP external links open in new tabs.
+- Removed five-star-only note under carousel.
+- Replaced View All Heatspan Reviews with Leave A Review.
+- Leave A Review opens a 1–5 star selector.
+- Every rating continues to the user-provided Heatspan Google Maps listing in a new tab.
+- 1–3 star selections also POST to /api/review-alert, which emails info@heatspan.com using RESEND_API_KEY.
+- View Heatspan on Google now uses the user-provided Google Maps URL.
+
+Important: The site cannot force Google sign-in. Google controls sign-in/review UI after the customer reaches Google.
