@@ -1,0 +1,7 @@
+Heatspan update
+
+1. Contact form: removed Financing Options and Parts Protection Plan from Service Needed; added Inquire about an OFP.
+2. Leave A Review now opens the direct Google review link in a new tab; custom star-rating gate/modal removed.
+3. Added footer legal/copyright strip to all HTML pages: © 2026 All Rights Reserved., Site Map, Privacy Policy, Terms & Conditions, SMS Terms & Conditions.
+4. Air Conditioning AC Service section now includes a coordinated ductless mini-split system image in a responsive two-column layout.
+5. Existing approved layout, review carousel, BBB block, PaySimple integration, Protection dropdown, financing/OFP new-tab behavior, and hero treatments preserved.
