@@ -93,6 +93,30 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 .hvac-intro{text-align:center;max-width:820px;margin:0 auto 34px}.hvac-intro h1{font-size:clamp(34px,4vw,58px);line-height:1.02;margin:0 0 14px;color:#063568}.hvac-intro h1 span{color:#169fea}.hvac-intro p{font-size:18px;line-height:1.6;color:#53657a}.hvac-choice-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}.hvac-choice{background:#fff;border:1px solid #d7e3f0;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(3,49,101,.08);transition:.2s transform,.2s box-shadow}.hvac-choice:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(3,49,101,.14)}.hvac-choice img{display:block;width:100%;height:205px;object-fit:cover}.hvac-choice__copy{padding:22px}.hvac-choice h2{margin:0 0 10px;color:#0648b7;font-size:25px}.hvac-choice p{margin:0 0 18px;line-height:1.55;color:#43556a}.hvac-choice .btn{width:100%;text-align:center}.hvac-help{margin-top:40px;background:#062f61;color:#fff;border-radius:16px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:24px}.hvac-help h2{color:#fff;margin:0 0 6px}.hvac-help p{margin:0;color:#dcecff}@media(max-width:1180px){.hvac-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.hvac-choice-grid{grid-template-columns:1fr}.hvac-choice img{height:250px}.hvac-help{align-items:flex-start;flex-direction:column}}
 </style><style id="hs-legal-footer-css">.hs-legal-strip{max-width:1180px;margin:0 auto;padding:18px 24px 22px;border-top:1px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12px;color:#fff}.hs-legal-strip a{color:#fff;text-decoration:underline;text-underline-offset:2px}.hs-legal-strip a:hover{color:#65c7ff}@media(max-width:700px){.hs-legal-strip{gap:10px 14px;text-align:center}}</style><style id="hs-header-finance-css">
 .hs-header-actions{display:flex;gap:8px;width:100%;align-items:stretch}.hs-header-actions .request{flex:1;min-width:0;padding-left:10px!important;padding-right:10px!important;white-space:nowrap}.hs-header-actions .hs-finance-header{background:#0b75d8!important}.hs-header-actions .hs-finance-header:hover{background:#075fb1!important}@media(max-width:1180px){.hs-header-actions{gap:6px}.hs-header-actions .request{font-size:11px!important;padding-left:7px!important;padding-right:7px!important}}@media(max-width:900px){.hs-header-actions{flex-direction:column}.hs-header-actions .request{width:100%}}
+</style><style id="hs-header-actions-fix-v2">
+.hs-header-actions{display:flex!important;gap:8px!important;width:100%!important;align-items:center!important}
+.hs-header-actions .request{display:flex!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important;flex:1 1 0!important;min-width:0!important;min-height:40px!important;height:40px!important;padding:0 8px!important;margin:0!important;font-size:11px!important;line-height:1!important;letter-spacing:0!important;text-align:center!important;white-space:nowrap!important;vertical-align:middle!important}
+.hs-header-actions .hs-finance-header{background:#0b75d8!important}
+.hs-header-actions .hs-finance-header:hover{background:#075fb1!important}
+@media(max-width:1180px){.hs-header-actions{gap:6px!important}.hs-header-actions .request{font-size:10px!important;padding:0 6px!important}}
+@media(max-width:900px){.hs-header-actions{flex-direction:column!important}.hs-header-actions .request{width:100%!important;flex:none!important}}
+</style><style id="hs-centered-main-nav-v1">
+/* Center the primary navigation group in the header on desktop. */
+@media (min-width:901px){
+  header .header.wrap{position:relative!important;}
+  header .header.wrap > nav{
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    transform:translate(-50%,-50%)!important;
+    margin:0!important;
+    width:max-content!important;
+    max-width:46%!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+}
 </style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a>
 <div class="drop"><a href="hvac-services.html">SERVICES ▾</a><div class="menu">

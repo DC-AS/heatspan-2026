@@ -1,0 +1,6 @@
+Heatspan header + Air Conditioning correction
+
+1. Reduced header button text size on Request Service / Apply for Financing.
+2. Vertically and horizontally centered both button labels with matching fixed button heights.
+3. Forced Air Conditioning AC Service section to use the approved mini-split visual under a new cache-busted asset filename.
+4. Preserved all prior approved navigation, legal pages, protection plan, contact/review, and service changes.
