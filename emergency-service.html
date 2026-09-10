@@ -98,24 +98,16 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 .hs-header-actions .hs-finance-header:hover{background:#075fb1!important}
 @media(max-width:1180px){.hs-header-actions{gap:6px!important}.hs-header-actions .request{font-size:10px!important;padding:0 6px!important}}
 @media(max-width:900px){.hs-header-actions{flex-direction:column!important}.hs-header-actions .request{width:100%!important;flex:none!important}}
-</style><style id="hs-centered-main-nav-v1">
-/* Center the primary navigation group in the header on desktop. */
+</style><style id="hs-nav-horizontal-alignment-fix">
+/* Keep the approved header layout; only align the navigation links on one horizontal centerline. */
 @media (min-width:901px){
-  header .header.wrap{position:relative!important;}
-  header .header.wrap > nav{
-    position:absolute!important;
-    left:50%!important;
-    top:50%!important;
-    transform:translate(-50%,-50%)!important;
-    margin:0!important;
-    width:max-content!important;
-    max-width:46%!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-  }
+  header nav{display:flex!important;align-items:center!important;align-self:center!important;}
+  header nav>a,header nav>.drop{display:flex!important;align-items:center!important;height:100%!important;margin:0!important;}
+  header nav>.drop>a{display:flex!important;align-items:center!important;margin:0!important;line-height:1.2!important;}
+  header nav>a{line-height:1.2!important;}
 }
-</style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
+</style>
+</head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a>
 <div class="drop"><a href="hvac-services.html">SERVICES ▾</a><div class="menu">
 <a href="air-conditioning.html">Air Conditioning</a>
