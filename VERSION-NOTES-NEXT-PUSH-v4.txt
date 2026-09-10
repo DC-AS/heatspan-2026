@@ -1,0 +1,9 @@
+Heatspan next push — Services/Header/AC update
+
+Changes included:
+- Moved Chimney into the Services dropdown across site pages.
+- Removed the standalone Chimney top-navigation item.
+- Added Apply for Financing beside Request Service in the header; opens EnerBank application in a new tab.
+- Added a Chimney service shortcut card to the Services landing page.
+- Locked the Air Conditioning AC Service section to the approved mini-split design/image and added a cache-busting image query.
+- Preserved internal legal pages and prior Parts Protection updates.
