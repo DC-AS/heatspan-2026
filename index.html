@@ -114,6 +114,27 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <style id="hs-home-about-relocation-css">
 .about-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:48px;align-items:start}.about-story .eyebrow{color:#149ee9;font-weight:800;letter-spacing:.12em;margin-bottom:8px}.about-trust{background:#eef6ff;border:1px solid #d8e7f7;border-radius:14px;padding:26px}.about-trust h3{margin-top:0;color:#0648b7}.about-trust div{padding:8px 0;border-bottom:1px solid #d8e7f7}.about-trust div:last-child{border:0}.about-cta{margin-top:32px;background:#062c59;color:#fff;border-radius:14px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:24px}.about-cta strong{font-size:18px}.about-cta span{display:block;margin-top:4px}@media(max-width:800px){.about-grid{grid-template-columns:1fr}.about-cta{align-items:flex-start;flex-direction:column}}
 </style>
+<style id="hs-nav-perfect-fit-v3">
+@media (min-width:901px){
+  header .header{grid-template-columns:minmax(250px,1fr) minmax(390px,1.35fr) minmax(330px,1.1fr)!important;column-gap:22px!important;}
+  header nav{display:flex!important;align-items:center!important;justify-content:center!important;gap:clamp(24px,2.35vw,42px)!important;width:100%!important;}
+  header nav>a,header nav>.drop>a{font-size:14px!important;line-height:1.2!important;white-space:nowrap!important;}
+}
+@media (min-width:901px) and (max-width:1180px){
+  header .header{grid-template-columns:minmax(220px,.95fr) minmax(330px,1.2fr) minmax(300px,1fr)!important;column-gap:14px!important;}
+  header nav{gap:18px!important;}
+  header nav>a,header nav>.drop>a{font-size:13px!important;}
+}
+</style>
+<style id="hs-six-task-home-css">
+.hs-home-about-hero{min-height:440px!important;display:flex!important;align-items:center!important;padding:64px 0!important;}
+.hs-home-about-hero>.wrap{width:100%!important;}
+.hs-home-about-hero p{max-width:1100px!important;line-height:1.55!important;}
+.hs-financing-grid{display:grid!important;grid-template-columns:minmax(0,1.25fr) minmax(360px,.75fr)!important;gap:54px!important;align-items:center!important;}
+.hs-financing-art{height:230px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hs-financing-art img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;image-rendering:auto;}
+@media(max-width:900px){.hs-home-about-hero{min-height:auto!important;padding:56px 0!important}.hs-financing-grid{grid-template-columns:1fr!important;gap:28px!important}.hs-financing-art{height:auto;max-height:260px}.hs-financing-art img{max-height:260px}}
+</style>
 </head><body>
 <header><div class="header wrap">
 <a class="brand" href="index.html"><img alt="Heatspan Heating • Boilers • Chimneys" src="assets/heatspan-logo.png"/></a>
@@ -148,10 +169,10 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <a class="card" href="water-heaters.html"><div class="media" style="background-image:url('assets/installation.jpg')"></div><div class="body"><h3>Water Heaters</h3><p>Repair and installation support for traditional and tankless water heaters.</p><span class="learn">LEARN MORE →</span></div></a>
 <a class="card" href="chimney-services.html"><div class="media" style="background-image:url('assets/chimney.jpg')"></div><div class="body"><h3>Chimney Services</h3><p>Inspection, cleaning, repair, relining, caps, covers, screens and dampers.</p><span class="learn">LEARN MORE →</span></div></a>
 </div></div></section>
-<section class="section soft"><div class="wrap"><h2>FINANCING OPTIONS</h2><p class="lead">Flexible financing options can help make larger heating and cooling projects more manageable. Explore available options for qualifying Heatspan projects.</p><div class="actions"><a class="btn primary" href="https://application.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664057600&amp;contractorNumber=10047&amp;loanCode=DEL2622&amp;estimatedCost=&amp;projectTypeId=" target="_blank" rel="noopener">VIEW FINANCING OPTIONS</a></div></div></section>
+<section class="section soft hs-financing-feature"><div class="wrap hs-financing-grid"><div><h2>FINANCING OPTIONS</h2><p class="lead">Flexible financing options can help make larger heating and cooling projects more manageable. Explore available options for qualifying Heatspan projects.</p><div class="actions"><a class="btn primary" href="https://application.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664057600&amp;contractorNumber=10047&amp;loanCode=DEL2622&amp;estimatedCost=&amp;projectTypeId=" target="_blank" rel="noopener">VIEW FINANCING OPTIONS</a></div></div><div class="hs-financing-art"><img src="assets/no-money-down-financing.png" alt="No Money Down financing - Same great comfort. A brighter tomorrow."/></div></div></section>
 
 <!-- About content relocated from the former About navigation page -->
-<section class="hero hs-home-about-hero" id="about-heatspan"><div class="wrap"><div class="eyebrow">LOCAL HVAC EXPERIENCE</div><h1>About Our Brooklyn HVAC Company</h1><p>Serving Brooklyn, Queens, and the surrounding areas since 1982 with dependable heating and cooling service.</p><div class="actions"><a class="btn primary" href="tel:17183753320">CALL 718-375-3320</a><a class="btn secondary" href="contact.html">REQUEST SERVICE</a></div></div></section>
+<section class="hero hs-home-about-hero" id="about-heatspan"><div class="wrap"><div class="eyebrow">LOCAL HVAC EXPERIENCE</div><h1>About Our Brooklyn HVAC Company</h1><p>What is Heatspan about? : Serving Brooklyn &amp; Queens since 1982. Heatspan practices the art of Steam and Hot water heating on a daily basis for the past 45 Years. Heatspan calibrates, synchronizing, and balances steam and hot water systems for comfort &amp; fuel efficiency.</p><div class="actions"><a class="btn primary" href="tel:17183753320">CALL 718-375-3320</a><a class="btn secondary" href="contact.html">REQUEST SERVICE</a></div></div></section>
 <section class="section about-story hs-home-about-story"><div class="wrap">
 <div class="about-grid"><div><div class="eyebrow">LOCAL EXPERIENCE SINCE 1982</div><h2>More Than 40 Years of Local Service</h2>
 <p class="lead">For over 40 years, the team at Heatspan has been repairing and maintaining heating and cooling equipment throughout Brooklyn, Queens, and the surrounding areas.</p>
