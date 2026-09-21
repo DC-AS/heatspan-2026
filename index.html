@@ -190,4 +190,39 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <div><h3>Home Services</h3><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a><a href="parts-protection-plan.html">Parts Protection Plan</a></div>
 <div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">South Office<br/>1980 E 35th St<br/>Brooklyn, NY 11234</div></div>
 </div><div class="hs-legal-strip"><span>© 2026 All Rights Reserved.</span><a href="site-map.html">Site Map</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="sms-terms-conditions.html">SMS Terms &amp; Conditions</a></div></footer>
+
+<style id="hs-home-popup-css">
+.hs-home-popup-overlay{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,20,55,.58);backdrop-filter:blur(2px)}
+.hs-home-popup-overlay.is-visible{display:flex}
+.hs-home-popup{position:relative;width:min(760px,82vw);max-height:82vh;border-radius:14px;overflow:hidden;box-shadow:0 20px 65px rgba(0,0,0,.38);background:#fff}
+.hs-home-popup img{display:block;width:100%;height:auto;max-height:82vh;object-fit:contain}
+.hs-home-popup-close{position:absolute;top:10px;right:10px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,34,92,.9);color:#fff;font:700 22px/34px Arial,sans-serif;text-align:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.28);z-index:2;padding:0}
+.hs-home-popup-close:hover,.hs-home-popup-close:focus{background:#087df0;outline:2px solid #fff;outline-offset:2px}
+@media(max-width:600px){.hs-home-popup-overlay{padding:14px}.hs-home-popup{width:min(94vw,760px)}.hs-home-popup-close{top:7px;right:7px;width:32px;height:32px;line-height:32px}}
+</style>
+<div class="hs-home-popup-overlay" id="hsHomePopup" role="dialog" aria-modal="true" aria-label="Heatspan heating service promotion" aria-hidden="true">
+  <div class="hs-home-popup">
+    <button class="hs-home-popup-close" id="hsHomePopupClose" type="button" aria-label="Close promotion">×</button>
+    <img src="assets/home-heating-popup.png" alt="No heat? No problem. Call Heatspan at 718-375-3320."/>
+  </div>
+</div>
+<script>
+(function(){
+  var key='heatspanHomePopupShown';
+  var overlay=document.getElementById('hsHomePopup');
+  var close=document.getElementById('hsHomePopupClose');
+  if(!overlay||!close) return;
+  function hide(){overlay.classList.remove('is-visible');overlay.setAttribute('aria-hidden','true');}
+  try{
+    if(!sessionStorage.getItem(key)){
+      sessionStorage.setItem(key,'1');
+      overlay.classList.add('is-visible');overlay.setAttribute('aria-hidden','false');
+    }
+  }catch(e){overlay.classList.add('is-visible');overlay.setAttribute('aria-hidden','false');}
+  close.addEventListener('click',hide);
+  overlay.addEventListener('click',function(e){if(e.target===overlay) hide();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') hide();});
+})();
+</script>
+
 </body></html>
