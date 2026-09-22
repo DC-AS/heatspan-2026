@@ -70,55 +70,58 @@ export default async function handler(req, res) {
         const borough = String(result.borough || "").toLowerCase().trim();
         const state = String(result.state || "").toLowerCase().trim();
         const stateCode = String(result.state_code || "").toLowerCase().trim();
-        const formatted = String(result.formatted || "").toLowerCase();
 
         const isNewYork =
           state === "new york" ||
           stateCode === "ny";
 
+        // Brooklyn is officially Kings County.
         const isBrooklyn =
-          city === "brooklyn" ||
-          district === "brooklyn" ||
-          suburb === "brooklyn" ||
-          borough === "brooklyn" ||
-          county === "kings" ||
           county === "kings county" ||
-          formatted.includes("brooklyn, ny") ||
-          formatted.includes("brooklyn, new york");
+          county === "kings" ||
+          suburb === "brooklyn" ||
+          district === "brooklyn" ||
+          borough === "brooklyn" ||
+          city === "brooklyn";
 
+        // Queens is officially Queens County.
         const isQueens =
-          city === "queens" ||
-          district === "queens" ||
-          suburb === "queens" ||
-          borough === "queens" ||
-          county === "queens" ||
           county === "queens county" ||
-          formatted.includes("queens, ny") ||
-          formatted.includes("queens, new york");
+          county === "queens" ||
+          suburb === "queens" ||
+          district === "queens" ||
+          borough === "queens" ||
+          city === "queens";
 
-        // Explicitly reject NYC boroughs outside Heatspan's service area.
-        const isOutsideNYCBorough =
-          city === "manhattan" ||
-          district === "manhattan" ||
-          borough === "manhattan" ||
+        // Explicitly reject the three NYC boroughs outside
+        // Heatspan's Brooklyn + Queens service area.
+        const isManhattan =
           county === "new york county" ||
-          city === "bronx" ||
-          district === "bronx" ||
-          borough === "bronx" ||
+          district === "manhattan" ||
+          suburb === "manhattan" ||
+          borough === "manhattan" ||
+          city === "manhattan";
+
+        const isBronx =
           county === "bronx county" ||
-          city === "staten island" ||
-          district === "staten island" ||
-          borough === "staten island" ||
+          district === "bronx" ||
+          suburb === "bronx" ||
+          borough === "bronx" ||
+          city === "bronx";
+
+        const isStatenIsland =
           county === "richmond county" ||
-          formatted.includes("manhattan, ny") ||
-          formatted.includes("new york, ny") ||
-          formatted.includes("bronx, ny") ||
-          formatted.includes("staten island, ny");
+          district === "staten island" ||
+          suburb === "staten island" ||
+          borough === "staten island" ||
+          city === "staten island";
 
         const inRange =
           isNewYork &&
-          !isOutsideNYCBorough &&
-          (isBrooklyn || isQueens);
+          (isBrooklyn || isQueens) &&
+          !isManhattan &&
+          !isBronx &&
+          !isStatenIsland;
 
         return {
           formatted: result.formatted || "",
@@ -128,7 +131,6 @@ export default async function handler(req, res) {
           county: result.county || "",
           district: result.district || "",
           suburb: result.suburb || "",
-          borough: result.borough || "",
           state: result.state || "",
           state_code: result.state_code || "",
           postcode: result.postcode || "",
@@ -143,12 +145,8 @@ export default async function handler(req, res) {
       )
       .slice(0, 6);
 
-    // TEMPORARY DEBUG:
-    // Returns the raw Geoapify results so we can see exactly
-    // how Brooklyn and Queens addresses are classified.
     return res.status(200).json({
       suggestions,
-      debug: results,
     });
   } catch (error) {
     console.error("Address autocomplete failed:", error);
