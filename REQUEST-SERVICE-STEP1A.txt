@@ -1,0 +1,34 @@
+HEATSPAN REQUEST SERVICE — STEP 1A
+==================================
+Status: PRE-LAUNCH BACKEND COMPLETE
+
+Implemented now:
+- Keeps Resend in safe TEST MODE by default.
+- Server-side required-field validation.
+- Server-side email and phone validation.
+- Server-side allow-list validation for form select options.
+- Honeypot spam trap retained.
+- HTML escaping/sanitization for submitted content.
+- Reply-To is set to the customer's submitted email address.
+- Clear Resend/API failure handling with Heatspan phone fallback.
+- No-store response header for service-request API responses.
+- Professional structured service-request email formatting.
+- Production destination is preconfigured for info@heatspan.com but cannot activate accidentally.
+
+LAUNCH-DAY STEP 1B — DO NOT DO UNTIL FINAL APPROVAL
+---------------------------------------------------
+1. Add/verify Resend DNS records for mail.heatspan.com in the DNS provider.
+2. Verify mail.heatspan.com in Resend.
+3. In Vercel, set:
+   HEATSPAN_EMAIL_MODE=production
+   HEATSPAN_SERVICE_TO=info@heatspan.com
+   HEATSPAN_SERVICE_FROM=Heatspan Website <service@mail.heatspan.com>
+4. Confirm RESEND_API_KEY is present in the Production environment.
+5. Redeploy after the environment-variable changes.
+6. Submit a real Request Service form from the production website.
+7. Confirm the message arrives at info@heatspan.com and Reply works to the customer email.
+
+IMPORTANT:
+- No Network Solutions/DNS changes were made in Step 1A.
+- No changes were made to the current live heatspan.com website.
+- Resend receiving should remain OFF; info@heatspan.com remains the operational inbox.
