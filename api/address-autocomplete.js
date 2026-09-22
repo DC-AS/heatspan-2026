@@ -128,6 +128,7 @@ export default async function handler(req, res) {
           county: result.county || "",
           district: result.district || "",
           suburb: result.suburb || "",
+          borough: result.borough || "",
           state: result.state || "",
           state_code: result.state_code || "",
           postcode: result.postcode || "",
@@ -142,8 +143,12 @@ export default async function handler(req, res) {
       )
       .slice(0, 6);
 
+    // TEMPORARY DEBUG:
+    // Returns the raw Geoapify results so we can see exactly
+    // how Brooklyn and Queens addresses are classified.
     return res.status(200).json({
       suggestions,
+      debug: results,
     });
   } catch (error) {
     console.error("Address autocomplete failed:", error);
