@@ -6,7 +6,40 @@ export default async function handler(req,res){
   const {firstName,lastName,phone,email,address,customerStatus,serviceNeeded,urgency,message,website}=req.body||{};
   if(website) return res.status(200).json({ok:true});
   const d={firstName:clean(firstName,80),lastName:clean(lastName,80),phone:clean(phone,40),email:clean(email,160),address:clean(address,220),customerStatus:clean(customerStatus,80),serviceNeeded:clean(serviceNeeded,100),urgency:clean(urgency,80),message:clean(message,2500)};
-  if(!d.firstName||!d.lastName||!d.phone||!d.email||!d.serviceNeeded||!d.message) return res.status(400).json({ok:false,message:"Please complete all required fields."});
+  if(!d.firstName||!d.lastName||!d.phone||!d.email||!d.address||!d.serviceNeeded||!d.message) return res.status(400).json({ok:false,message:"Please complete all required fields."});
+  if(!process.env.GEOAPIFY_API_KEY) return res.status(500).json({ok:false,message:"Address verification is temporarily unavailable."});
+
+const geoParams=new URLSearchParams({
+ text:d.address,
+ format:"json",
+ limit:"1",
+ filter:"countrycode:us",
+ bias:"proximity:-73.9442,40.6782",
+ apiKey:process.env.GEOAPIFY_API_KEY
+});
+
+const geoResponse=await fetch(`https://api.geoapify.com/v1/geocode/search?${geoParams.toString()}`);
+if(!geoResponse.ok) return res.status(502).json({ok:false,message:"Address verification is temporarily unavailable. Please call 718-375-3320."});
+
+const geoData=await geoResponse.json();
+const geoResult=Array.isArray(geoData.results)?geoData.results[0]:null;
+
+const geoCity=String(geoResult?.city||"").toLowerCase();
+const geoCounty=String(geoResult?.county||"").toLowerCase();
+const geoDistrict=String(geoResult?.district||"").toLowerCase();
+const geoState=String(geoResult?.state||"").toLowerCase();
+
+const geoIsNewYork=geoState==="new york"||geoState==="ny";
+const geoIsBrooklyn=geoCity==="brooklyn"||geoDistrict==="brooklyn"||geoCounty==="kings county"||geoCounty==="kings";
+const geoIsQueens=geoCity==="queens"||geoDistrict==="queens"||geoCounty==="queens county"||geoCounty==="queens";
+
+if(!geoResult||!geoIsNewYork||(!geoIsBrooklyn&&!geoIsQueens)){
+ return res.status(400).json({
+  ok:false,
+  code:"OUT_OF_SERVICE_AREA",
+  message:"Sorry, this address is out of range :( At this time we're only servicing the Brooklyn and Queens area. Thank you for considering Heatspan!"
+ });
+}
   if(!process.env.RESEND_API_KEY) return res.status(500).json({ok:false,message:"Email service is not configured."});
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
   const fields={Name:`${d.firstName} ${d.lastName}`,Phone:d.phone,Email:d.email,"Service Address":d.address||"Not provided","Customer Status":d.customerStatus||"Not provided","Service Needed":d.serviceNeeded,Urgency:d.urgency||"Not provided",Message:d.message};
