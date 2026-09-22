@@ -1,0 +1,11 @@
+HEATSPAN STEP 3 — SERVICE ADDRESS AUTOCOMPLETE
+
+Status: Implemented.
+
+- Vercel API route: /api/address-autocomplete
+- Secret required: GEOAPIFY_API_KEY (configured in Vercel, not committed to source)
+- Suggestions begin after 3 characters with a 350ms debounce.
+- Results are restricted to U.S. addresses and biased toward Brooklyn/NYC.
+- Customers can always type an address manually if suggestions are unavailable.
+- Keyboard controls: Up/Down, Enter, Escape.
+- No Network Solutions or live heatspan.com DNS changes are required.
