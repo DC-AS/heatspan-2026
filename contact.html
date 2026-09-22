@@ -702,13 +702,47 @@ html,body{max-width:100%;overflow-x:hidden}
  window.addEventListener('resize',update);update();
 })();
 </script><script>
-(()=>{const input=document.getElementById('service-address'),box=document.getElementById('address-suggestions');if(!input||!box)return;let timer=null,controller=null,active=-1,items=[];
+(()=>{const input=document.getElementById('service-address'),box=document.getElementById('address-suggestions');if(!input||!box)return;let timer=null,controller=null,active=-1,items=[];window.heatspanAddressVerified=false;
 const close=()=>{box.classList.remove('open');box.innerHTML='';input.setAttribute('aria-expanded','false');active=-1;items=[]};
 const render=(rows)=>{items=rows||[];active=-1;if(!items.length){close();return}box.innerHTML=items.map((x,i)=>`<button type="button" class="hs-address-option" role="option" data-i="${i}">${String(x.formatted).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}</button>`).join('');box.classList.add('open');input.setAttribute('aria-expanded','true')};
-const choose=(i)=>{if(!items[i])return;const selected=items[i];input.value=selected.formatted;close();input.focus();if(selected.inRange!==true){showOutOfRange();}};
-input.addEventListener('input',()=>{clearTimeout(timer);const q=input.value.trim();if(controller)controller.abort();if(q.length<3){close();return}timer=setTimeout(async()=>{controller=new AbortController();try{const r=await fetch('/api/address-autocomplete?q='+encodeURIComponent(q),{signal:controller.signal});if(!r.ok)throw new Error();const j=await r.json();render(j.suggestions||[])}catch(e){if(e.name!=='AbortError')close()}},350)});
+window.showOutOfRange=()=>{
+  const existing=document.getElementById('hs-out-of-range-modal');
+  if(existing)existing.remove();
+
+  const overlay=document.createElement('div');
+  overlay.id='hs-out-of-range-modal';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:99999;';
+
+  overlay.innerHTML=`
+    <div style="background:#fff;border-radius:14px;padding:32px 28px;max-width:520px;width:100%;text-align:center;box-shadow:0 18px 55px rgba(0,0,0,.28);">
+      <div style="font-weight:800;font-size:22px;line-height:1.45;color:#123b6d;">
+        Sorry, this address is out of range :(<br><br>
+        At this time we're only servicing the Brooklyn and Queens area.<br><br>
+        Thank you for considering Heatspan!
+      </div>
+      <button type="button" id="hs-out-of-range-close" style="margin-top:26px;padding:12px 28px;border:0;border-radius:7px;background:#123b6d;color:#fff;font-weight:800;cursor:pointer;">
+        OK
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  const closeModal=()=>{
+    overlay.remove();
+    input.focus();
+  };
+
+  document.getElementById('hs-out-of-range-close').addEventListener('click',closeModal);
+
+  overlay.addEventListener('click',(e)=>{
+    if(e.target===overlay)closeModal();
+  });
+};
+     const choose=(i)=>{if(!items[i])return;const selected=items[i];input.value=selected.formatted;window.heatspanAddressVerified=selected.inRange===true;close();input.focus();if(!window.heatspanAddressVerified){window.showOutOfRange();}};
+input.addEventListener('input',()=>{window.heatspanAddressVerified=false;clearTimeout(timer);const q=input.value.trim();if(controller)controller.abort();if(q.length<3){close();return}timer=setTimeout(async()=>{controller=new AbortController();try{const r=await fetch('/api/address-autocomplete?q='+encodeURIComponent(q),{signal:controller.signal});if(!r.ok)throw new Error();const j=await r.json();render(j.suggestions||[])}catch(e){if(e.name!=='AbortError')close()}},350)});
 box.addEventListener('mousedown',e=>{const b=e.target.closest('.hs-address-option');if(!b)return;e.preventDefault();choose(Number(b.dataset.i))});
 input.addEventListener('keydown',e=>{if(!box.classList.contains('open'))return;const opts=[...box.querySelectorAll('.hs-address-option')];if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();active=e.key==='ArrowDown'?Math.min(active+1,opts.length-1):Math.max(active-1,0);opts.forEach((o,i)=>o.classList.toggle('active',i===active));opts[active]?.scrollIntoView({block:'nearest'})}else if(e.key==='Enter'&&active>=0){e.preventDefault();choose(active)}else if(e.key==='Escape'){close()}});
 document.addEventListener('click',e=>{if(!e.target.closest('.hs-address-wrap'))close()});
 })();
-</script><script>const f=document.getElementById('service-form'),s=document.getElementById('form-status'),b=document.getElementById('submit-btn');f.addEventListener('submit',async e=>{e.preventDefault();s.textContent='';b.disabled=true;b.textContent='SENDING...';try{const r=await fetch('/api/request-service',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f).entries()))});const j=await r.json();if(!r.ok||!j.ok)throw new Error(j.message||'Unable to send request.');f.reset();s.style.color='#0b6b2d';s.textContent='Thank you. Your test service request was submitted successfully. For emergency service, call 718-375-3320.';}catch(err){s.style.color='#a32020';s.textContent=err.message||'Something went wrong. Please call 718-375-3320.';}finally{b.disabled=false;b.textContent='SEND TEST REQUEST';}});</script><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div><div class="hs-legal-strip"><span>© 2026 All Rights Reserved.</span><a href="site-map.html">Site Map</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="sms-terms-conditions.html">SMS Terms &amp; Conditions</a></div></footer></body></html>
+</script><script>const f=document.getElementById('service-form'),s=document.getElementById('form-status'),b=document.getElementById('submit-btn');f.addEventListener('submit',async e=>{e.preventDefault();if(window.heatspanAddressVerified!==true){if(typeof window.showOutOfRange==='function')window.showOutOfRange();return;}s.textContent='';b.disabled=true;b.textContent='SENDING...';try{const r=await fetch('/api/request-service',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f).entries()))});const j=await r.json();if(!r.ok||!j.ok)throw new Error(j.message||'Unable to send request.');f.reset();s.style.color='#0b6b2d';s.textContent='Thank you. Your test service request was submitted successfully. For emergency service, call 718-375-3320.';}catch(err){s.style.color='#a32020';s.textContent=err.message||'Something went wrong. Please call 718-375-3320.';}finally{b.disabled=false;b.textContent='SEND TEST REQUEST';}});</script><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div><div class="hs-legal-strip"><span>© 2026 All Rights Reserved.</span><a href="site-map.html">Site Map</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="sms-terms-conditions.html">SMS Terms &amp; Conditions</a></div></footer></body></html>
