@@ -62,19 +62,33 @@ export default async function handler(req, res) {
       : [];
 
     const suggestions = results
-      .map((result) => ({
-        formatted: result.formatted || "",
-        address_line1: result.address_line1 || "",
-        address_line2: result.address_line2 || "",
-        city:
-          result.city ||
-          result.suburb ||
-          result.district ||
-          "",
-        state: result.state || "",
-        postcode: result.postcode || "",
-        country: result.country || "",
-      }))
+      .map((result) => {
+        const city = String(result.city || "").toLowerCase();
+        const county = String(result.county || "").toLowerCase();
+        const district = String(result.district || "").toLowerCase();
+        const state = String(result.state || "").toLowerCase();
+
+        const isNewYork =
+          state === "new york" ||
+          state === "ny";
+
+        const isBrooklyn =
+          city === "brooklyn" ||
+          district === "brooklyn" ||
+          county === "kings county" ||
+          county === "kings";
+
+        const isQueens =
+          city === "queens" ||
+          district === "queens" ||
+          county === "queens county" ||
+          county === "queens";
+
+        return {
+          ...result,
+          inRange: isNewYork && (isBrooklyn || isQueens),
+        };
+      })
       .filter((result) => result.formatted);
 
     return res.status(200).json({
