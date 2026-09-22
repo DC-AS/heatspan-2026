@@ -1,25 +1,34 @@
-HEATSPAN PARTS PROTECTION PURCHASE NOTIFICATIONS
+HEATSPAN PARTS PROTECTION — STEP 2A COMPLETE
 
-This version includes: /api/paysimple-protection-webhook.js
+STATUS
+- Website/Vercel webhook code is prepared.
+- Notifications are intentionally DISABLED until Step 2B.
+- No Network Solutions or heatspan.com DNS changes are required for Step 2A.
 
-Purpose:
-- Receives PaySimple payment_created webhooks.
-- Filters for website/embeddable checkouts at $28.60 or $342.96.
+WHAT STEP 2A DOES
+- Accepts only POST webhook requests.
+- Requires PaySimple webhook signature verification once activated.
+- Filters for payment_created + embeddable checkout + Heatspan plan prices ($28.60 / $342.96).
 - Ignores later recurring subscription charges.
-- Emails info@heatspan.com using the existing Resend connection.
+- Sends the purchase alert to info@heatspan.com through Resend.
+- Excludes card and bank-account details from notification emails.
+- Escapes webhook-supplied values before inserting them into email HTML.
+- Limits webhook payload size.
+- Uses a Resend Idempotency-Key based on the payment/order/event so webhook retries do not normally create duplicate emails within Resend's idempotency window.
+- Fails closed: if activation or the webhook secret is missing, no notification is sent.
 
-ONE-TIME ACTIVATION AFTER THIS VERSION IS DEPLOYED:
-1. In PaySimple, create a webhook subscription for event type: payment_created
-2. Webhook URL:
+STEP 2B — DO LATER
+1. In PaySimple, create/enable the appropriate payment_created webhook subscription for the deployed endpoint:
    https://YOUR-VERCEL-DEPLOYMENT.vercel.app/api/paysimple-protection-webhook
-   (When Heatspan goes live, change it to https://www.heatspan.com/api/paysimple-protection-webhook)
-3. Save the PaySimple webhook signature secret as this Vercel environment variable:
+2. Copy the PaySimple webhook signing secret into Vercel as:
    PAYSIMPLE_WEBHOOK_SECRET
-4. Ensure Vercel also has:
+3. Confirm Vercel has:
    RESEND_API_KEY
    PARTS_NOTIFICATION_TO=info@heatspan.com
-5. For production email delivery to info@heatspan.com, use a verified Resend sender/domain and optionally set:
-   RESEND_FROM=Heatspan Website <notifications@heatspan.com>
+4. Set PAYSIMPLE_NOTIFICATIONS_ENABLED=true only when ready to activate/test the webhook.
+5. Use a verified Resend sender/domain for production delivery when Step 1B is activated.
+6. Perform controlled monthly and annual end-to-end tests and confirm the alert reaches info@heatspan.com.
 
-Important:
-The public PaySimple merchant key used by the Buy Now embed is not an API credential and cannot create webhook subscriptions. The PaySimple webhook subscription itself must be enabled once in PaySimple after deployment.
+IMPORTANT
+Do not put card numbers, bank account numbers, routing numbers, or other payment credentials in notification emails or logs.
+Do not activate the webhook until the PaySimple signing secret is configured.
