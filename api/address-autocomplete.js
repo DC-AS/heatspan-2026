@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     const params = new URLSearchParams({
       text: query,
       format: "json",
-      limit: "6",
+      limit: "10",
       filter: "countrycode:us",
       bias: "proximity:-73.9442,40.6782",
       apiKey: apiKey,
@@ -63,33 +63,84 @@ export default async function handler(req, res) {
 
     const suggestions = results
       .map((result) => {
-        const city = String(result.city || "").toLowerCase();
-        const county = String(result.county || "").toLowerCase();
-        const district = String(result.district || "").toLowerCase();
-        const state = String(result.state || "").toLowerCase();
+        const city = String(result.city || "").toLowerCase().trim();
+        const county = String(result.county || "").toLowerCase().trim();
+        const district = String(result.district || "").toLowerCase().trim();
+        const suburb = String(result.suburb || "").toLowerCase().trim();
+        const borough = String(result.borough || "").toLowerCase().trim();
+        const state = String(result.state || "").toLowerCase().trim();
+        const stateCode = String(result.state_code || "").toLowerCase().trim();
+        const formatted = String(result.formatted || "").toLowerCase();
 
         const isNewYork =
           state === "new york" ||
-          state === "ny";
+          stateCode === "ny";
 
         const isBrooklyn =
           city === "brooklyn" ||
           district === "brooklyn" ||
+          suburb === "brooklyn" ||
+          borough === "brooklyn" ||
+          county === "kings" ||
           county === "kings county" ||
-          county === "kings";
+          formatted.includes("brooklyn, ny") ||
+          formatted.includes("brooklyn, new york");
 
         const isQueens =
           city === "queens" ||
           district === "queens" ||
+          suburb === "queens" ||
+          borough === "queens" ||
+          county === "queens" ||
           county === "queens county" ||
-          county === "queens";
+          formatted.includes("queens, ny") ||
+          formatted.includes("queens, new york");
+
+        // Explicitly reject NYC boroughs outside Heatspan's service area.
+        const isOutsideNYCBorough =
+          city === "manhattan" ||
+          district === "manhattan" ||
+          borough === "manhattan" ||
+          county === "new york county" ||
+          city === "bronx" ||
+          district === "bronx" ||
+          borough === "bronx" ||
+          county === "bronx county" ||
+          city === "staten island" ||
+          district === "staten island" ||
+          borough === "staten island" ||
+          county === "richmond county" ||
+          formatted.includes("manhattan, ny") ||
+          formatted.includes("new york, ny") ||
+          formatted.includes("bronx, ny") ||
+          formatted.includes("staten island, ny");
+
+        const inRange =
+          isNewYork &&
+          !isOutsideNYCBorough &&
+          (isBrooklyn || isQueens);
 
         return {
-          ...result,
-          inRange: isNewYork && (isBrooklyn || isQueens),
+          formatted: result.formatted || "",
+          address_line1: result.address_line1 || "",
+          address_line2: result.address_line2 || "",
+          city: result.city || "",
+          county: result.county || "",
+          district: result.district || "",
+          suburb: result.suburb || "",
+          state: result.state || "",
+          state_code: result.state_code || "",
+          postcode: result.postcode || "",
+          country: result.country || "",
+          inRange,
         };
       })
-      .filter((result) => result.formatted && result.inRange === true);
+      .filter(
+        (result) =>
+          result.formatted &&
+          result.inRange === true
+      )
+      .slice(0, 6);
 
     return res.status(200).json({
       suggestions,
