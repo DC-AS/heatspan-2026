@@ -30,6 +30,42 @@ export default async function handler(req, res) {
   }
 
   try {
+    /*
+     * Respect an explicitly typed NYC locality.
+     *
+     * "New York, NY" means Manhattan for this service-area check.
+     * If the customer explicitly types Manhattan, Bronx, or
+     * Staten Island, don't ask Geoapify to substitute an address
+     * with the same street name in Brooklyn or Queens.
+     */
+    const normalizedQuery = query
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+
+    const explicitlyManhattan =
+      /(?:,\s*|\s)new york(?:,\s*|\s+)ny(?:\s+\d{5}(?:-\d{4})?)?\s*$/.test(
+        normalizedQuery
+      ) &&
+      !normalizedQuery.includes("brooklyn") &&
+      !normalizedQuery.includes("queens");
+
+    const explicitlyBronx =
+      /\bbronx(?:,\s*|\s+)ny\b/.test(normalizedQuery);
+
+    const explicitlyStatenIsland =
+      /\bstaten island(?:,\s*|\s+)ny\b/.test(normalizedQuery);
+
+    if (
+      explicitlyManhattan ||
+      explicitlyBronx ||
+      explicitlyStatenIsland
+    ) {
+      return res.status(200).json({
+        suggestions: [],
+      });
+    }
+
     const params = new URLSearchParams({
       text: query,
       format: "json",
@@ -63,13 +99,33 @@ export default async function handler(req, res) {
 
     const suggestions = results
       .map((result) => {
-        const city = String(result.city || "").toLowerCase().trim();
-        const county = String(result.county || "").toLowerCase().trim();
-        const district = String(result.district || "").toLowerCase().trim();
-        const suburb = String(result.suburb || "").toLowerCase().trim();
-        const borough = String(result.borough || "").toLowerCase().trim();
-        const state = String(result.state || "").toLowerCase().trim();
-        const stateCode = String(result.state_code || "").toLowerCase().trim();
+        const city = String(result.city || "")
+          .toLowerCase()
+          .trim();
+
+        const county = String(result.county || "")
+          .toLowerCase()
+          .trim();
+
+        const district = String(result.district || "")
+          .toLowerCase()
+          .trim();
+
+        const suburb = String(result.suburb || "")
+          .toLowerCase()
+          .trim();
+
+        const borough = String(result.borough || "")
+          .toLowerCase()
+          .trim();
+
+        const state = String(result.state || "")
+          .toLowerCase()
+          .trim();
+
+        const stateCode = String(result.state_code || "")
+          .toLowerCase()
+          .trim();
 
         const isNewYork =
           state === "new york" ||
@@ -93,8 +149,8 @@ export default async function handler(req, res) {
           borough === "queens" ||
           city === "queens";
 
-        // Explicitly reject the three NYC boroughs outside
-        // Heatspan's Brooklyn + Queens service area.
+        // Explicitly reject NYC boroughs outside Heatspan's
+        // Brooklyn + Queens service area.
         const isManhattan =
           county === "new york county" ||
           district === "manhattan" ||
