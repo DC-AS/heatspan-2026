@@ -44,7 +44,16 @@ if(!geoResult||!geoIsNewYork||(!geoIsBrooklyn&&!geoIsQueens)){
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
   const fields={Name:`${d.firstName} ${d.lastName}`,Phone:d.phone,Email:d.email,"Service Address":d.address||"Not provided","Customer Status":d.customerStatus||"Not provided","Service Needed":d.serviceNeeded,Urgency:d.urgency||"Not provided",Message:d.message};
   const rows=Object.entries(fields).map(([k,v])=>`<tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">${esc(k)}</td><td style="padding:8px;border:1px solid #ddd">${esc(v)}</td></tr>`).join('');
-  const payload={from:"Heatspan Website Test <onboarding@resend.dev>",to:["delivered@resend.dev"],subject:`[TEST] New Heatspan Service Request — ${d.serviceNeeded}`,html:`<div style="font-family:Arial,sans-serif;max-width:720px;margin:auto"><h2 style="color:#0648b7">New Heatspan Service Request — TEST MODE</h2><p>This message was generated from the Heatspan Vercel test website.</p><table style="border-collapse:collapse;width:100%">${rows}</table><p style="margin-top:20px;color:#666;font-size:12px">Test mode only. Production delivery to info@heatspan.com will be enabled later.</p></div>`};
+  // Resend requires a verified sending domain for delivery to real recipients.
+  const from=process.env.RESEND_FROM;
+  if(!from) return res.status(503).json({ok:false,message:"Email delivery is not configured. Please call 718-375-3320."});
+  const payload={
+    from,
+    to:["info@heatspan.com"],
+    reply_to:d.email,
+    subject:`New Heatspan Service Request — ${d.serviceNeeded}`,
+    html:`<div style="font-family:Arial,sans-serif;max-width:720px;margin:auto"><h2 style="color:#0648b7">New Heatspan Service Request</h2><p>Submitted from the Heatspan website.</p><table style="border-collapse:collapse;width:100%">${rows}</table></div>`
+  };
   const r=await fetch(RESEND_ENDPOINT,{method:"POST",headers:{Authorization:`Bearer ${process.env.RESEND_API_KEY}`,"Content-Type":"application/json"},body:JSON.stringify(payload)});
   const result=await r.json();
   if(!r.ok){console.error("Resend error",result);return res.status(502).json({ok:false,message:"We could not send the request. Please call 718-375-3320."});}

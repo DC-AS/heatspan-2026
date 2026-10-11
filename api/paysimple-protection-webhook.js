@@ -2,7 +2,7 @@ import crypto from 'crypto';
 
 const PLAN_AMOUNTS = new Set(['28.60', '342.96']);
 const NOTIFY_TO = process.env.PARTS_NOTIFICATION_TO || 'info@heatspan.com';
-const RESEND_FROM = process.env.RESEND_FROM || 'Heatspan Website <onboarding@resend.dev>';
+const RESEND_FROM = process.env.RESEND_FROM;
 
 function collectRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -20,9 +20,15 @@ function safeEqual(a, b) {
   return aa.length === bb.length && crypto.timingSafeEqual(aa, bb);
 }
 
+function escapeHtml(value) {
+  return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 async function sendEmail(event) {
   const key = process.env.RESEND_API_KEY;
   if (!key) throw new Error('RESEND_API_KEY is not configured');
+  if (!RESEND_FROM) throw new Error('RESEND_FROM is not configured');
   const d = event.data || {};
   const amount = Number(d.amount || 0).toFixed(2);
   const plan = amount === '28.60' ? 'Monthly Parts Protection Plan' : amount === '342.96' ? 'Annual Parts Protection Plan' : 'Parts Protection Plan';
@@ -33,12 +39,12 @@ async function sendEmail(event) {
     <table cellpadding="6" cellspacing="0" style="border-collapse:collapse">
       <tr><td><strong>Plan</strong></td><td>${plan}</td></tr>
       <tr><td><strong>Amount</strong></td><td>$${amount}</td></tr>
-      <tr><td><strong>Payment type</strong></td><td>${d.payment_type || 'Not provided'}</td></tr>
-      <tr><td><strong>PaySimple customer ID</strong></td><td>${d.customer_id || 'Not provided'}</td></tr>
-      <tr><td><strong>PaySimple order ID</strong></td><td>${d.order_id || 'Not provided'}</td></tr>
-      <tr><td><strong>Payment ID</strong></td><td>${d.payment_id || 'Not provided'}</td></tr>
-      <tr><td><strong>Status</strong></td><td>${d.payment_status || 'Not provided'}</td></tr>
-      <tr><td><strong>Event time</strong></td><td>${event.created_at || new Date().toISOString()}</td></tr>
+      <tr><td><strong>Payment type</strong></td><td>${escapeHtml(d.payment_type || 'Not provided')}</td></tr>
+      <tr><td><strong>PaySimple customer ID</strong></td><td>${escapeHtml(d.customer_id || 'Not provided')}</td></tr>
+      <tr><td><strong>PaySimple order ID</strong></td><td>${escapeHtml(d.order_id || 'Not provided')}</td></tr>
+      <tr><td><strong>Payment ID</strong></td><td>${escapeHtml(d.payment_id || 'Not provided')}</td></tr>
+      <tr><td><strong>Status</strong></td><td>${escapeHtml(d.payment_status || 'Not provided')}</td></tr>
+      <tr><td><strong>Event time</strong></td><td>${escapeHtml(event.created_at || new Date().toISOString())}</td></tr>
     </table>
     <p>Open PaySimple to review the customer's full subscription and payment details.</p>`;
   const r = await fetch('https://api.resend.com/emails', {
@@ -54,9 +60,13 @@ export const config = { api: { bodyParser: false } };
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ ok:false, message:'Method not allowed' });
   try {
-    const raw = await collectRawBody(req);
     const secret = process.env.PAYSIMPLE_WEBHOOK_SECRET;
-    if (secret) {
+    if (!secret) {
+      console.error('PAYSIMPLE_WEBHOOK_SECRET is not configured');
+      return res.status(503).json({ ok:false, message:'Webhook verification is not configured' });
+    }
+    const raw = await collectRawBody(req);
+    {
       const received = req.headers['paysimple-hmac-sha256'];
       const expected = crypto.createHmac('sha256', secret).update(raw, 'ascii').digest('hex');
       if (!received || !safeEqual(received, expected)) return res.status(401).json({ ok:false, message:'Invalid PaySimple signature' });
