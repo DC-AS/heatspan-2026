@@ -159,6 +159,14 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 .hs-financing-art img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;image-rendering:auto;}
 @media(max-width:900px){.hs-home-about-hero{min-height:auto!important;padding:56px 0!important}.hs-financing-grid{grid-template-columns:1fr!important;gap:28px!important}.hs-financing-art{height:auto;max-height:260px}.hs-financing-art img{max-height:260px}}
 </style>
+
+<style id="heatspan-keyboard-focus">
+/* Visible keyboard focus without changing normal mouse/touch appearance. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 3px;
+}
+</style>
 </head><body>
 <header><div class="header wrap">
 <a class="brand" href="index.html"><img alt="Heatspan Heating • Boilers • Chimneys" src="assets/heatspan-logo.png"/></a>
