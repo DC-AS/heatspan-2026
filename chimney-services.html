@@ -746,6 +746,41 @@ header nav>.drop.hs-menu-open>.menu{display:block!important}
   .hero.photo .actions{flex-direction:column!important;align-items:stretch!important}
   .hero.photo .actions .btn{width:100%!important}
 }
+</style><style id="hs-service-mobile-spacing-fix">
+/* Mobile service-page hero spacing correction: four service pages only. */
+@media (max-width:900px) {
+  .hs-rhero {
+    min-height:0 !important;
+    height:auto !important;
+    padding-bottom:clamp(245px,72vw,420px) !important;
+  }
+  .hs-rhero .hs-rhero__inner {
+    min-height:0 !important;
+    height:auto !important;
+    padding:24px 20px 18px !important;
+    justify-content:flex-start !important;
+  }
+  .hs-rhero .hs-rhero__copy {
+    min-height:0 !important;
+    height:auto !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+  .hs-rhero .hs-rhero__benefits {
+    min-height:0 !important;
+    height:auto !important;
+    margin-top:14px !important;
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+  .hs-rhero .hs-rhero__art {
+    position:absolute !important;
+    top:auto !important;
+    bottom:0 !important;
+    height:clamp(245px,72vw,420px) !important;
+    width:100% !important;
+  }
+}
 </style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a>
 <div class="drop"><a href="hvac-services.html">SERVICES ▾</a><div class="menu">
