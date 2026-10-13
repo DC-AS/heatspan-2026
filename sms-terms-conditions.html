@@ -130,7 +130,67 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
   outline-offset: 3px;
 }
 </style>
-</head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
+<style id="hs-responsive-five-fixes">
+/* Heatspan responsive corrections: desktop alignment + touch dropdowns */
+header nav,header nav>a,header nav>.drop,header nav>.drop>a{box-sizing:border-box!important}
+header nav{align-items:center!important;align-content:center!important}
+header nav>a,header nav>.drop>a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  vertical-align:middle!important;line-height:1.25!important;
+}
+header nav>.drop{align-self:center!important}
+header nav>.drop>.menu{z-index:2000!important}
+header nav>.drop.hs-menu-open>.menu{display:block!important}
+@media(hover:none), (pointer:coarse){
+  header nav>.drop:not(.hs-menu-open):hover>.menu,
+  header nav>.drop:not(.hs-menu-open):focus-within>.menu{display:none!important}
+}
+@media(max-width:900px){
+  header .header{display:flex!important;flex-direction:column!important;align-items:center!important;
+    justify-content:center!important;gap:10px!important;min-height:0!important;padding:14px 12px!important}
+  header .brand{display:block!important;align-self:center!important}
+  header .brand img{width:min(270px,76vw)!important;max-width:100%!important;height:auto!important}
+  header nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;
+    justify-content:space-between!important;align-self:stretch!important;gap:clamp(4px,2vw,15px)!important;
+    width:100%!important;min-width:0!important;padding:0 2px!important}
+  header nav>a,header nav>.drop>a{height:44px!important;padding:8px 0!important;margin:0!important;
+    font-size:clamp(10px,2.7vw,14px)!important;white-space:nowrap!important;line-height:1.2!important;
+    border-bottom-width:2px!important}
+  header nav>.drop{position:relative!important;display:flex!important;align-items:center!important;
+    height:44px!important;min-width:0!important}
+  header nav>.drop>.menu{position:absolute!important;top:calc(100% + 2px)!important;
+    left:0!important;right:auto!important;min-width:min(245px,calc(100vw - 28px))!important;
+    max-width:calc(100vw - 28px)!important;margin:0!important;box-shadow:0 14px 32px rgba(0,0,0,.16)!important}
+  header nav>.drop:nth-last-child(2)>.menu{left:auto!important;right:0!important}
+  header nav>.drop::after{display:none!important}
+  /* The photo sits beneath the natural-height hero copy instead of behind its buttons. */
+  .hero.photo{min-height:0!important;padding-bottom:clamp(230px,66vw,380px)!important}
+  .hero.photo .hero-inner{padding:25px 20px 18px!important;max-width:none!important}
+  .hero.photo::after{top:auto!important;bottom:0!important;width:100%!important;
+    height:clamp(230px,66vw,380px)!important;background-size:cover!important;
+    background-position:center center!important}
+  .hero.photo::before{background:linear-gradient(to bottom,#032d63 0%,#032d63 49%,rgba(3,45,99,.35) 72%,transparent 88%)!important}
+  .hero.photo .trust-row{gap:15px!important;margin:18px 0!important}
+  .hero.photo .actions{gap:10px!important}
+  .hero.photo .actions .btn{max-width:100%!important}
+  /* Contact artwork follows the content with no fixed-height empty blue area. */
+  .hs-rhero--contact{min-height:0!important;height:auto!important;
+    padding-bottom:clamp(245px,72vw,420px)!important}
+  .hs-rhero--contact .hs-rhero__inner{min-height:0!important;height:auto!important;
+    padding:24px 20px 16px!important;justify-content:flex-start!important}
+  .hs-rhero--contact .hs-rhero__copy{min-height:0!important;height:auto!important}
+  .hs-rhero--contact .hs-rhero__benefits{margin-top:16px!important;margin-bottom:0!important;
+    padding:0!important;gap:16px!important}
+  .hs-rhero--contact .hs-rhero__art{position:absolute!important;top:auto!important;bottom:0!important;
+    height:clamp(245px,72vw,420px)!important;width:100%!important}
+  .hs-rhero--contact .hs-rhero__fade{pointer-events:none!important}
+}
+@media(max-width:390px){
+  header nav>a,header nav>.drop>a{font-size:10px!important}
+  .hero.photo .actions{flex-direction:column!important;align-items:stretch!important}
+  .hero.photo .actions .btn{width:100%!important}
+}
+</style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a>
 <div class="drop"><a href="hvac-services.html">SERVICES ▾</a><div class="menu">
 <a href="air-conditioning.html">Air Conditioning</a>
@@ -141,4 +201,40 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <div class="drop"><a href="parts-protection-plan.html">PROTECTION ▾</a><div class="menu"><a href="parts-protection-plan.html">Parts Protection Plan</a><a href="https://smartguardusa.com/" target="_blank" rel="noopener">OFP</a><a href="safety-proof-boiler-room.html">Safety Proof Your Boiler Room</a></div></div>
 <a href="contact.html">CONTACT</a>
 </nav>
-<div class="top"><div class="phone"><div class="ico">☎</div><div><small>24/7 HEATING &amp; AC SERVICE</small><strong>718-375-3320</strong></div></div><div class="hs-header-actions"><a class="request" href="contact.html">REQUEST SERVICE</a><a class="request hs-finance-header" href="https://application.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664057600&amp;contractorNumber=10047&amp;loanCode=DEL2622&amp;estimatedCost=&amp;projectTypeId=" target="_blank" rel="noopener">APPLY FOR FINANCING</a></div></div></div></header><main class="legal-page"><div class="wrap"><article class="legal-card"><h1>SMS Terms & Conditions</h1><p class="legal-updated">Heatspan SMS Terms &amp; Conditions</p><p>These SMS Terms &amp; Conditions apply when you choose to receive text messages from Heatspan.</p><h2>Program Description</h2><p>Heatspan may send customer-care and marketing text messages related to service requests, appointments, service updates, offers, and other Heatspan communications.</p><h2>Consent and Frequency</h2><p>By opting in, you agree to receive SMS messages at the mobile number you provide. Message frequency may vary. Consent to receive marketing text messages is not a condition of purchase.</p><h2>Message and Data Rates</h2><p>Standard message and data rates may apply according to your mobile carrier and plan.</p><h2>Opt Out and Help</h2><p>Reply <strong>STOP</strong> to opt out of SMS messages. Reply <strong>HELP</strong> for help. After an opt-out request, you may receive a final confirmation message.</p><h2>Carrier and Delivery</h2><p>Wireless carriers are not responsible for delayed or undelivered messages. Message delivery is subject to your carrier, device, network availability, and other factors outside Heatspan's control.</p><h2>Privacy</h2><p>Information associated with Heatspan communications is handled in accordance with our <a href="privacy-policy.html">Privacy Policy</a>.</p><h2>Contact</h2><p>For questions about Heatspan text messages, call <a href="tel:17183753320">718-375-3320</a> or email <a href="mailto:info@heatspan.com">info@heatspan.com</a>.</p></article></div></main><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div><div class="hs-legal-strip"><span>© 2026 All Rights Reserved.</span><a href="site-map.html">Site Map</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="sms-terms-conditions.html">SMS Terms &amp; Conditions</a></div></footer></body></html>
+<div class="top"><div class="phone"><div class="ico">☎</div><div><small>24/7 HEATING &amp; AC SERVICE</small><strong>718-375-3320</strong></div></div><div class="hs-header-actions"><a class="request" href="contact.html">REQUEST SERVICE</a><a class="request hs-finance-header" href="https://application.enerbank.com/apply/loanproduct?sponsorPhoneNumber=8664057600&amp;contractorNumber=10047&amp;loanCode=DEL2622&amp;estimatedCost=&amp;projectTypeId=" target="_blank" rel="noopener">APPLY FOR FINANCING</a></div></div></div></header><main class="legal-page"><div class="wrap"><article class="legal-card"><h1>SMS Terms & Conditions</h1><p class="legal-updated">Heatspan SMS Terms &amp; Conditions</p><p>These SMS Terms &amp; Conditions apply when you choose to receive text messages from Heatspan.</p><h2>Program Description</h2><p>Heatspan may send customer-care and marketing text messages related to service requests, appointments, service updates, offers, and other Heatspan communications.</p><h2>Consent and Frequency</h2><p>By opting in, you agree to receive SMS messages at the mobile number you provide. Message frequency may vary. Consent to receive marketing text messages is not a condition of purchase.</p><h2>Message and Data Rates</h2><p>Standard message and data rates may apply according to your mobile carrier and plan.</p><h2>Opt Out and Help</h2><p>Reply <strong>STOP</strong> to opt out of SMS messages. Reply <strong>HELP</strong> for help. After an opt-out request, you may receive a final confirmation message.</p><h2>Carrier and Delivery</h2><p>Wireless carriers are not responsible for delayed or undelivered messages. Message delivery is subject to your carrier, device, network availability, and other factors outside Heatspan's control.</p><h2>Privacy</h2><p>Information associated with Heatspan communications is handled in accordance with our <a href="privacy-policy.html">Privacy Policy</a>.</p><h2>Contact</h2><p>For questions about Heatspan text messages, call <a href="tel:17183753320">718-375-3320</a> or email <a href="mailto:info@heatspan.com">info@heatspan.com</a>.</p></article></div></main><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div><div class="hs-legal-strip"><span>© 2026 All Rights Reserved.</span><a href="site-map.html">Site Map</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="sms-terms-conditions.html">SMS Terms &amp; Conditions</a></div></footer><script id="hs-mobile-nav-touch-fix">
+(function(){
+  var nav=document.querySelector('header nav');
+  if(!nav)return;
+  var drops=Array.prototype.slice.call(nav.querySelectorAll('.drop'));
+  if(!drops.length)return;
+  function touchLayout(){return window.matchMedia('(max-width:900px)').matches;}
+  function closeAll(except){
+    drops.forEach(function(drop){
+      if(drop===except)return;
+      drop.classList.remove('hs-menu-open');
+      var link=drop.querySelector(':scope > a');
+      if(link)link.setAttribute('aria-expanded','false');
+    });
+  }
+  drops.forEach(function(drop){
+    var trigger=drop.querySelector(':scope > a');
+    var menu=drop.querySelector(':scope > .menu');
+    if(!trigger||!menu)return;
+    trigger.setAttribute('aria-haspopup','true');
+    trigger.setAttribute('aria-expanded','false');
+    trigger.addEventListener('click',function(e){
+      if(!touchLayout())return;
+      e.preventDefault();
+      var opening=!drop.classList.contains('hs-menu-open');
+      closeAll(drop);
+      drop.classList.toggle('hs-menu-open',opening);
+      trigger.setAttribute('aria-expanded',String(opening));
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!nav.contains(e.target))closeAll();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  window.addEventListener('resize',function(){if(!touchLayout())closeAll();});
+})();
+</script></body></html>

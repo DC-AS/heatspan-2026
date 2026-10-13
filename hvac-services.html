@@ -130,7 +130,67 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
   outline-offset: 3px;
 }
 </style>
-<style id="hs-heating-types-style">.hs-heating-types{margin:8px 0 0;padding-left:20px;font-size:.92em;line-height:1.5}.hvac-choice__copy{display:flex;flex-direction:column;flex:1}.hvac-choice__copy .btn{margin-top:auto}.hvac-choice{display:flex;flex-direction:column}</style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
+<style id="hs-heating-types-style">.hs-heating-types{margin:8px 0 0;padding-left:20px;font-size:.92em;line-height:1.5}.hvac-choice__copy{display:flex;flex-direction:column;flex:1}.hvac-choice__copy .btn{margin-top:auto}.hvac-choice{display:flex;flex-direction:column}</style><style id="hs-responsive-five-fixes">
+/* Heatspan responsive corrections: desktop alignment + touch dropdowns */
+header nav,header nav>a,header nav>.drop,header nav>.drop>a{box-sizing:border-box!important}
+header nav{align-items:center!important;align-content:center!important}
+header nav>a,header nav>.drop>a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  vertical-align:middle!important;line-height:1.25!important;
+}
+header nav>.drop{align-self:center!important}
+header nav>.drop>.menu{z-index:2000!important}
+header nav>.drop.hs-menu-open>.menu{display:block!important}
+@media(hover:none), (pointer:coarse){
+  header nav>.drop:not(.hs-menu-open):hover>.menu,
+  header nav>.drop:not(.hs-menu-open):focus-within>.menu{display:none!important}
+}
+@media(max-width:900px){
+  header .header{display:flex!important;flex-direction:column!important;align-items:center!important;
+    justify-content:center!important;gap:10px!important;min-height:0!important;padding:14px 12px!important}
+  header .brand{display:block!important;align-self:center!important}
+  header .brand img{width:min(270px,76vw)!important;max-width:100%!important;height:auto!important}
+  header nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;
+    justify-content:space-between!important;align-self:stretch!important;gap:clamp(4px,2vw,15px)!important;
+    width:100%!important;min-width:0!important;padding:0 2px!important}
+  header nav>a,header nav>.drop>a{height:44px!important;padding:8px 0!important;margin:0!important;
+    font-size:clamp(10px,2.7vw,14px)!important;white-space:nowrap!important;line-height:1.2!important;
+    border-bottom-width:2px!important}
+  header nav>.drop{position:relative!important;display:flex!important;align-items:center!important;
+    height:44px!important;min-width:0!important}
+  header nav>.drop>.menu{position:absolute!important;top:calc(100% + 2px)!important;
+    left:0!important;right:auto!important;min-width:min(245px,calc(100vw - 28px))!important;
+    max-width:calc(100vw - 28px)!important;margin:0!important;box-shadow:0 14px 32px rgba(0,0,0,.16)!important}
+  header nav>.drop:nth-last-child(2)>.menu{left:auto!important;right:0!important}
+  header nav>.drop::after{display:none!important}
+  /* The photo sits beneath the natural-height hero copy instead of behind its buttons. */
+  .hero.photo{min-height:0!important;padding-bottom:clamp(230px,66vw,380px)!important}
+  .hero.photo .hero-inner{padding:25px 20px 18px!important;max-width:none!important}
+  .hero.photo::after{top:auto!important;bottom:0!important;width:100%!important;
+    height:clamp(230px,66vw,380px)!important;background-size:cover!important;
+    background-position:center center!important}
+  .hero.photo::before{background:linear-gradient(to bottom,#032d63 0%,#032d63 49%,rgba(3,45,99,.35) 72%,transparent 88%)!important}
+  .hero.photo .trust-row{gap:15px!important;margin:18px 0!important}
+  .hero.photo .actions{gap:10px!important}
+  .hero.photo .actions .btn{max-width:100%!important}
+  /* Contact artwork follows the content with no fixed-height empty blue area. */
+  .hs-rhero--contact{min-height:0!important;height:auto!important;
+    padding-bottom:clamp(245px,72vw,420px)!important}
+  .hs-rhero--contact .hs-rhero__inner{min-height:0!important;height:auto!important;
+    padding:24px 20px 16px!important;justify-content:flex-start!important}
+  .hs-rhero--contact .hs-rhero__copy{min-height:0!important;height:auto!important}
+  .hs-rhero--contact .hs-rhero__benefits{margin-top:16px!important;margin-bottom:0!important;
+    padding:0!important;gap:16px!important}
+  .hs-rhero--contact .hs-rhero__art{position:absolute!important;top:auto!important;bottom:0!important;
+    height:clamp(245px,72vw,420px)!important;width:100%!important}
+  .hs-rhero--contact .hs-rhero__fade{pointer-events:none!important}
+}
+@media(max-width:390px){
+  header nav>a,header nav>.drop>a{font-size:10px!important}
+  .hero.photo .actions{flex-direction:column!important;align-items:stretch!important}
+  .hero.photo .actions .btn{width:100%!important}
+}
+</style></head><body><header><div class="header wrap"><a class="brand" href="index.html"><img alt="Heatspan" src="assets/heatspan-logo.png"/></a><nav>
 <a href="index.html">HOME</a>
 <div class="drop"><a href="hvac-services.html">SERVICES ▾</a><div class="menu">
 <a href="air-conditioning.html">Air Conditioning</a>
@@ -147,4 +207,40 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 <a class="hvac-choice" href="heating-boilers.html" style="text-decoration:none;color:inherit"><img alt="Heatspan heating and boiler service" src="assets/hero-boiler-final.jpg" decoding="async"/><div class="hvac-choice__copy"><h2>Furnace/Boiler's</h2><p>Maintenance &amp; repairs for residential gas fired steam and hot water boilers/gas furnaces. New equipment available!<ul class="hs-heating-types"><li>Steam Boilers</li><li>Hot Water Boilers</li><li>Space Heaters</li><li>Furnaces</li></ul></p><span class="btn primary">HEATING &amp; BOILER SERVICES</span></div></a>
 <a class="hvac-choice" href="water-heaters.html" style="text-decoration:none;color:inherit"><img alt="Heatspan water heater service" src="assets/hero-water-final.jpg" decoding="async"/><div class="hvac-choice__copy"><h2>Water Heaters</h2><p>Reliable hot water solutions, including maintenance, repairs, new equipment, and conversions between traditional and tankless systems.</p><span class="btn primary">WATER HEATER SERVICES</span></div></a>
 <a class="hvac-choice" href="chimney-services.html" style="text-decoration:none;color:inherit"><img alt="Heatspan chimney service" src="assets/hero-chimney-approved-match.jpg" decoding="async"/><div class="hvac-choice__copy"><h2>Chimney</h2><p>Professional chimney cleaning, maintenance, and repair services to help keep your chimney system operating efficiently.</p><span class="btn primary">CHIMNEY SERVICES</span></div></a>
-</div><div class="hvac-help"><div><h2>Want to speak to a service manager?</h2><p>Tell our service team what is happening and we will help point you in the right direction.</p></div><a class="btn primary" href="contact.html">REQUEST SERVICE</a></div></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div><div class="hs-legal-strip"><span>© 2026 All Rights Reserved.</span><a href="site-map.html">Site Map</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="sms-terms-conditions.html">SMS Terms &amp; Conditions</a></div></footer></body></html>
+</div><div class="hvac-help"><div><h2>Want to speak to a service manager?</h2><p>Tell our service team what is happening and we will help point you in the right direction.</p></div><a class="btn primary" href="contact.html">REQUEST SERVICE</a></div></div></section><footer><div class="foot wrap"><div><h3>HEATSPAN</h3><p>Heating • Boilers • Chimneys • Air Conditioning</p><div class="small">Serving Brooklyn &amp; Queens<br/>License #2032300-DCA</div></div><div><h3>Services</h3><a href="heating-boilers.html">Boilers &amp; Heaters</a><a href="air-conditioning.html">Air Conditioning</a><a href="water-heaters.html">Water Heaters</a><a href="chimney-services.html">Chimney Services</a></div><div><h3>Contact</h3><a href="tel:17183753320">718-375-3320</a><a href="contact.html">Request Service</a><div class="small">1980 E 35th St<br/>Brooklyn, NY 11234</div></div></div><div class="hs-legal-strip"><span>© 2026 All Rights Reserved.</span><a href="site-map.html">Site Map</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-conditions.html">Terms &amp; Conditions</a><a href="sms-terms-conditions.html">SMS Terms &amp; Conditions</a></div></footer><script id="hs-mobile-nav-touch-fix">
+(function(){
+  var nav=document.querySelector('header nav');
+  if(!nav)return;
+  var drops=Array.prototype.slice.call(nav.querySelectorAll('.drop'));
+  if(!drops.length)return;
+  function touchLayout(){return window.matchMedia('(max-width:900px)').matches;}
+  function closeAll(except){
+    drops.forEach(function(drop){
+      if(drop===except)return;
+      drop.classList.remove('hs-menu-open');
+      var link=drop.querySelector(':scope > a');
+      if(link)link.setAttribute('aria-expanded','false');
+    });
+  }
+  drops.forEach(function(drop){
+    var trigger=drop.querySelector(':scope > a');
+    var menu=drop.querySelector(':scope > .menu');
+    if(!trigger||!menu)return;
+    trigger.setAttribute('aria-haspopup','true');
+    trigger.setAttribute('aria-expanded','false');
+    trigger.addEventListener('click',function(e){
+      if(!touchLayout())return;
+      e.preventDefault();
+      var opening=!drop.classList.contains('hs-menu-open');
+      closeAll(drop);
+      drop.classList.toggle('hs-menu-open',opening);
+      trigger.setAttribute('aria-expanded',String(opening));
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!nav.contains(e.target))closeAll();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  window.addEventListener('resize',function(){if(!touchLayout())closeAll();});
+})();
+</script></body></html>

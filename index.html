@@ -167,7 +167,67 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
   outline-offset: 3px;
 }
 </style>
-</head><body>
+<style id="hs-responsive-five-fixes">
+/* Heatspan responsive corrections: desktop alignment + touch dropdowns */
+header nav,header nav>a,header nav>.drop,header nav>.drop>a{box-sizing:border-box!important}
+header nav{align-items:center!important;align-content:center!important}
+header nav>a,header nav>.drop>a{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  vertical-align:middle!important;line-height:1.25!important;
+}
+header nav>.drop{align-self:center!important}
+header nav>.drop>.menu{z-index:2000!important}
+header nav>.drop.hs-menu-open>.menu{display:block!important}
+@media(hover:none), (pointer:coarse){
+  header nav>.drop:not(.hs-menu-open):hover>.menu,
+  header nav>.drop:not(.hs-menu-open):focus-within>.menu{display:none!important}
+}
+@media(max-width:900px){
+  header .header{display:flex!important;flex-direction:column!important;align-items:center!important;
+    justify-content:center!important;gap:10px!important;min-height:0!important;padding:14px 12px!important}
+  header .brand{display:block!important;align-self:center!important}
+  header .brand img{width:min(270px,76vw)!important;max-width:100%!important;height:auto!important}
+  header nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;
+    justify-content:space-between!important;align-self:stretch!important;gap:clamp(4px,2vw,15px)!important;
+    width:100%!important;min-width:0!important;padding:0 2px!important}
+  header nav>a,header nav>.drop>a{height:44px!important;padding:8px 0!important;margin:0!important;
+    font-size:clamp(10px,2.7vw,14px)!important;white-space:nowrap!important;line-height:1.2!important;
+    border-bottom-width:2px!important}
+  header nav>.drop{position:relative!important;display:flex!important;align-items:center!important;
+    height:44px!important;min-width:0!important}
+  header nav>.drop>.menu{position:absolute!important;top:calc(100% + 2px)!important;
+    left:0!important;right:auto!important;min-width:min(245px,calc(100vw - 28px))!important;
+    max-width:calc(100vw - 28px)!important;margin:0!important;box-shadow:0 14px 32px rgba(0,0,0,.16)!important}
+  header nav>.drop:nth-last-child(2)>.menu{left:auto!important;right:0!important}
+  header nav>.drop::after{display:none!important}
+  /* The photo sits beneath the natural-height hero copy instead of behind its buttons. */
+  .hero.photo{min-height:0!important;padding-bottom:clamp(230px,66vw,380px)!important}
+  .hero.photo .hero-inner{padding:25px 20px 18px!important;max-width:none!important}
+  .hero.photo::after{top:auto!important;bottom:0!important;width:100%!important;
+    height:clamp(230px,66vw,380px)!important;background-size:cover!important;
+    background-position:center center!important}
+  .hero.photo::before{background:linear-gradient(to bottom,#032d63 0%,#032d63 49%,rgba(3,45,99,.35) 72%,transparent 88%)!important}
+  .hero.photo .trust-row{gap:15px!important;margin:18px 0!important}
+  .hero.photo .actions{gap:10px!important}
+  .hero.photo .actions .btn{max-width:100%!important}
+  /* Contact artwork follows the content with no fixed-height empty blue area. */
+  .hs-rhero--contact{min-height:0!important;height:auto!important;
+    padding-bottom:clamp(245px,72vw,420px)!important}
+  .hs-rhero--contact .hs-rhero__inner{min-height:0!important;height:auto!important;
+    padding:24px 20px 16px!important;justify-content:flex-start!important}
+  .hs-rhero--contact .hs-rhero__copy{min-height:0!important;height:auto!important}
+  .hs-rhero--contact .hs-rhero__benefits{margin-top:16px!important;margin-bottom:0!important;
+    padding:0!important;gap:16px!important}
+  .hs-rhero--contact .hs-rhero__art{position:absolute!important;top:auto!important;bottom:0!important;
+    height:clamp(245px,72vw,420px)!important;width:100%!important}
+  .hs-rhero--contact .hs-rhero__fade{pointer-events:none!important}
+}
+@media(max-width:390px){
+  header nav>a,header nav>.drop>a{font-size:10px!important}
+  .hero.photo .actions{flex-direction:column!important;align-items:stretch!important}
+  .hero.photo .actions .btn{width:100%!important}
+}
+</style></head><body>
 <header><div class="header wrap">
 <a class="brand" href="index.html"><img alt="Heatspan Heating • Boilers • Chimneys" src="assets/heatspan-logo.png"/></a>
 <nav>
@@ -253,4 +313,40 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 })();
 </script>
 
-</body></html>
+<script id="hs-mobile-nav-touch-fix">
+(function(){
+  var nav=document.querySelector('header nav');
+  if(!nav)return;
+  var drops=Array.prototype.slice.call(nav.querySelectorAll('.drop'));
+  if(!drops.length)return;
+  function touchLayout(){return window.matchMedia('(max-width:900px)').matches;}
+  function closeAll(except){
+    drops.forEach(function(drop){
+      if(drop===except)return;
+      drop.classList.remove('hs-menu-open');
+      var link=drop.querySelector(':scope > a');
+      if(link)link.setAttribute('aria-expanded','false');
+    });
+  }
+  drops.forEach(function(drop){
+    var trigger=drop.querySelector(':scope > a');
+    var menu=drop.querySelector(':scope > .menu');
+    if(!trigger||!menu)return;
+    trigger.setAttribute('aria-haspopup','true');
+    trigger.setAttribute('aria-expanded','false');
+    trigger.addEventListener('click',function(e){
+      if(!touchLayout())return;
+      e.preventDefault();
+      var opening=!drop.classList.contains('hs-menu-open');
+      closeAll(drop);
+      drop.classList.toggle('hs-menu-open',opening);
+      trigger.setAttribute('aria-expanded',String(opening));
+    });
+  });
+  document.addEventListener('click',function(e){
+    if(!nav.contains(e.target))closeAll();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  window.addEventListener('resize',function(){if(!touchLayout())closeAll();});
+})();
+</script></body></html>
