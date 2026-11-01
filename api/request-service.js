@@ -3,9 +3,9 @@ function clean(value,max=1000){if(typeof value!=="string")return "";return value
 export default async function handler(req,res){
  if(req.method!=="POST"){res.setHeader("Allow","POST");return res.status(405).json({ok:false,message:"Method not allowed."});}
  try{
-  const {firstName,lastName,phone,email,address,customerStatus,serviceNeeded,urgency,message,website}=req.body||{};
+  const {firstName,lastName,phone,email,address,customerStatus,serviceNeeded,typeOfService,urgency,message,website}=req.body||{};
   if(website) return res.status(200).json({ok:true});
-  const d={firstName:clean(firstName,80),lastName:clean(lastName,80),phone:clean(phone,40),email:clean(email,160),address:clean(address,220),customerStatus:clean(customerStatus,80),serviceNeeded:clean(serviceNeeded,100),urgency:clean(urgency,80),message:clean(message,2500)};
+  const d={firstName:clean(firstName,80),lastName:clean(lastName,80),phone:clean(phone,40),email:clean(email,160),address:clean(address,220),customerStatus:clean(customerStatus,80),serviceNeeded:clean(serviceNeeded,100),typeOfService:clean(typeOfService,80),urgency:clean(urgency,80),message:clean(message,2500)};
   if(!d.firstName||!d.lastName||!d.phone||!d.email||!d.address||!d.serviceNeeded||!d.message) return res.status(400).json({ok:false,message:"Please complete all required fields."});
   if(!process.env.GEOAPIFY_API_KEY) return res.status(500).json({ok:false,message:"Address verification is temporarily unavailable."});
 
@@ -42,7 +42,7 @@ if(!geoResult||!geoIsNewYork||(!geoIsBrooklyn&&!geoIsQueens)){
 }
   if(!process.env.RESEND_API_KEY) return res.status(500).json({ok:false,message:"Email service is not configured."});
   const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
-  const fields={Name:`${d.firstName} ${d.lastName}`,Phone:d.phone,Email:d.email,"Service Address":d.address||"Not provided","Customer Status":d.customerStatus||"Not provided","Service Needed":d.serviceNeeded,Urgency:d.urgency||"Not provided",Message:d.message};
+  const fields={Name:`${d.firstName} ${d.lastName}`,Phone:d.phone,Email:d.email,"Service Address":d.address||"Not provided","Customer Status":d.customerStatus||"Not provided","Service Needed":d.serviceNeeded,"Type of Service":d.typeOfService||"Not applicable",Urgency:d.urgency||"Not provided",Message:d.message};
   const rows=Object.entries(fields).map(([k,v])=>`<tr><td style="padding:8px;border:1px solid #ddd;font-weight:700">${esc(k)}</td><td style="padding:8px;border:1px solid #ddd">${esc(v)}</td></tr>`).join('');
   // Resend requires a verified sending domain for delivery to real recipients.
   const from=process.env.RESEND_FROM;
