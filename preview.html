@@ -213,7 +213,16 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
   header nav>a,header nav>.drop>a{font-size:13px!important;}
 }
 </style>
-</head><body><section class="svc-hero svc-hero--boiler">
+<style id="hs-eight-task-header-badge">
+/* New logo links home, independent from existing Heatspan wordmark. */
+header .header{position:relative}
+header .hs-header-badge{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:clamp(64px,7vw,100px);height:100px;display:flex;align-items:center;justify-content:center;z-index:3}
+header .hs-header-badge img{width:100%;height:100%;object-fit:contain;display:block}
+header .brand{margin-left:clamp(68px,7.3vw,105px)}
+header .brand img{max-width:100%;height:auto}
+@media(min-width:1600px){header .hs-header-badge{width:clamp(110px,11.5vw,210px);height:100px}header .brand{margin-left:clamp(115px,12vw,220px)}header .header{grid-template-columns:minmax(450px,1fr) minmax(390px,1.35fr) minmax(330px,1.1fr)!important}}
+@media(max-width:900px){header .hs-header-badge{position:static;transform:none;width:75px;height:70px;margin:auto}header .brand{margin-left:0!important}}
+</style></head><body><section class="svc-hero svc-hero--boiler">
 <div aria-hidden="true" class="svc-hero__media"><img alt="" src="assets/hero-boiler-v2.jpg"/></div>
 <div aria-hidden="true" class="svc-hero__wash"></div>
 <div class="svc-hero__inner">
