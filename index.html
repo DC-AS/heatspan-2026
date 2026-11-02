@@ -115,7 +115,7 @@ header nav{gap:clamp(14px,1.55vw,28px)!important} header nav>a,header nav>.drop>
 @media(max-width:1100px){header nav{gap:11px!important}header nav>a,header nav>.drop>a{font-size:12px!important}}
 </style><style id="task-next-home-van-swap">
 /* New van image only — preserve the approved Home hero geometry, crop, overlay and copy placement. */
-.hero.photo::after{background-image:url('assets/heatspan-home-van-new.png')!important;background-size:108% auto!important;background-position:46% 52%!important;background-repeat:no-repeat!important;}
+.hero.photo::after{background-image:url('assets/heatspan-home-van-glossy.png')!important;background-size:108% auto!important;background-position:46% 52%!important;background-repeat:no-repeat!important;}
 </style><style id="hs-legal-footer-css">.hs-legal-strip{max-width:1180px;margin:0 auto;padding:18px 24px 22px;border-top:1px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12px;color:#fff}.hs-legal-strip a{color:#fff;text-decoration:underline;text-underline-offset:2px}.hs-legal-strip a:hover{color:#65c7ff}@media(max-width:700px){.hs-legal-strip{gap:10px 14px;text-align:center}}</style><style id="hs-header-finance-css">
 .hs-header-actions{display:flex;gap:8px;width:100%;align-items:stretch}.hs-header-actions .request{flex:1;min-width:0;padding-left:10px!important;padding-right:10px!important;white-space:nowrap}.hs-header-actions .hs-finance-header{background:#0b75d8!important}.hs-header-actions .hs-finance-header:hover{background:#075fb1!important}@media(max-width:1180px){.hs-header-actions{gap:6px}.hs-header-actions .request{font-size:11px!important;padding-left:7px!important;padding-right:7px!important}}@media(max-width:900px){.hs-header-actions{flex-direction:column}.hs-header-actions .request{width:100%}}
 </style><style id="hs-header-actions-fix-v2">
@@ -237,6 +237,19 @@ header .brand{margin-left:clamp(68px,7.3vw,105px)}
 header .brand img{max-width:100%;height:auto}
 @media(min-width:1600px){header .hs-header-badge{width:clamp(110px,11.5vw,210px);height:100px}header .brand{margin-left:clamp(115px,12vw,220px)}header .header{grid-template-columns:minmax(450px,1fr) minmax(390px,1.35fr) minmax(330px,1.1fr)!important}}
 @media(max-width:900px){header .hs-header-badge{position:static;transform:none;width:75px;height:70px;margin:auto}header .brand{margin-left:0!important}}
+</style><style id="hs-next-batch-header-polish">
+/* Tighten visual spacing without changing the approved header grid or mobile layout. */
+@media (min-width:901px){
+  header .brand img{transform:translateX(-28px)}
+  header .hs-header-actions .request{font-size:13px!important;letter-spacing:.1px!important;font-weight:800!important}
+}
+@media (min-width:901px) and (max-width:1180px){
+  header .brand img{transform:translateX(-12px)}
+  header .hs-header-actions .request{font-size:11.5px!important}
+}
+@media (max-width:900px){
+  header .hs-header-actions .request{font-size:13px!important;font-weight:800!important}
+}
 </style></head><body>
 <header><div class="header wrap"><a class="hs-header-badge" href="index.html" aria-label="Heatspan home"><img src="assets/heatspan-protection-badge-transparent.png" alt="Heatspan Natural Gas Customers Parts Protection Plan logo"></a>
 <a class="brand" href="index.html"><img alt="Heatspan Heating • Boilers • Chimneys" src="assets/heatspan-logo.png"/></a>
